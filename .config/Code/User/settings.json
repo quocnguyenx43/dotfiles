@@ -1,0 +1,11 @@
+{
+    // Editor
+    "editor.fontFamily": "'Consolas', 'Droid Sans Mono', 'monospace', monospace",
+    "editor.mouseWheelZoom": true,
+    "editor.tabSize": 4,
+    "editor.cursorStyle": "block",
+    "diffEditor.wordWrap": "off",
+
+    // Explorer
+    "explorer.compactFolders": false
+}
