@@ -124,4 +124,4 @@ fi
 
 if [ -f ~/.zshfn ]; then
     source ~/.zshfn
-fic
+fi

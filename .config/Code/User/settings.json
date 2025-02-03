@@ -4,8 +4,18 @@
     "editor.mouseWheelZoom": true,
     "editor.tabSize": 4,
     "editor.cursorStyle": "block",
+    "editor.columnSelection": false,
+    "editor.comments.ignoreEmptyLines": false,
+    "editor.cursorBlinking": "solid",
     "diffEditor.wordWrap": "off",
 
     // Explorer
-    "explorer.compactFolders": false
+    "explorer.compactFolders": false,
+
+    // Workbench
+    "workbench.colorTheme": "Default Dark Modern",
+
+    // Others
+    "update.enableWindowsBackgroundUpdates": false,
+    "update.showReleaseNotes": false,
 }
