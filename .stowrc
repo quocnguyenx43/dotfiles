@@ -1,5 +1,5 @@
 --target=~/
 --ignore=README.md
---ignore=replace_snap_with_flatpak.sh
+--ignore=install/
 --ignore=.stowrc
 --ignore=.gitignore
