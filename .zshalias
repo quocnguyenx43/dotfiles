@@ -1,7 +1,11 @@
 # Common
 alias c="clear"
+alias activate_env='source ./.venv/bin/activate'
 
-# Docker compose
-alias dc="docker compose"
-alias dc="docker compose"
-alias dc="docker compose"
+# CD
+alias cdpj='cd /home/l3080/workspace/414n/projects && echo "/home/l3080/workspace/414n/projects"'
+alias cdrs='cd /home/l3080/workspace/414n/research && echo "/home/l3080/workspace/414n/research"'
+
+# Apps
+# alias dc="docker compose"
+alias wezterm='flatpak run org.wezfurlong.wezterm'

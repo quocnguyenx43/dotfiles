@@ -1,4 +1,4 @@
-# /home/quocnguyen/.config/tmuxinator/work.yml
+# /home/l3080/.config/tmuxinator/work.yml
 
 name: work
 root: ~/
@@ -51,7 +51,7 @@ windows:
             # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
             # synchronize: after
             panes:
-                - vim
+                - nvim
                 - guard
     - server: bundle exec rails s
     - logs: tail -f log/development.log

@@ -65,6 +65,7 @@ HISTFILE=$HOME/.cache/.zhistory
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
+ZSH_ENV=~/.zshenv
 ZSH_ALIAS=~/.zshalias
 ZSH_FUNCTION=~/.zshfn
 
@@ -77,6 +78,7 @@ plugins=(
     zsh-syntax-highlighting
     zsh-autosuggestions
     tmux
+    tmuxinator
     git
     fzf
     sublime
@@ -118,10 +120,18 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Personal
+if [ -f ~/.zshenv ]; then
+    source ~/.zshenv
+fi
+
 if [ -f ~/.zshalias ]; then
     source ~/.zshalias
 fi
 
 if [ -f ~/.zshfn ]; then
     source ~/.zshfn
+fi
+
+if [ -f ~/.fzfrc ]; then
+    source ~/.fzfrc
 fi

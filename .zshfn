@@ -1,21 +1,16 @@
+# Remove packages
 completely_remove() {
     sudo apt-get remove --auto-remove --purge $1
     sudo apt-get clean
     sudo apt-get autoremove -y
 }
 
-tmux_auto_attach() {
-    first_session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | head -n 1)
-    if [ -n "$first_session" ]; then
-        tmux attach-session -t "$first_session"
-    else
-        tmux new-session -s default-session
-    fi
-}
-
+# Python
 pythonvenv() {
     python3 -m venv .venv
     source .venv/bin/activate
-    pip install --upgrade pip
+    proxychains pip install --upgrade pip
 }
 
+# eval "$(uv generate-shell-completion bash)" 	# completion for uv
+# eval "$(uvx --generate-shell-completion bash)" 	# completion for uvx
