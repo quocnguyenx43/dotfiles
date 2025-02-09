@@ -3,8 +3,7 @@ alias c="clear"
 alias activate_env='source ./.venv/bin/activate'
 
 # CD
-alias cdpj='cd /home/l3080/workspace/414n/projects && echo "/home/l3080/workspace/414n/projects"'
-alias cdrs='cd /home/l3080/workspace/414n/research && echo "/home/l3080/workspace/414n/research"'
+alias cdcode='cd /home/quocnguyen/qn/area/coding && echo "/home/quocnguyen/qn/area/coding"'
 
 # Apps
 # alias dc="docker compose"
