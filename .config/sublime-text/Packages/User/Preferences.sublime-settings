@@ -1,5 +1,5 @@
 {
-    "font_size": 20,
+    "font_size": 14,
     "telex": true,
     "default_encoding" : "utf-8",
     "auto_complete_selector": "source",

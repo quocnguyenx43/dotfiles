@@ -1,3 +1,7 @@
 [user]
 	email = alan@guardian.tech
 	name = alan
+
+# comp
+# [proxies]
+#	 proxy = http://alan1:xe&UvMTrrEOiPhA7@10.5.33.2:6777

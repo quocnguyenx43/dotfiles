@@ -2,9 +2,14 @@
 alias c="clear"
 alias activate_env='source ./.venv/bin/activate'
 
+# Neovim
+alias nv='nvim'
+
 # CD
 alias cdcode='cd /home/quocnguyen/qn/area/coding && echo "/home/quocnguyen/qn/area/coding"'
 
 # Apps
 # alias dc="docker compose"
 alias wezterm='flatpak run org.wezfurlong.wezterm'
+# alias pxc='proxychains'
+# alias pxc4='proxychains4'
