@@ -1,0 +1,43 @@
+{
+    // ** COMP ** 
+    // Proxy
+    // "http.proxy": "socks5://10.2.123.9:1080",
+    // "http.proxyStrictSSL": false,
+
+    // Editor
+    "editor.fontFamily": "'Consolas', 'Droid Sans Mono', 'monospace', monospace",
+    "editor.mouseWheelZoom": true,
+    "editor.tabSize": 4,
+    "editor.cursorStyle": "block",
+    "editor.columnSelection": false,
+    "editor.comments.ignoreEmptyLines": false,
+    "editor.cursorBlinking": "solid",
+    "diffEditor.wordWrap": "off",
+
+    // Explorer
+    "explorer.compactFolders": false,
+
+    // Workbench
+    "workbench.colorTheme": "Default Dark Modern",
+
+    // Others
+    "update.enableWindowsBackgroundUpdates": false,
+    "update.showReleaseNotes": false,
+    "workbench.iconTheme": "vscode-icons",
+
+    // ** COMP ** 
+    // "remote.SSH.remotePlatform": {
+    //     "10.2.91.105": "linux",
+    //     "172.16.204.201": "linux",
+    //     "10.2.123.131": "linux",
+    //     "dev-server": "linux",
+    //     "ndpi-tapping-server": "linux",
+    //     "sensor-server": "linux",
+    //     "ndpi-tapping-server2": "linux",
+    //     "ndpi-server-1": "linux",
+    //     "ndpi-server-2": "linux",
+    //     "ndpi-server-test": "linux",
+    //     "ndpi-server": "linux",
+    //     "server-vm1": "linux"
+    // },
+}

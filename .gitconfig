@@ -1,0 +1,10 @@
+[init]
+    defaultBranch = master
+
+[user]
+	email = alan@guardian.tech
+	name = alan
+
+# ** COMP **
+# [proxies]
+#	 proxy = http://alan1:xe&UvMTrrEOiPhA7@10.5.33.2:6777

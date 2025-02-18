@@ -1,0 +1,5 @@
+.DS_Store
+.ssh/id_rsa
+.ssh/id_rsa.pub
+.ssh/id_ed25519
+.ssh/id_ed25519.pub
