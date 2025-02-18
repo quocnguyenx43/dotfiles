@@ -24,8 +24,11 @@
 - Config docker
 
 # MacOS:
-- Tcilling windows: aerospace
+- Tcilling windows: aerospace, yabai
 - Brew file, brew file lock json
 - App manager: mas
+- SketchyBar: Fully customized status bar for MacOS
+- skhd: Simple hotkey deamon for MacOS
 
 Zed Editor
+
