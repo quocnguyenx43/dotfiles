@@ -27,3 +27,5 @@
 - Tcilling windows: aerospace
 - Brew file, brew file lock json
 - App manager: mas
+
+Zed Editor
