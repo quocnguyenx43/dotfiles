@@ -14,6 +14,7 @@
 - neovim
 - uv, ruff (for python)
 - n (for nodejs)
+- python3, java8, scala (cs)
 - Others tools: fzf, fd, ripgrep, neofetch, htop, ffmpeg
 - Apps: VSCode, Docker, Sublime text, Postman, MongoDB Compass, Redis Insights, Data Grip, JDownloader 2, Gnome Tweaks
 

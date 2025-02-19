@@ -1,6 +1,9 @@
 # Bash-like paths
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
+# Coursier
+export PATH="$PATH:/home/quocnguyen/.local/share/coursier/bin"
+
 # ZSH
 alias reload-zsh='source ~/.zshrc'
 alias reload-zsh='nvim ~/.zshrc'
@@ -50,7 +53,7 @@ if [ -d {} ]; then
 else
     batcat -n --color=always --line-range :500 {}
 fi"
-export FZF_DEFAULT_COMMAND="fdfind . $home --type file --exclude .git --no-ignore --ignore-case --hidden --follow"
+export FZF_DEFAULT_COMMAND="fdfind . --type file --exclude .git --no-ignore --ignore-case --hidden --follow"
 export FZF_DEFAULT_OPTS="--height 100% --layout reverse --border --preview '$SHOW_PREVIEW'" 
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fdfind --type directory . $HOME"

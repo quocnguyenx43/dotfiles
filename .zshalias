@@ -37,9 +37,15 @@ create_virtual_python_environment() {
     proxychains pip install --upgrade pip
 }
 
+# Find something
+global_find() {
+    fdfind $1 /
+}
+
 # Common
-alias c='clear'
-alias crm='completely_remove_apt_package'
+alias c="clear"
+alias crm="completely_remove_apt_package"
+alias gfind="global_find"
 
 # Python
 alias cpv=create_virtual_python_environment
