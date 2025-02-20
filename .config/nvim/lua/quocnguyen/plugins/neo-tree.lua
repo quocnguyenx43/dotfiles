@@ -8,7 +8,23 @@ return {
     },
     config = function()
         local neotree = require("neo-tree")
-        neotree.setup()
+        neotree.setup({
+            filesystem = {
+                filtered_items = {
+                    visible = false,
+                    hide_dotfiles = false,
+                    hide_gitignored = true,
+                    hide_by_name = {
+                        ".DS_Store",
+                        "CVS",
+                        "Thumbs.db",
+                        ".git",
+                        ".svn",
+                        ".hg",
+                    },
+                },
+            },
+        })
 
         local fn = vim.fn
         fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
@@ -17,8 +33,9 @@ return {
         fn.sign_define("DiagnosticSignHint", { text = "󰌵", texthl = "DiagnosticSignHint" })
 
         local keymap = vim.keymap
-		keymap.set("n", "<leader>ee", ":Neotree filesystem reveal left<CR>", { desc = "Open Neotree file explorer" })
-		keymap.set("n", "<leader>eq", ":Neotree filesystem close <CR>", { desc = "Close Neotree file explore" })
-		keymap.set("n", "<leader>er", ":Neotree reveal <CR>", { desc = "Reveal Neotree current file" })
-	end,
+        keymap.set("n", "<leader>ee", ":Neotree filesystem reveal left<CR>", { desc = "Open Neotree file explorer" })
+        keymap.set("n", "<leader>eq", ":Neotree filesystem close <CR>", { desc = "Close Neotree file explore" })
+        keymap.set("n", "<leader>er", ":Neotree reveal <CR>", { desc = "Reveal Neotree current file" })
+        keymap.set("n", "<leader>ep", ":Neotree reveal <CR>", { desc = "Reveal Neotree current file" })
+    end,
 }

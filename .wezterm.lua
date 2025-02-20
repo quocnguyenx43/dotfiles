@@ -8,7 +8,7 @@ local mux = wezterm.mux
 config.color_scheme = 'Tokyo Night'
 config.window_background_opacity = 0.95
 config.font = wezterm.font('JetBrains Mono')
-config.font_size = 12.0
+config.font_size = 11.0
 
 -- Window & tab
 config.enable_tab_bar = false

@@ -18,7 +18,7 @@ opt.incsearch = true
 
 opt.wrap = false
 opt.virtualedit = "block"
- 
+
 opt.splitbelow = true
 opt.splitright = true
 

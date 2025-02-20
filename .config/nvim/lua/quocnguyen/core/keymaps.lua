@@ -1,11 +1,11 @@
 vim.g.mapleader = " "
- 
+
 local keymap = vim.keymap
 local api = vim.api
 
 -- Disable ZZ
-api.nvim_set_keymap('n', 'Z', '<Nop>', { noremap = true, silent = true })
-api.nvim_set_keymap('n', 'ZZ', '<Nop>', { noremap = true, silent = true })
+api.nvim_set_keymap("n", "Z", "<Nop>", { noremap = true, silent = true })
+api.nvim_set_keymap("n", "ZZ", "<Nop>", { noremap = true, silent = true })
 
 -- Window splits
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })

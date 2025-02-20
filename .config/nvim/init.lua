@@ -1,2 +1,4 @@
-require("quocnguyen.core")
-require("quocnguyen.lazy")
+local user = os.getenv("USER")
+
+require(user .. ".core")
+require(user .. ".lazy")

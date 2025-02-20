@@ -1,6 +1,11 @@
 # JAVA
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 export PATH=$PATH:$JAVA_HOME/bin
+# export JAVA_OPTS="$JAVA_OPTS -Dhttp.proxyHost=10.5.33.2 -Dhttp.proxyPort=6777 -Dhttp.proxyUser=alan1 -Dhttp.proxyPassword=xe&UvMTrrEOiPhA7"
+
+# Maven
+export MAVEN_HOME=/opt/apache-maven-3.9.9
+export PATH=$PATH:$MAVEN_HOME/bin
 
 # Hadoop
 

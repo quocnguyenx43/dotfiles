@@ -1,2 +1,4 @@
-require("quocnguyen.core.options")
-require("quocnguyen.core.keymaps")
+local user = os.getenv("USER")
+
+require(user .. ".core.options")
+require(user .. ".core.keymaps")

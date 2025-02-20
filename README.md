@@ -12,9 +12,11 @@
 - tmux
 - tmuxinator
 - neovim
-- uv, ruff (for python)
-- n (for nodejs)
-- python3, java8, scala (cs)
+- make
+- uv, ruff (python)
+- n (nodejs)
+- jdk 11/17
+- sbt, maven (scala, java)
 - Others tools: fzf, fd, ripgrep, neofetch, htop, ffmpeg
 - Apps: VSCode, Docker, Sublime text, Postman, MongoDB Compass, Redis Insights, Data Grip, JDownloader 2, Gnome Tweaks
 
@@ -25,11 +27,8 @@
 - Config docker
 
 # MacOS:
-- Tcilling windows: aerospace, yabai
+- Tcilling windows: dasdas
 - Brew file, brew file lock json
 - App manager: mas
-- SketchyBar: Fully customized status bar for MacOS
-- skhd: Simple hotkey deamon for MacOS
 
-Zed Editor
-
+Zed editor
