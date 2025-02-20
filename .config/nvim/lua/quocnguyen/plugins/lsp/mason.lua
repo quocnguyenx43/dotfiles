@@ -21,11 +21,11 @@ return {
 
         mason_lspconfig.setup({
             ensure_installed = {
-                "bashls",
-                "docker_compose_language_service",
-                "clangd",
+                -- "bashls",
+                -- "docker_compose_language_service",
+                -- "clangd",
                 "lua_ls",
-                "pyright",
+                -- "pyright",
             },
         })
 
