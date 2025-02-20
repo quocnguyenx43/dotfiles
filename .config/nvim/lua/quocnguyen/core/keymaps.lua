@@ -7,6 +7,10 @@ local api = vim.api
 api.nvim_set_keymap("n", "Z", "<Nop>", { noremap = true, silent = true })
 api.nvim_set_keymap("n", "ZZ", "<Nop>", { noremap = true, silent = true })
 
+-- Auto correct indentation
+keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
 -- Window splits
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
 keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })

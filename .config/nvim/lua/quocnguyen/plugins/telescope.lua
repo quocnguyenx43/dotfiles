@@ -1,9 +1,9 @@
 return {
     "nvim-telescope/telescope.nvim",
-    tag = '0.1.8',
-    dependencies = { 
+    tag = "0.1.8",
+    dependencies = {
         "nvim-lua/plenary.nvim",
-        "nvim-tree/nvim-web-devicons"
+        "nvim-tree/nvim-web-devicons",
     },
     config = function()
         local telescope = require("telescope")
@@ -15,9 +15,71 @@ return {
                         ["<C-k>"] = actions.move_selection_previous,
                         ["<C-j>"] = actions.move_selection_next,
                         ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-                    }
-                }
-            }
+                    },
+                },
+                vimgrep_arguments = {
+                    -- ripgrep
+                    "rg",
+                    "--follow",
+                    "--hidden",
+                    "--no-heading",
+                    "--with-filename",
+                    "--line-number",
+                    "--column",
+                    "--smart-case",
+
+                    "--glob=!**/.git/*",
+                    "--glob=!**/.idea/*",
+                    "--glob=!**/.vscode/*",
+                    "--glob=!**/build/*",
+                    "--glob=!**/dist/*",
+                    "--glob=!**/yarn.lock",
+                    "--glob=!**/package-lock.json",
+                },
+            },
+            pickers = {
+                find_files = {
+                    file_ignore_patterns = {
+                        ".DS_Store",
+                        "CVS",
+                        "Thumbs.db",
+                        ".svn",
+                        ".hg",
+                        ".git",
+                        ".idea",
+                        ".venv",
+                        "dist",
+                        "yarn.lock",
+                        "package-lock.json",
+                        "node_modules",
+                        ".vscode",
+                    },
+                    hidden = true,
+                },
+                live_grep = {
+                    file_ignore_patterns = {
+                        ".DS_Store",
+                        "CVS",
+                        "Thumbs.db",
+                        ".svn",
+                        ".hg",
+                        ".git",
+                        ".idea",
+                        ".venv",
+                        "dist",
+                        "yarn.lock",
+                        "package-lock.json",
+                        "node_modules",
+                        ".vscode",
+                    },
+                    additional_args = function(_)
+                        return { "--hidden" }
+                    end,
+                },
+            },
+            extensions = {
+                "fzf",
+            },
         })
 
         local keymap = vim.keymap
