@@ -17,7 +17,7 @@
 - n (nodejs)
 - jdk 11/17
 - sbt, maven (scala, java)
-- Others tools: fzf, fd, ripgrep, neofetch, htop, ffmpeg
+- Others tools (dependencies): fzf, fdfind, ripgrep, neofetch, htop, ffmpeg
 - Apps: VSCode, Docker, Sublime text, Postman, MongoDB Compass, Redis Insights, Data Grip, JDownloader 2, Gnome Tweaks
 
 ## Scripts
