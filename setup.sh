@@ -7,5 +7,3 @@ sudo ufw enable
 
 # Docker
 sudo usermod -a -G docker $USER
-
-./replace_snap_with_flatpak.sh

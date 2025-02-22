@@ -2,9 +2,16 @@
     defaultBranch = master
 
 [user]
-	email = alan@guardian.tech
-	name = alan
+    email = quocnguyenx43@gmail.com
+    name = quocnguyen
+
+[color]
+    ui = auto
 
 # ** COMP **
+# [user]
+#    email = alan@guardian.tech
+#    name = alan
+
 # [proxies]
 #	 proxy = http://alan1:xe&UvMTrrEOiPhA7@10.5.33.2:6777

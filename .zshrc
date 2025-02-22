@@ -4,9 +4,6 @@ export USER="quocnguyen"
 # Bash-like paths
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
-# Coursier
-export PATH="$PATH:/home/$USER/.local/share/coursier/bin"
-
 # ZSH
 alias reload-zsh='source ~/.zshrc'
 alias reload-zsh='nvim ~/.zshrc'
@@ -15,16 +12,15 @@ alias reload-zsh='nvim ~/.zshrc'
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 plugins=(
-    zsh-syntax-highlighting
-    zsh-autosuggestions
     tmux
     tmuxinator
     git
     fzf
     sublime
     docker
+    zsh-syntax-highlighting
+    zsh-autosuggestions
 )
-
 source $ZSH/oh-my-zsh.sh
 
 # History settings
@@ -76,14 +72,17 @@ export FZF_ALT_C_COMMAND="fdfind --type directory . $HOME"
 
 ### Custom source
 ZSH_CUSTOM=
-ZSH_ENV=~/.zshenv
-ZSH_ALIAS=~/.zshalias
+ZSH_ENV="$HOME/.zshenv"
+ZSH_ALIAS="$HOME/.zshalias"
 
-if [ -f ~/.zshenv ]; then
-    source ~/.zshenv
+if [ -f "$ZSH_ENV" ]; then
+    source "$ZSH_ENV"
 fi
 
-if [ -f ~/.zshalias ]; then
-    source ~/.zshalias
+if [ -f "$ZSH_ALIAS" ]; then
+    source "$ZSH_ALIAS"
 fi
 
+if [ -f "$ZSH_CUSTOM" ]; then
+    source "$ZSH_CUSTOM"
+fi

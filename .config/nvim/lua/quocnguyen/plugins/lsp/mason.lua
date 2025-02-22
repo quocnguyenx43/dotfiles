@@ -25,7 +25,7 @@ return {
                 -- "docker_compose_language_service",
                 -- "clangd",
                 "lua_ls",
-                -- "pyright",
+                "pyright",
             },
         })
 

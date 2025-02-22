@@ -2,3 +2,4 @@
 --ignore=README.md
 --ignore=.stowrc
 --ignore=.gitignore
+--ignore=setup.sh

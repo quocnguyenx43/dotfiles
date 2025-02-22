@@ -5,7 +5,7 @@
     // "http.proxyStrictSSL": false,
 
     // Editor
-    "editor.fontFamily": "'Consolas', 'Droid Sans Mono', 'monospace', monospace",
+    "editor.fontFamily": "monospace",
     "editor.mouseWheelZoom": true,
     "editor.tabSize": 4,
     "editor.cursorStyle": "block",

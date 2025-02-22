@@ -44,6 +44,8 @@ global_find() {
 
 # Common
 alias c="clear"
+
+# Useful custom
 alias crm="completely_remove_apt_package"
 alias gfind="global_find"
 

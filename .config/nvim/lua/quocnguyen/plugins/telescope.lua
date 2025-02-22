@@ -79,6 +79,7 @@ return {
             },
             extensions = {
                 "fzf",
+                "noice",
             },
         })
 
@@ -89,5 +90,6 @@ return {
         keymap.set("n", "<leader>fs", "<cmd> Telescope grep_string <CR>", { desc = "Telescope grep string" })
         keymap.set("n", "<leader>fg", "<cmd> Telescope git_files <CR>", { desc = "Telescope git files finders" })
         keymap.set("n", "<leader>fb", "<cmd> Telescope buffers <CR>", { desc = "Telescope buffers finders" })
+        keymap.set("n", "<leader>fn", "<cmd> Telescope noice <CR>", { desc = "Telescope noice messages search" })
     end,
 }
