@@ -20,6 +20,7 @@ config.window_padding = {
 	top = 10,
 	bottom = 10,
 }
+
 wezterm.on("gui-startup", function()
 	local tab, pane, window = mux.spawn_window({})
 	window:gui_window():maximize()
