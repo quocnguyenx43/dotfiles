@@ -41,5 +41,13 @@ opt.virtualedit = "block"
 opt.wrap = false
 opt.colorcolumn = "94"
 opt.scrolloff = 5
-
+opt.fillchars:append({
+    vert = "┃",
+    horiz = "━",
+    horizup = "┻",
+    horizdown = "┳",
+    vertleft = "┫",
+    vertright = "┣",
+    verthoriz = "╋",
+})
 opt.clipboard = "unnamedplus"

@@ -52,14 +52,14 @@ return {
 
         local keymap = vim.keymap
 
-        keymap.set("n", "<leader>nd", function()
-            require("noice").cmd("dismiss")
-        end, { desc = "Noice dismiss message" })
-        keymap.set("n", "<leader>nl", function()
-            require("noice").cmd("last")
-        end, { desc = "Noice last message" })
-        keymap.set("n", "<leader>ne", function()
-            require("noice").cmd("errors")
-        end, { desc = "Noice error message" })
+        local function noice_cmd(cmd)
+            return function()
+                require("noice").cmd(cmd)
+            end
+        end
+
+        keymap.set("n", "<leader>nd", noice_cmd("dismiss"), { desc = "Noice dismiss message" })
+        keymap.set("n", "<leader>nl", noice_cmd("last"), { desc = "Noice last message" })
+        keymap.set("n", "<leader>ne", noice_cmd("errors"), { desc = "Noice error message" })
     end,
 }

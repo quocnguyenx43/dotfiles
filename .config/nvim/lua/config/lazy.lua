@@ -1,5 +1,3 @@
-local user = os.getenv("USER")
-
 -- Setup lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -20,10 +18,11 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     spec = {
-        { import = user .. ".plugins" },
-        { import = user .. ".plugins.lsp" },
+        { import = "config.plugins" },
+        { import = "config.plugins.lsp" },
     },
     defaults = {
+        lazy = false,
         version = false,
     },
     install = { colorscheme = { "catppuccin" } },

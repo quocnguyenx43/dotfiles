@@ -1,4 +1,2 @@
-local user = os.getenv("USER")
-
-require(user .. ".core")
-require(user .. ".lazy")
+require("config.core")
+require("config.lazy")
