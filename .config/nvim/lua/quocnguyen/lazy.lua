@@ -24,13 +24,14 @@ require("lazy").setup({
         { import = user .. ".plugins.lsp" },
     },
     defaults = {
-        version = false -- version = "*"
+        version = false,
     },
+    install = { colorscheme = { "catppuccin" } },
     checker = {
         enabled = true,
-        notify = false
+        notify = false,
     },
     change_direction = {
-        notify = false
+        notify = false,
     },
 })

@@ -1,5 +1,6 @@
 # User
 export USER="quocnguyen"
+export TERM="tmux-256color"
 
 # Bash-like paths
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
@@ -12,21 +13,35 @@ alias reload-zsh='nvim ~/.zshrc'
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 plugins=(
+    alias-finder
+    aliases
+    ubuntu
     tmux
     tmuxinator
     git
     fzf
     sublime
     docker
+    vscode
+    uv
+    mvn
+    dbt
     zsh-syntax-highlighting
     zsh-autosuggestions
+    zsh-interactive-cd
 )
+
+zstyle ':omz:plugins:alias-finder' autoload yes
+zstyle ':omz:plugins:alias-finder' longer yes
+zstyle ':omz:plugins:alias-finder' exact yes
+zstyle ':omz:plugins:alias-finder' cheaper yes
+
 source $ZSH/oh-my-zsh.sh
 
 # History settings
 HISTFILE=$HOME/.cache/.zhistory
 setopt inc_append_history
-setopt share_history 
+setopt share_history
 setopt hist_expire_dups_first
 setopt hist_ignore_dups
 setopt hist_verify
@@ -47,12 +62,12 @@ else
     export EDITOR='/usr/bin/nvim'
 fi
 
-# Change user name nvim conf 
+# Change user name nvim conf
 nvim_config_path=$(ls -d ~/dotfiles/.config/nvim/lua/*/ | head -n 1)
 current_user=$(basename "$nvim_config_path")
 
 if [ $current_user != $USER ]; then
-    mv "$nvim_config_path" "$(dirname "$nvim_config_path")/$USER"
+#    mv "$nvim_config_path" "$(dirname "$nvim_config_path")/$USER"
 fi
 
 # Personal
@@ -65,7 +80,7 @@ else
     batcat -n --color=always --line-range :500 {}
 fi"
 export FZF_DEFAULT_COMMAND="fdfind . --type file --exclude .git --no-ignore --ignore-case --hidden --follow"
-export FZF_DEFAULT_OPTS="--height 70% --layout reverse --border --preview '$show_preview'" 
+export FZF_DEFAULT_OPTS="--height 70% --layout reverse --border --preview '$show_preview'"
 export FZF_CTRL_R_OPTS="--height 70% --preview 'echo {2..} | batcat --color=always -pl sh' --preview-window 'wrap,up,5'"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fdfind --type directory . $HOME"

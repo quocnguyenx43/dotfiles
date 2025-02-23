@@ -1,11 +1,25 @@
-vim.g.mapleader = " "
-
 local keymap = vim.keymap
 local api = vim.api
+local g = vim.g
+
+local function map(mode, lhs, rhs, opts)
+    local options = { noremap = true, silent = true }
+    if opts then
+        options = vim.tbl_extend("force", options, opts)
+    end
+    api.nvim_set_keymap(mode, lhs, rhs, options)
+end
+
+g.mapleader = " "
+
+local none = "<Nop>"
 
 -- Disable ZZ
-api.nvim_set_keymap("n", "Z", "<Nop>", { noremap = true, silent = true })
-api.nvim_set_keymap("n", "ZZ", "<Nop>", { noremap = true, silent = true })
+map("n", "Z", none)
+map("n", "ZZ", none)
+
+-- General
+map("n", "<leader>c", ":nohl<CR>") -- Clear search hightlighting
 
 -- Auto correct indentation
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
