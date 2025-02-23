@@ -1,5 +1,4 @@
-# User
-export USER="quocnguyen"
+# For colors
 export TERM="tmux-256color"
 
 # Bash-like paths
@@ -62,16 +61,7 @@ else
     export EDITOR='/usr/bin/nvim'
 fi
 
-# Change user name nvim conf
-nvim_config_path=$(ls -d ~/dotfiles/.config/nvim/lua/*/ | head -n 1)
-current_user=$(basename "$nvim_config_path")
-
-if [ $current_user != $USER ]; then
-#    mv "$nvim_config_path" "$(dirname "$nvim_config_path")/$USER"
-fi
-
 # Personal
-
 ### fzf & fd
 show_preview="
 if [ -d {} ]; then

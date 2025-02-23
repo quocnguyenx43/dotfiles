@@ -13,7 +13,7 @@ config.font_size = 11
 
 -- Window & tab
 config.enable_tab_bar = false
-config.window_decorations = "NONE"
+-- config.window_decorations = "NONE"
 config.window_padding = {
 	left = 5,
 	right = 0,
