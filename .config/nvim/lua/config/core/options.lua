@@ -51,3 +51,7 @@ opt.fillchars:append({
     verthoriz = "╋",
 })
 opt.clipboard = "unnamedplus"
+
+opt.showmatch = true
+opt.matchtime = 3
+
