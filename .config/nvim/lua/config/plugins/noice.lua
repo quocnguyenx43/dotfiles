@@ -50,13 +50,14 @@ return {
             },
         })
 
-        local keymap = vim.keymap
 
         local function noice_cmd(cmd)
             return function()
                 require("noice").cmd(cmd)
             end
         end
+
+        local keymap = vim.keymap
 
         keymap.set("n", "<leader>nd", noice_cmd("dismiss"), { desc = "Noice dismiss message" })
         keymap.set("n", "<leader>nl", noice_cmd("last"), { desc = "Noice last message" })

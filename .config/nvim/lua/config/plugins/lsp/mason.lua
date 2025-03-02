@@ -6,8 +6,8 @@ return {
     },
     config = function()
         local mason = require("mason")
-        local mason_lspconfig = require("mason-lspconfig")
         local mason_tool_installer = require("mason-tool-installer")
+        local mason_lspconfig = require("mason-lspconfig")
 
         mason.setup({
             ui = {
@@ -21,31 +21,35 @@ return {
 
         mason_lspconfig.setup({
             ensure_installed = {
-                -- "bashls",
-                -- "docker_compose_language_service",
-                -- "clangd",
-                "lua_ls",
-                "pyright",
+                -- LSP
+                "lua_ls",                          -- Lua
+                "bashls",                          -- Bash script
+                "cmake",                           -- Cmake
+                "jsonls",                          -- JSON
+                "yamlls",                          -- YAML
+                "markdown_oxide",                  -- Markdown
+                "docker_compose_language_service", -- Docker compose
+                "dockerls",                        -- Dockerfile
+                "clangd",                          -- C, C++
+                -- "java_language_server",            -- Java
+                "pyright",                         -- Python
             },
         })
 
         mason_tool_installer.setup({
             ensure_installed = {
-                -- "prettier",
-                "stylua",
-                -- "isort",
-                -- "black",
-                -- "pylint",
-                -- "eslint_d",
+                -- DAP
+                "debugpy",
+
+                -- Linters
+                "ruff", -- Python
+
+                -- Formaters
+                "stylua",   -- Lua
+                "black",    -- Python
+                "isort",    -- Python
+                "prettier", -- FE
             },
         })
-
-        -- ignore diagnostic neo tree
-        -- https://github.com/neovim/neovim/pull/26927
-        local config = {
-            update_in_insert = true,
-        }
-
-        vim.diagnostic.config(config)
     end,
 }

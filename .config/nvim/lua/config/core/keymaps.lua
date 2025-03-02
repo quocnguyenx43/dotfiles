@@ -18,6 +18,9 @@ local none = "<Nop>"
 map("n", "Z", none)
 map("n", "ZZ", none)
 
+-- map("i", "<C-1>", "<ESC>^i", { desc = "move beginning of line" })
+-- map("i", "<C-2>", "<End>", { desc = "move end of line" })
+
 -- General
 map("n", "<leader>c", ":nohl<CR>") -- Clear search hightlighting
 

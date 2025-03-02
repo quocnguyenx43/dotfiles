@@ -20,16 +20,11 @@ return {
             dashboard.button("n", "  > New file", "<cmd>ene<CR>"),
             dashboard.button("e", "  > Toggle file explorer", "<cmd>NvimTreeToggle<CR>"),
             dashboard.button("f", "󰱼  > Find file", "<cmd>Telescope find_files<CR>"),
-            dashboard.button("r", "  > Recently opened files", "<cmd>Telescope oldfiles<CR>"),
+            dashboard.button( "r", "  > Recently opened files", "<cmd>Telescope oldfiles<CR>"),
             dashboard.button("p", "  > Plugins", "<cmd>Lazy<CR>"),
             dashboard.button("c", "  > Neovim config", ":e ~/dotfiles/.config/nvim <CR>"),
             dashboard.button("C", "  > Dotfiles config", ":e ~/dotfiles <CR>"),
             dashboard.button("q", "  > Quit NVIM", "<cmd>qa<CR>"),
-        }
-
-        -- dashboard.section.buttons.val = {
-        --   dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
-        --   dashboard.button("f", "  Find file (\\ff)", ":Telescope find_files hidden=true no_ignore=true<CR>"),
         --   dashboard.button("F", "  Find git file (\\fF)", ":Telescope git_files<CR>"),
         --   dashboard.button("r", "  Recently opened files (\\fr)", "<cmd>Telescope oldfiles<CR>"),
         --   -- dashboard.button("p", " " .. " Recent projects", ":lua require('telescope').extensions.projects.projects()<CR>"),
@@ -45,7 +40,17 @@ return {
         --   dashboard.button("l", " " .. " Install language support (:Mason)", ":Mason<CR>"),
         --   dashboard.button("P", " " .. " Plugins config", ":e " .. plugins_config_path .. "<CR>"),
         --   dashboard.button("q", " " .. " Quit", ":qa<CR>"),
-        -- }
+        }
+
+        local function footer()
+         return "Don't Stop Until You are Proud..."
+        end
+
+        dashboard.section.footer.val = footer()
+
+        dashboard.section.footer.opts.hl = "Type"
+        dashboard.section.header.opts.hl = "Include"
+        dashboard.section.buttons.opts.hl = "Keyword"
 
         alpha.setup(dashboard.opts)
         vim.cmd([[autocmd FileType alpha setlocal nofoldenable]])

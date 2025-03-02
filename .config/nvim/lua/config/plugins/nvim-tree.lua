@@ -4,9 +4,6 @@ return {
     config = function()
         local nvimtree = require("nvim-tree")
 
-        vim.g.loaded_netrw = 1
-        vim.g.loaded_netrwPlugin = 1
-
         nvimtree.setup({
             view = {
                 number = true,
@@ -29,7 +26,9 @@ return {
         local keymap = vim.keymap
 
         keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "NvimTree: Toggle file explorer" })
+        keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "NvimTree: Collapse the current file" })
         keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "NvimTree: Collapse file explorer" })
+        keymap.set("n", "<leader>ek", "<cmd>NvimTreeCollapseKeepBuffers<CR>", { desc = "NvimTree: Collapse all but keep the current buffers" })
         keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "NvimTree: Refresh file explorer" })
     end,
 }

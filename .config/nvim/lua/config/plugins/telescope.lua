@@ -8,6 +8,7 @@ return {
     config = function()
         local telescope = require("telescope")
         local actions = require("telescope.actions")
+
         telescope.setup({
             defaults = {
                 mappings = {
@@ -18,7 +19,6 @@ return {
                     },
                 },
                 vimgrep_arguments = {
-                    -- ripgrep
                     "rg",
                     "--follow",
                     "--hidden",
@@ -86,10 +86,15 @@ return {
         local keymap = vim.keymap
         keymap.set("n", "<leader>ff", "<cmd> Telescope find_files <CR>", { desc = "Telescope fuzzy find files" })
         keymap.set("n", "<leader>fo", "<cmd> Telescope oldfiles <CR>", { desc = "Telescope fuzzy find old files" })
+        keymap.set("n", "<leader>fg", "<cmd> Telescope git_files <CR>", { desc = "Telescope git files finders" })
         keymap.set("n", "<leader>fl", "<cmd> Telescope live_grep <CR>", { desc = "Telescope live grep" })
         keymap.set("n", "<leader>fs", "<cmd> Telescope grep_string <CR>", { desc = "Telescope grep string" })
-        keymap.set("n", "<leader>fg", "<cmd> Telescope git_files <CR>", { desc = "Telescope git files finders" })
+        keymap.set("n", "<leader>fl", "<cmd> Telescope quick_fix <CR>", { desc = "Telescope quick fix" })
         keymap.set("n", "<leader>fb", "<cmd> Telescope buffers <CR>", { desc = "Telescope buffers finders" })
+        keymap.set("n", "<leader>fb", "<cmd> Telescope commands <CR>", { desc = "Telescope commands finder" })
+        keymap.set("n", "<leader>fb", "<cmd> Telescope keymaps <CR>", { desc = "Telescope keymaps finder" })
         keymap.set("n", "<leader>fn", "<cmd> Telescope noice <CR>", { desc = "Telescope noice messages search" })
+
+        -- current_buffer_tags, 
     end,
 }

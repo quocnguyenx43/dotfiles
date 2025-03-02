@@ -5,16 +5,30 @@ local cmd = vim.cmd
 
 -- General
 opt.swapfile = false
+opt.clipboard = "unnamedplus"
+
+-- Change diagnostic symbols
+local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+for type, icon in pairs(signs) do
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+end
+
+-- Disable the default file explorer
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
 
 -- Line number
 opt.number = true
 opt.relativenumber = true
 
--- Tab size
+-- Indent 
 opt.expandtab = true
 opt.tabstop = 4
 opt.softtabstop = 4
 opt.shiftwidth = 4
+opt.autoindent = true
+opt.smartindent = true
 
 -- Search
 opt.ignorecase = true
@@ -29,15 +43,22 @@ opt.splitright = true
 
 -- Colors
 opt.termguicolors = true
-if env.TERM == "st-256color" or env.TERM == "tmux-256color" or env.TERM == "xterm-256color" then
+if
+    env.TERM == "st-256color"
+    or env.TERM == "tmux-256color"
+    or env.TERM == "xterm-256color"
+then
     cmd("set termguicolors")
 end
 
--- Others
-opt.autoindent = true
-opt.smartindent = true
-opt.virtualedit = "block"
+-- Disable default providers
+g.loaded_node_provider = 0
+g.loaded_python3_provider = 0
+g.loaded_perl_provider = 0
+g.loaded_ruby_provider = 0
 
+-- Others
+opt.virtualedit = "block"
 opt.wrap = false
 opt.colorcolumn = "94"
 opt.scrolloff = 5
@@ -50,8 +71,3 @@ opt.fillchars:append({
     vertright = "┣",
     verthoriz = "╋",
 })
-opt.clipboard = "unnamedplus"
-
-opt.showmatch = true
-opt.matchtime = 3
-
