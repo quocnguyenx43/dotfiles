@@ -8,7 +8,6 @@
     "editor.fontFamily": "monospace",
     "editor.mouseWheelZoom": true,
     "editor.tabSize": 4,
-    "editor.cursorStyle": "block",
     "editor.columnSelection": false,
     "editor.comments.ignoreEmptyLines": false,
     "editor.cursorBlinking": "solid",

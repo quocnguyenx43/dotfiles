@@ -8,16 +8,27 @@ return {
         local autopairs = require("nvim-autopairs")
         autopairs.setup({
             check_ts = true,
-            config = {
-        lua = {'string'},-- it will not add a pair on that treesitter node
-        javascript = {'template_string'},
-        java = false,-- don't check treesitter on java
-
-            }
         })
 
-        local cmp_autopairs = require("nvim-autopairs.completion.cmp")
         local cmp = require("cmp")
-        cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+        local autopairs_cmp = require("nvim-autopairs.completion.cmp")
+        local autopairs_handlers = require("nvim-autopairs.completion.handlers")
+        cmp.event:on(
+            "confirm_done",
+            autopairs_cmp.on_confirm_done({
+                filetypes = {
+                    ["*"] = {
+                        ["("] = {
+                            kind = {
+                                cmp.lsp.CompletionItemKind.Function,
+                                cmp.lsp.CompletionItemKind.Method,
+                            },
+                            handler = autopairs_handlers["*"],
+                        },
+                    },
+                    tex = false,
+                },
+            })
+        )
     end,
 }

@@ -1,51 +1,23 @@
 return {
     "folke/flash.nvim",
     event = "VeryLazy",
-    modes = {
-        char = {
-            jump_labels = true,
-        },
-    },
-    keys = {
-        {
-            "<leader>ls",
-            mode = { "n", "x", "o" },
-            function()
-                require("flash").jump()
-            end,
-            desc = "Flash",
-        },
-        {
-            "<leader>lt",
-            mode = { "n", "x", "o" },
-            function()
-                require("flash").treesitter()
-            end,
-            desc = "Flash Treesitter",
-        },
-        {
-            "<leader>lr",
-            mode = "o",
-            function()
-                require("flash").remote()
-            end,
-            desc = "Remote Flash",
-        },
-        {
-            "<leader>la",
-            mode = { "o", "x" },
-            function()
-                require("flash").treesitter_search()
-            end,
-            desc = "Treesitter Search",
-        },
-        {
-            "<c-s>",
-            mode = { "c" },
-            function()
-                require("flash").toggle()
-            end,
-            desc = "Toggle Flash Search",
-        },
-    },
+    config = function()
+        local flash = require("flash")
+
+        flash.setup({
+            modes = {
+                char = {
+                    jump_labels = true,
+                },
+            },
+        })
+
+        local keymap = vim.keymap.set
+        keymap({ "n", "x", "o" }, "<leader>ls", flash.jump, { desc = "Flash" })
+        keymap({ "n", "x", "o" }, "<leader>lt", flash.treesitter, { desc = "Flash Treesitter" })
+        keymap("o", "<leader>lr", flash.remote, { desc = "Remote Flash" })
+        keymap({ "o", "x" }, "<leader>la", flash.treesitter_search, { desc = "Treesitter Search" })
+        keymap("c", "<c-s>", flash.toggle, { desc = "Toggle Flash Search" })
+    end,
 }
+

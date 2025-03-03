@@ -4,10 +4,19 @@ return {
     dependencies = {
         "nvim-lua/plenary.nvim",
         "nvim-tree/nvim-web-devicons",
+        "BurntSushi/ripgrep",                                           -- For live_grep and grep_string
+        "sharkdp/fd",                                                   -- For faster searching
+        { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }, -- For sorter performance
+        -- Extensions
+        {
+            "nvim-telescope/telescope-live-grep-args.nvim",
+            version = "^1.0.0",
+        },
     },
     config = function()
         local telescope = require("telescope")
         local actions = require("telescope.actions")
+        local lga_actions = require("telescope-live-grep-args.actions")
 
         telescope.setup({
             defaults = {
@@ -15,7 +24,7 @@ return {
                     i = {
                         ["<C-k>"] = actions.move_selection_previous,
                         ["<C-j>"] = actions.move_selection_next,
-                        ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+                        ["<C-a>"] = actions.send_selected_to_qflist + actions.open_qflist,
                     },
                 },
                 vimgrep_arguments = {
@@ -78,23 +87,95 @@ return {
                 },
             },
             extensions = {
-                "fzf",
+                fzf = {
+                    fuzzy = true,
+                    override_generic_sorter = true,
+                    override_file_sorter = true,
+                    case_mode = "smart_case",
+                },
+                live_grep_args = {
+                    auto_quoting = true,
+                    mappings = {
+                        i = {
+                            ["<C-k>"] = lga_actions.quote_prompt(),
+                            ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+                            ["<C-space>"] = lga_actions.to_fuzzy_refine,
+                        },
+                    },
+                },
                 "noice",
             },
         })
 
-        local keymap = vim.keymap
-        keymap.set("n", "<leader>ff", "<cmd> Telescope find_files <CR>", { desc = "Telescope fuzzy find files" })
-        keymap.set("n", "<leader>fo", "<cmd> Telescope oldfiles <CR>", { desc = "Telescope fuzzy find old files" })
-        keymap.set("n", "<leader>fg", "<cmd> Telescope git_files <CR>", { desc = "Telescope git files finders" })
-        keymap.set("n", "<leader>fl", "<cmd> Telescope live_grep <CR>", { desc = "Telescope live grep" })
-        keymap.set("n", "<leader>fs", "<cmd> Telescope grep_string <CR>", { desc = "Telescope grep string" })
-        keymap.set("n", "<leader>fl", "<cmd> Telescope quick_fix <CR>", { desc = "Telescope quick fix" })
-        keymap.set("n", "<leader>fb", "<cmd> Telescope buffers <CR>", { desc = "Telescope buffers finders" })
-        keymap.set("n", "<leader>fb", "<cmd> Telescope commands <CR>", { desc = "Telescope commands finder" })
-        keymap.set("n", "<leader>fb", "<cmd> Telescope keymaps <CR>", { desc = "Telescope keymaps finder" })
-        keymap.set("n", "<leader>fn", "<cmd> Telescope noice <CR>", { desc = "Telescope noice messages search" })
+        telescope.load_extension("fzf")
+        telescope.load_extension("live_grep_args")
 
-        -- current_buffer_tags, 
+        local keymap = vim.keymap
+        keymap.set(
+            "n",
+            "<leader>ff",
+            "<cmd> Telescope find_files <CR>",
+            { desc = "Telescope files" }
+        )
+        keymap.set(
+            "n",
+            "<leader>fo",
+            "<cmd> Telescope oldfiles <CR>",
+            { desc = "Telescope old files" }
+        )
+        keymap.set(
+            "n",
+            "<leader>fg",
+            "<cmd> Telescope git_files <CR>",
+            { desc = "Telescope git files" }
+        )
+        keymap.set(
+            "n",
+            "<leader>fl",
+            "<cmd> Telescope live_grep <CR>",
+            { desc = "Telescope words" }
+        )
+        keymap.set(
+            "n",
+            "<leader>fs",
+            "<cmd> lua require('telescope').extensions.live_grep_args.live_grep_args() <CR>",
+            { desc = "Telescope words with args" }
+        )
+        keymap.set(
+            "n",
+            "<leader>fw",
+            "<cmd> Telescope grep_string <CR>",
+            { desc = "Telescope cursor word" }
+        )
+        keymap.set(
+            "n",
+            "<leader>fq",
+            "<cmd> Telescope quickfix <CR>",
+            { desc = "Telescope quick fixes" }
+        )
+        keymap.set(
+            "n",
+            "<leader>ft",
+            "<cmd> Telescope current_buffer_tags<CR>",
+            { desc = "Telescope buffer tags" }
+        )
+        keymap.set(
+            "n",
+            "<leader>fc",
+            "<cmd> Telescope commands <CR>",
+            { desc = "Telescope commands" }
+        )
+        keymap.set(
+            "n",
+            "<leader>fk",
+            "<cmd> Telescope keymaps <CR>",
+            { desc = "Telescope keymaps" }
+        )
+        keymap.set(
+            "n",
+            "<leader>fn",
+            "<cmd> Telescope noice <CR>",
+            { desc = "Telescope noice messages" }
+        )
     end,
 }

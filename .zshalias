@@ -30,6 +30,11 @@ completely_remove_apt_package() {
     sudo apt-get autoremove -y
 }
 
+# Tmux new-session
+tmux_new_session() {
+    tmux new-session -d -s "$1"
+}
+
 # Python environment
 create_virtual_python_environment() {
     python3 -m venv .venv
@@ -54,6 +59,9 @@ alias cpv=create_virtual_python_environment
 alias apv='source ./.venv/bin/activate'
 alias dpv='deactivate'
 
+# Tmux
+alias tns="tmux_new_session"
+
 # Apps
 alias nv='nvim'
 alias wezterm='flatpak run org.wezfurlong.wezterm'
@@ -67,6 +75,7 @@ alias pxc4='proxychains4'
 
 # Personal
 alias cdcode='cd /home/quocnguyen/qn/area/coding && echo "/home/quocnguyen/qn/area/coding"'
+alias cdwork='cd /home/quocnguyen/qn/area/work && echo "/home/quocnguyen/qn/area/work"'
 
 # ### ** COMP **
 # alias cdpj='cd /home/l3080/workspace/414n/projects && echo "/home/l3080/workspace/414n/projects"'
