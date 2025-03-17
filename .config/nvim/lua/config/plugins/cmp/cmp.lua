@@ -1,15 +1,16 @@
 return {
     "hrsh7th/nvim-cmp",
+    -- Attach when entering INSERT mode
     event = "InsertEnter",
     dependencies = {
-        -- For autocompletion
+        -- For code snippets
         { "L3MON4D3/LuaSnip", version = "v2.*", build = "make install_jsregexp" },
-        -- Sources
+        -- Sources: buffer, path, lsp, luasnip (code snippets)
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-nvim-lsp",
         "saadparwaiz1/cmp_luasnip",
-        -- Symbols for suggestions
+        -- Symbols for suggestions: function, variable, path, text,...
         "onsails/lspkind.nvim",
     },
     config = function()
@@ -17,6 +18,7 @@ return {
         local luasnip = require("luasnip")
         local lspkind = require("lspkind")
 
+        -- Using VSCode snippets
         require("luasnip.loaders.from_vscode").lazy_load()
 
         cmp.setup({
@@ -40,7 +42,8 @@ return {
                 ["<C-Space>"] = cmp.mapping.complete(),
                 ["<C-e>"] = cmp.mapping.abort(),
                 ["<CR>"] = cmp.mapping.confirm({ select = false }),
-                -- For using Luasnip
+                -- For using Luasnip (Code snippets)
+                -- Tab to go to the next item
                 ["<Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_next_item()
@@ -50,6 +53,7 @@ return {
                         fallback()
                     end
                 end, { "i", "s" }),
+                -- S-Tab to go to the previous item
                 ["<S-Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_prev_item()
@@ -63,6 +67,7 @@ return {
             sources = cmp.config.sources({
                 { name = "nvim_lsp" },
                 { name = "luasnip" },
+                -- Text suggestion with at least 5 chars
                 { name = "buffer", keyword_length = 5 },
                 { name = "path" },
             }),
@@ -73,26 +78,5 @@ return {
                 }),
             },
         })
-
-        -- Add source for SQL
-        -- vim.cmd([[
-        --     augroup DadbotSQL
-        --         au!
-        --         autocmd FileType sql,mysql,plsql lua require("cmp").setup.buffer({
-        --             sources = {
-        --                 {
-        --                     name = "vim-dad-bot-completion"
-        --                 }
-        --             }
-        --         })
-        --     augroup END
-        -- ]])
-
-        -- Remove source when open telescope
-        -- vim.cmd([[
-        --     autocmd FileType TelescopePrompt lua require("lua").setup.buffer({
-        --         enabled = false
-        --     })
-        -- ]])
     end,
 }

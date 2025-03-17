@@ -1,12 +1,16 @@
 return {
+    -- LSP config
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
+        -- LSP completion
         "hrsh7th/cmp-nvim-lsp",
+        -- LSP for new file: Generate code for some file
         { "antosha417/nvim-lsp-file-operations", config = true },
-        { "folke/neodev.nvim",                   opts = {} },
+        { "folke/neodev.nvim", opts = {} },
     },
     config = function()
+        -- Config LSP for every language
         local lspconfig = require("lspconfig")
         local mason_lspconfig = require("mason-lspconfig")
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -34,7 +38,6 @@ return {
             ["pyright"] = function()
                 lspconfig["pyright"].setup({
                     capabilities = capabilities,
-
                 })
             end,
         }
@@ -44,7 +47,7 @@ return {
         local api = vim.api
         local lsp_group = api.nvim_create_augroup("UserLspConfig", {})
 
-        -- When LSP is loaded
+        -- Attach when LSP is loaded
         api.nvim_create_autocmd("LspAttach", {
             group = lsp_group,
             callback = function(ev)

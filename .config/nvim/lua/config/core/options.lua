@@ -1,4 +1,5 @@
 local g = vim.g
+local o = vim.o
 local opt = vim.opt
 local env = vim.env
 local cmd = vim.cmd
@@ -6,6 +7,11 @@ local cmd = vim.cmd
 -- General
 opt.swapfile = false
 opt.clipboard = "unnamedplus"
+
+-- Foldings
+o.foldlevel = 99      -- Folds when editing a file
+o.foldlevelstart = 99 -- Folds when open a file, 99 means expand all
+o.foldenable = true   -- Enable folding
 
 -- Change diagnostic symbols
 local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
@@ -22,7 +28,7 @@ g.loaded_netrwPlugin = 1
 opt.number = true
 opt.relativenumber = true
 
--- Indent 
+-- Indent
 opt.expandtab = true
 opt.tabstop = 4
 opt.softtabstop = 4

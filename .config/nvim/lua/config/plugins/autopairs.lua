@@ -8,6 +8,7 @@ return {
         local autopairs = require("nvim-autopairs")
         autopairs.setup({
             check_ts = true,
+            disable_filetype = { "TelescopePrompt", "spectre_panel", "txt" },
         })
 
         local cmp = require("cmp")

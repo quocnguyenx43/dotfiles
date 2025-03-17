@@ -23,6 +23,7 @@
     "update.enableWindowsBackgroundUpdates": false,
     "update.showReleaseNotes": false,
     "workbench.iconTheme": "vscode-icons",
+    "makefile.configureOnOpen": true,
 
     // ** COMP ** 
     // "remote.SSH.remotePlatform": {

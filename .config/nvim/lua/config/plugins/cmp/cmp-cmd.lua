@@ -6,6 +6,7 @@ return {
     config = function()
         local cmp = require("cmp")
 
+        -- Using buffer source for searching
         cmp.setup.cmdline("/", {
             mapping = cmp.mapping.preset.cmdline(),
             sources = {
@@ -13,6 +14,7 @@ return {
             },
         })
 
+        -- Using path source for COMMAND mode
         cmp.setup.cmdline(":", {
             mapping = cmp.mapping.preset.cmdline(),
             sources = cmp.config.sources(
