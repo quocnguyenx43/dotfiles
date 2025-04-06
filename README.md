@@ -18,7 +18,7 @@
 - jdk 11/17
 - sbt, maven (scala, java)
 - Others tools (dependencies): fzf, fdfind, eza, ripgrep, neofetch, htop, ffmpeg
-- Apps: VSCode, Docker, Sublime text, Postman, MongoDB Compass, Redis Insights, Data Grip, Navicat, TablePlus, JDownloader 2, Gnome Tweaks
+- Apps: VSCode, Docker, Sublime text, Postman, MongoDB Compass, Redis Insights, Data Grip, Navicat, TablePlus, JDownloader 2, Gnome Tweaks, Azure Data Studio (For realational DB only)
 
 ## Scripts
 - Remove snap & install flatpak

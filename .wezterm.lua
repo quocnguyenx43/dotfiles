@@ -47,7 +47,7 @@ config.keys = {
 	},
 }
 
--- Startup programs
+-- Startup programs: Tmux
 config.default_prog = {
 	"/usr/bin/zsh",
 	"-c",
