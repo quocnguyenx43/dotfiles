@@ -5,27 +5,21 @@
   [JetBrainsMonoNL-Medium.ttf](https://github.com/podkovyrin/JetBrainsMono/blob/feature/no-ligatures-1-0-3/no-ligatures/JetBrainsMonoNL-Medium.ttf)
 
 ## Tools & Apps
-- GNU Stow
-- Wezterm
-- zsh 
+- GNU Stow (apt)
+- Wezterm (deb) doi download snap remove flatpak
+- zsh (default shell)
 - Oh My Zsh:
     - zsh-autosugesstions
     - zsh-syntax-highlighting
-- git, lazygit
-- docker, lazydocker
 - tmux
 - tmuxinator
 - make
-- uv, ruff (python)
-- n, npm (nodejs)
-- jdk 11/17
-- sbt, maven (scala, java)
 - Others CLI tools (dependencies):
     + fzf
     + fdfind
     + eza
     + zoxide
-    + yazi (install by cargo)
+    + yazi (change to install using snap)
     + ripgrep
     + jq
     + neofetch
@@ -41,13 +35,18 @@
     + DB: MongoDB Compass, Redis Insights, Data Grip, Navicat, TablePlus, Azure Data Studio
     + Tools: JDownloader 2
 - Dev apps:
+    + git, lazygit
+    + docker, lazydocker
+    + uv, ruff (python)
+    + n, npm (nodejs)
+    + jdk 11/17
+    + sbt, maven (scala, java)
     + neovim (github source) -> opt -> zshenv
     + Hadoop -> opt -> zshenv
     + Spark -> opt -> zshenv
     + Maven -> opt -> zshenv
 
 ## Setup for Ubuntu
-- Completely remove snap & replace with flatpak (script)
 - Change DNS to Google for faster internet (script)
 - Enable firewall - ufw (script)
 - Config docker user (scrip)
