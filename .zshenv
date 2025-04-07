@@ -2,7 +2,9 @@
 export PATH=$PATH:/opt/nvim/nvim-linux-x86_64/bin
 
 # Cargo
-. "$HOME/.cargo/env"
+if [ -f "$HOME/.cargo/env" ]; then
+    . "$HOME/.cargo/env"
+fi
 
 # JAVA
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
