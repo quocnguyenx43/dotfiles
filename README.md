@@ -6,14 +6,13 @@
 
 ## Tools & Apps
 - GNU Stow (apt)
-- Wezterm (deb) doi download snap remove flatpak
-- zsh (default shell)
+- zsh (apt): default shell
+- Wezterm (deb): default terminal
+- tmux (apt)
+- tmuxinator (apt)
 - Oh My Zsh:
-    - zsh-autosugesstions
-    - zsh-syntax-highlighting
-- tmux
-- tmuxinator
-- make
+    - zsh-autosugesstions (github)
+    - zsh-syntax-highlighting (github)
 - Others CLI tools (dependencies):
     + fzf
     + fdfind
@@ -21,6 +20,7 @@
     + zoxide
     + yazi (change to install using snap)
     + ripgrep
+    + bat
     + jq
     + neofetch
     + htop
@@ -35,6 +35,7 @@
     + DB: MongoDB Compass, Redis Insights, Data Grip, Navicat, TablePlus, Azure Data Studio
     + Tools: JDownloader 2
 - Dev apps:
+    + make
     + git, lazygit
     + docker, lazydocker
     + uv, ruff (python)

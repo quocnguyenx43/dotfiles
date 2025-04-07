@@ -74,7 +74,6 @@ alias tns="tmux_new_session"
 
 # Apps
 alias nv='nvim'
-alias wezterm='flatpak run org.wezfurlong.wezterm'
 alias dc='docker compose'
 alias lzd='lazydocker'
 alias lzg='lazygit'
