@@ -1,9 +1,4 @@
 {
-    // ** COMP ** 
-    // Proxy
-    // "http.proxy": "socks5://10.2.123.9:1080",
-    // "http.proxyStrictSSL": false,
-
     // Editor
     "editor.fontFamily": "monospace",
     "editor.mouseWheelZoom": true,
@@ -25,20 +20,4 @@
     "workbench.iconTheme": "vscode-icons",
     "makefile.configureOnOpen": true,
     "explorer.confirmDragAndDrop": false,
-
-    // ** COMP ** 
-    // "remote.SSH.remotePlatform": {
-    //     "10.2.91.105": "linux",
-    //     "172.16.204.201": "linux",
-    //     "10.2.123.131": "linux",
-    //     "dev-server": "linux",
-    //     "ndpi-tapping-server": "linux",
-    //     "sensor-server": "linux",
-    //     "ndpi-tapping-server2": "linux",
-    //     "ndpi-server-1": "linux",
-    //     "ndpi-server-2": "linux",
-    //     "ndpi-server-test": "linux",
-    //     "ndpi-server": "linux",
-    //     "server-vm1": "linux"
-    // },
 }

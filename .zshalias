@@ -24,26 +24,36 @@
 # check
 
 # Remove apt packages
-completely_remove_apt_package() {
+function completely_remove_apt_package() {
     sudo apt-get remove --auto-remove --purge $1
     sudo apt-get clean
     sudo apt-get autoremove -y
 }
 
 # Tmux new-session
-tmux_new_session() {
+function tmux_new_session() {
     tmux new-session -d -s "$1"
 }
 
+# Yazi
+function yz() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
 # Python environment
-create_virtual_python_environment() {
+function create_virtual_python_environment() {
     python3 -m venv .venv
     source .venv/bin/activate
     proxychains pip install --upgrade pip
 }
 
 # Find something
-global_find() {
+function global_find() {
     fdfind $1 /
 }
 
@@ -70,6 +80,7 @@ alias lzd='lazydocker'
 alias lzg='lazygit'
 alias bcat='batcat'
 alias fd='fdfind'
+alias z='zoxide'
 alias pxc='proxychains'
 alias pxc4='proxychains4'
 

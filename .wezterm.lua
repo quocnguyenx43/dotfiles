@@ -7,7 +7,6 @@ local mux = wezterm.mux
 -- Theme & font
 config.color_scheme = "Tokyo Night"
 config.window_background_opacity = 0.98
--- https://github.com/podkovyrin/JetBrainsMono/blob/feature/no-ligatures-1-0-3/no-ligatures/JetBrainsMonoNL-Medium.ttf
 config.font = wezterm.font("JetBrains Mono NL")
 config.font_size = 11
 

@@ -7,3 +7,5 @@ sudo ufw enable
 
 # Docker
 sudo usermod -a -G docker $USER
+
+sudo chown -R $USER:$USER /opt
