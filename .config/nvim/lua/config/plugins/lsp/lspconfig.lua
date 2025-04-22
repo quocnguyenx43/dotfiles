@@ -5,9 +5,8 @@ return {
     dependencies = {
         -- LSP completion
         "hrsh7th/cmp-nvim-lsp",
-        -- LSP for new file: Generate code for some file
-        { "antosha417/nvim-lsp-file-operations", config = true },
-        { "folke/neodev.nvim", opts = {} },
+        -- LSP for new file: Generate code for specific file
+        -- { "antosha417/nvim-lsp-file-operations", config = true },
     },
     config = function()
         -- Config LSP for every language
@@ -47,8 +46,8 @@ return {
         local api = vim.api
         local lsp_group = api.nvim_create_augroup("UserLspConfig", {})
 
-        -- Attach when LSP is loaded
-        api.nvim_create_autocmd("LspAttach", {
+        -- Attach when LSP is loaded or enable
+        api.nvim_create_autocmd("LSPAttach", {
             group = lsp_group,
             callback = function(ev)
                 local opts = { buffer = ev.buf, silent = true }

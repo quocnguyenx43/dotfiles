@@ -9,6 +9,7 @@ return {
         local mason_tool_installer = require("mason-tool-installer")
         local mason_lspconfig = require("mason-lspconfig")
 
+        -- Config UI
         mason.setup({
             ui = {
                 icons = {
@@ -31,7 +32,6 @@ return {
                 "docker_compose_language_service", -- Docker compose
                 "dockerls",                        -- Dockerfile
                 "clangd",                          -- C, C++
-                -- "java_language_server",            -- Java
                 "pyright",                         -- Python
             },
         })

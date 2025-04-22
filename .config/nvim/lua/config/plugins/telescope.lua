@@ -4,8 +4,8 @@ return {
     dependencies = {
         "nvim-lua/plenary.nvim",
         "nvim-tree/nvim-web-devicons",
-        "BurntSushi/ripgrep",                                           -- For live_grep and grep_string
-        "sharkdp/fd",                                                   -- For faster searching
+        "BurntSushi/ripgrep", -- For live_grep and grep_string
+        "sharkdp/fd", -- For faster searching
         { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }, -- For sorter performance
         -- Extensions
         {
@@ -24,7 +24,13 @@ return {
                     i = {
                         ["<C-k>"] = actions.move_selection_previous,
                         ["<C-j>"] = actions.move_selection_next,
-                        ["<C-a>"] = actions.send_selected_to_qflist + actions.open_qflist,
+                        ["<C-t>"] = actions.select_tab, -- Open in new tab
+                        ["<C-v>"] = actions.select_vertical, -- Open in vertical window
+                        ["<C-h>"] = actions.select_horizontal, -- Open in horizontal window
+                        ["<Tab>"] = actions.toggle_selection + actions.move_selection_better, -- Select and move to top
+                        ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_worse, -- Select and move to bottom 
+                        ["<C-a>"] = actions.send_to_qflist + actions.open_qflist,
+                        ["<C-e>"] = actions.send_selected_to_qflist + actions.open_qflist,
                     },
                 },
                 vimgrep_arguments = {
@@ -36,7 +42,6 @@ return {
                     "--line-number",
                     "--column",
                     "--smart-case",
-
                     "--glob=!**/.git/*",
                     "--glob=!**/.idea/*",
                     "--glob=!**/.vscode/*",

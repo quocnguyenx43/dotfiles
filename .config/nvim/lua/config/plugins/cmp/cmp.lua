@@ -3,13 +3,14 @@ return {
     -- Attach when entering INSERT mode
     event = "InsertEnter",
     dependencies = {
-        -- For code snippets
+        -- Sources: LuaSnip
         { "L3MON4D3/LuaSnip", version = "v2.*", build = "make install_jsregexp" },
-        -- Sources: buffer, path, lsp, luasnip (code snippets)
+        "saadparwaiz1/cmp_luasnip",
+        -- Sources: buffer, path, lsp
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-nvim-lsp",
-        "saadparwaiz1/cmp_luasnip",
+        "antosha417/nvim-lsp-file-operations",
         -- Symbols for suggestions: function, variable, path, text,...
         "onsails/lspkind.nvim",
     },
@@ -42,8 +43,7 @@ return {
                 ["<C-Space>"] = cmp.mapping.complete(),
                 ["<C-e>"] = cmp.mapping.abort(),
                 ["<CR>"] = cmp.mapping.confirm({ select = false }),
-                -- For using Luasnip (Code snippets)
-                -- Tab to go to the next item
+                -- Tab to go to the next item in a snippet
                 ["<Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_next_item()
@@ -53,7 +53,7 @@ return {
                         fallback()
                     end
                 end, { "i", "s" }),
-                -- S-Tab to go to the previous item
+                -- S-Tab to go to the previous item in a snippet
                 ["<S-Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_prev_item()

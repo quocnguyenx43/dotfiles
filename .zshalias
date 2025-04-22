@@ -1,28 +1,3 @@
-# # Check some installation for functions & aliases
-# check() {
-#     # Python check
-#     if ! command -v python3 &>/dev/null; then
-#         echo "Warning: python3 is NOT installed!"
-#     fi
-#
-#     # Neovim check
-#     if ! command -v nvim &>/dev/null; then
-#         echo "Warning: python3 is NOT installed!"
-#     fi
-#
-#     # Lazydocker check
-#     if ! command -v lazydocker &>/dev/null; then
-#         echo "Warning: python3 is NOT installed!"
-#     fi
-#
-#     #  check
-#     if ! command -v lazydocker &>/dev/null; then
-#         echo "Warning: python3 is NOT installed!"
-#     fi
-# }
-#
-# check
-
 # Remove apt packages
 function completely_remove_apt_package() {
     sudo apt-get remove --auto-remove --purge $1
@@ -79,7 +54,7 @@ alias lzd='lazydocker'
 alias lzg='lazygit'
 alias bcat='batcat'
 alias fd='fdfind'
-alias z='zoxide'
+alias cd='z'
 alias pxc='proxychains'
 alias pxc4='proxychains4'
 
@@ -177,9 +152,9 @@ my_help () {
     echo "Personal"
     echo "\t cdcode"
 
-    # ** COMP **
-    echo "\t cdpj"
-    echo "\t cdrs"
+    # # ** COMP **
+    # echo "\t cdpj"
+    # echo "\t cdrs"
 }
 
 alias mh='my_help'

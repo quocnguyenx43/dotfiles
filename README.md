@@ -9,15 +9,14 @@
 - zsh (apt): default shell
 - Wezterm (deb): default terminal
 - tmux (apt)
-- tmuxinator (apt)
 - Oh My Zsh:
     - zsh-autosugesstions (github)
     - zsh-syntax-highlighting (github)
 - Others CLI tools (dependencies):
-    + fzf
-    + fdfind
-    + eza
-    + zoxide
+    + fzf (latest on Github)
+    + fdfind (latest on Github)
+    + eza (latest on Github)
+    + zoxide (latest on Github)
     + yazi (change to install using snap)
     + ripgrep
     + bat
@@ -41,7 +40,7 @@
     + uv, ruff (python)
     + n, npm (nodejs)
     + jdk 11/17
-    + sbt, maven (scala, java)
+    + coursier, (cs, scala, scalac, sbt), maven (for scala, java)
     + neovim (github source) -> opt -> zshenv
     + Hadoop -> opt -> zshenv
     + Spark -> opt -> zshenv
@@ -57,7 +56,8 @@
     + Startup Program
 
 ## Setup for MacOS:
-- Tcilling windows: dasdas
+- Tcilling windows: Aerospace, yabai
 - Brew file, brew file lock json
+- SkechyBar
+- skhd
 - App manager: mas
-- Zed editor
