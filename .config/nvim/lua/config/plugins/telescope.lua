@@ -6,7 +6,8 @@ return {
         "nvim-tree/nvim-web-devicons",
         "BurntSushi/ripgrep", -- For live_grep and grep_string
         "sharkdp/fd", -- For faster searching
-        { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }, -- For sorter performance
+        -- For sorter performance
+        { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
         -- Extensions
         {
             "nvim-telescope/telescope-live-grep-args.nvim",
@@ -116,71 +117,16 @@ return {
         telescope.load_extension("live_grep_args")
 
         local keymap = vim.keymap
-        keymap.set(
-            "n",
-            "<leader>ff",
-            "<cmd> Telescope find_files <CR>",
-            { desc = "Telescope files" }
-        )
-        keymap.set(
-            "n",
-            "<leader>fo",
-            "<cmd> Telescope oldfiles <CR>",
-            { desc = "Telescope old files" }
-        )
-        keymap.set(
-            "n",
-            "<leader>fg",
-            "<cmd> Telescope git_files <CR>",
-            { desc = "Telescope git files" }
-        )
-        keymap.set(
-            "n",
-            "<leader>fl",
-            "<cmd> Telescope live_grep <CR>",
-            { desc = "Telescope words" }
-        )
-        keymap.set(
-            "n",
-            "<leader>fs",
-            "<cmd> lua require('telescope').extensions.live_grep_args.live_grep_args() <CR>",
-            { desc = "Telescope words with args" }
-        )
-        keymap.set(
-            "n",
-            "<leader>fw",
-            "<cmd> Telescope grep_string <CR>",
-            { desc = "Telescope cursor word" }
-        )
-        keymap.set(
-            "n",
-            "<leader>fq",
-            "<cmd> Telescope quickfix <CR>",
-            { desc = "Telescope quick fixes" }
-        )
-        keymap.set(
-            "n",
-            "<leader>ft",
-            "<cmd> Telescope current_buffer_tags<CR>",
-            { desc = "Telescope buffer tags" }
-        )
-        keymap.set(
-            "n",
-            "<leader>fc",
-            "<cmd> Telescope commands <CR>",
-            { desc = "Telescope commands" }
-        )
-        keymap.set(
-            "n",
-            "<leader>fk",
-            "<cmd> Telescope keymaps <CR>",
-            { desc = "Telescope keymaps" }
-        )
-        keymap.set(
-            "n",
-            "<leader>fn",
-            "<cmd> Telescope noice <CR>",
-            { desc = "Telescope noice messages" }
-        )
+        keymap.set( "n", "<leader>ff", "<cmd> Telescope find_files <CR>", { desc = "Telescope files" })
+        keymap.set( "n", "<leader>fo", "<cmd> Telescope oldfiles <CR>", { desc = "Telescope old files" })
+        keymap.set( "n", "<leader>fg", "<cmd> Telescope git_files <CR>", { desc = "Telescope git files" })
+        keymap.set( "n", "<leader>fl", "<cmd> Telescope live_grep <CR>", { desc = "Telescope words" })
+        keymap.set( "n", "<leader>fs", "<cmd> lua require('telescope').extensions.live_grep_args.live_grep_args() <CR>", { desc = "Telescope words with args" })
+        keymap.set( "n", "<leader>fw", "<cmd> Telescope grep_string <CR>", { desc = "Telescope cursor word" })
+        keymap.set( "n", "<leader>fq", "<cmd> Telescope quickfix <CR>", { desc = "Telescope quick fixes" })
+        keymap.set( "n", "<leader>ft", "<cmd> Telescope current_buffer_tags<CR>", { desc = "Telescope buffer tags" })
+        keymap.set( "n", "<leader>fc", "<cmd> Telescope commands <CR>", { desc = "Telescope commands" })
+        keymap.set( "n", "<leader>fk", "<cmd> Telescope keymaps <CR>", { desc = "Telescope keymaps" })
+        keymap.set( "n", "<leader>fn", "<cmd> Telescope noice <CR>", { desc = "Telescope noice messages" })
     end,
 }

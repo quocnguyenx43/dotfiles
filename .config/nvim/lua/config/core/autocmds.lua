@@ -15,3 +15,16 @@ local autocmd = vim.api.nvim_create_autocmd
 --     end,
 --     desc = "Format on buffer modification",
 -- })
+        -- TODO
+        -- Always opening NvimTree
+        -- vim.api.nvim_create_autocmd("BufReadPost", {
+        --     callback = function()
+        --         local api = require("nvim-tree.api")
+
+        --         -- Open the tree (but don't focus it)
+        --         api.tree.open({ focus = false })
+
+        --         -- Reveal and highlight the current file in the tree
+        --         api.tree.find_file({ open = true, focus = false })
+        --     end,
+        -- })

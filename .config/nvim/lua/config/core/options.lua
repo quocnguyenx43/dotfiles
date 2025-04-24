@@ -7,13 +7,15 @@ local cmd = vim.cmd
 local fn = vim.fn
 
 -- General
+o.mouse = "a" -- Enable mouse move
+o.undofile = true -- Save undo hist on file
 opt.swapfile = false -- Create temp file for recovering when crashed
 opt.clipboard = "unnamedplus" -- Copying into general register
 opt.cursorline = true -- Hightlights the current line
 opt.virtualedit = "block" -- Best for editing
 opt.wrap = false -- Dont wrap text
-opt.colorcolumn = "95"
-opt.scrolloff = 5
+opt.colorcolumn = "95" -- Column
+opt.scrolloff = 5 -- Min lines keep below the cursor
 opt.fillchars:append({
     vert = "┃",
     horiz = "━",
@@ -32,14 +34,13 @@ for type, icon in pairs(signs) do
 end
 
 -- Foldings
-o.foldenable = true
+o.foldenable = true -- Enable folding
 o.foldcolumn = "1" -- Show all available fold in the left
 o.foldlevel = 20 -- Fold level when editing a file, 99 means fold all
 o.foldlevelstart = 99 -- Fold level when opening a file, 99 means expand all
 wo.foldmethod = "expr" -- Folding using expr
 wo.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- Folding with nvim-treesitter
 
--- Custom folding wrapper text
 -- https://github.com/Wansmer/nvim-config/blob/main/lua/modules/foldtext.lua
 local function parse_line(linenr)
     local bufnr = vim.api.nvim_get_current_buf()
@@ -60,9 +61,7 @@ local function parse_line(linenr)
     end
 
     local tree = parser:parse({ linenr - 1, linenr })[1]
-
     local result = {}
-
     local line_pos = 0
 
     for id, node, metadata in query:iter_captures(tree:root(), 0, linenr - 1, linenr) do
@@ -140,31 +139,30 @@ function fold_text()
 
     return text
 end
-
-wo.foldtext = "v:lua.fold_text()"
+wo.foldtext = "v:lua.fold_text()" -- Custom wrapper folding text
 
 -- Line number
-opt.number = true
-opt.relativenumber = true
+opt.number = true -- Line number
+opt.relativenumber = true -- Relative line number
 
 -- Indent & tabs
-opt.expandtab = true
-opt.tabstop = 4
+opt.expandtab = true -- Tabs to spaces
+opt.tabstop = 4 -- Tab size
 opt.softtabstop = 4
-opt.shiftwidth = 4
+opt.shiftwidth = 4 -- Each indentation
 opt.autoindent = true
 opt.smartindent = true
 
 -- Search
-opt.ignorecase = true
-opt.smartcase = true
-opt.inccommand = "split"
-opt.hlsearch = true
-opt.incsearch = true
+opt.ignorecase = true -- Case-insensitive
+opt.smartcase = true -- Smarter
+opt.inccommand = "split" -- Show effects real time
+opt.hlsearch = true -- Highlight on search
+opt.incsearch = true -- Real time highlight on search
 
 -- Splits
-opt.splitbelow = true
-opt.splitright = true
+opt.splitbelow = true -- Split below first
+opt.splitright = true -- Split right first
 
 -- Colors
 opt.termguicolors = true

@@ -9,6 +9,7 @@ return {
 
         noice.setup({
             lsp = {
+                -- Best highlighting
                 override = {
                     ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
                     ["vim.lsp.util.stylize_markdown"] = true,
@@ -18,6 +19,7 @@ return {
             presets = {
                 long_message_to_split = false,
             },
+            -- Display CMDs and popupmenu together
             views = {
                 cmdline_popup = {
                     position = {
@@ -58,7 +60,6 @@ return {
         end
 
         local keymap = vim.keymap
-
         keymap.set("n", "<leader>nd", noice_cmd("dismiss"), { desc = "Noice dismiss message" })
         keymap.set("n", "<leader>nl", noice_cmd("last"), { desc = "Noice last message" })
         keymap.set("n", "<leader>ne", noice_cmd("errors"), { desc = "Noice error message" })

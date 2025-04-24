@@ -38,7 +38,8 @@
     + git, lazygit
     + docker, lazydocker
     + uv, ruff (python)
-    + n, npm (nodejs)
+    + nodejs, npm (javscript)
+    + golang-go (go)
     + jdk 11/17
     + coursier, (cs, scala, scalac, sbt), maven (for scala, java)
     + neovim (github source) -> opt -> zshenv
@@ -61,3 +62,4 @@
 - SkechyBar
 - skhd
 - App manager: mas
+

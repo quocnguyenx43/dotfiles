@@ -14,12 +14,14 @@ end
 
 -- Leader key
 g.mapleader = " "
+g.maplocalleader = " "
+
+-- Disable spacebar to other behaviors
+keymap.set({ 'n', 'v' }, '<Space>', none, { silent = true })
 
 -- Disable ZZ
 map("n", "Z", none)
 map("n", "ZZ", none)
-
--- General
 
 -- Clear search hightlighting
 map("n", "<leader>c", ":nohl<CR>")
@@ -47,10 +49,10 @@ map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move up" })
 map("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move down" })
 
 -- Window resize
-vim.keymap.set("n", "=", [[<cmd>vertical resize +5<cr>]])
-vim.keymap.set("n", "-", [[<cmd>vertical resize -5<cr>]])
-vim.keymap.set("n", "+", [[<cmd>horizontal resize +2<cr>]])
-vim.keymap.set("n", "_", [[<cmd>horizontal resize -2<cr>]])
+-- vim.keymap.set("n", "=", [[<cmd>vertical resize +5<cr>]])
+-- vim.keymap.set("n", "-", [[<cmd>vertical resize -5<cr>]])
+-- vim.keymap.set("n", "+", [[<cmd>horizontal resize +2<cr>]])
+-- vim.keymap.set("n", "_", [[<cmd>horizontal resize -2<cr>]])
 
 -- Window splits
 keymap.set("n", "<leadxr>sv", "<C-w>v", { desc = "Split window vertically" })

@@ -6,7 +6,7 @@ return {
         local bufferline = require("bufferline")
         bufferline.setup({
             options = {
-                mode = "tabs",            -- Showing tabpages
+                mode = "tabs", -- Showing tabpages
                 diagnostics = "nvim_lsp", -- Diagnostics using
                 offsets = {
                     {
@@ -23,16 +23,24 @@ return {
                 },
                 -- Custom function for display diagnostics
                 diagnostics_indicator = function(count, level, diagnostics_dict, context)
-                    -- Only showing diagnostic on the current buffer
+                    -- Only showing diagnostics on the current buffer
                     if context.buffer:current() then
                         return ""
                     end
-                    -- Only the Error or Warning diagnostics
+
+                    -- Icons to display based on diagnostic level
+                    local diagnostic_icons = { error = " ", warning = " ", info = " ", hint = " " }
+
                     if level:match("error") then
-                        return " " .. vim.g.diagnostic_icons.Error
+                        return " " .. diagnostic_icons.error .. count
                     elseif level:match("warning") then
-                        return " " .. vim.g.diagnostic_icons.Warning
+                        return " " .. diagnostic_icons.warning .. count
+                    elseif level:match("info") then
+                        return " " .. diagnostic_icons.info .. count
+                    elseif level:match("hint") then
+                        return " " .. diagnostic_icons.hint .. count
                     end
+
                     return ""
                 end,
                 -- Custom function for no showing unwanted buffer types, file types
@@ -42,7 +50,11 @@ return {
                     local bufname = vim.fn.bufname(buf_number)
 
                     -- Ignore: terminal, nofile, or quickfix
-                    if buftype == "nofile" or buftype == "terminal" or buftype == "quickfix" then
+                    if
+                        buftype == "nofile"
+                        or buftype == "terminal"
+                        or buftype == "quickfix"
+                    then
                         return false
                     end
 
@@ -51,7 +63,7 @@ return {
                         return false
                     end
 
-                    -- Ignore file types 
+                    -- Ignore file types
                     local ignored_filetypes = {
                         "NvimTree",
                         "oil",

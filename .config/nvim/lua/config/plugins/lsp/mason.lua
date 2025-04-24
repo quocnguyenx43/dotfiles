@@ -23,16 +23,24 @@ return {
         mason_lspconfig.setup({
             ensure_installed = {
                 -- LSP
-                "lua_ls",                          -- Lua
-                "bashls",                          -- Bash script
-                "cmake",                           -- Cmake
-                "jsonls",                          -- JSON
-                "yamlls",                          -- YAML
-                "markdown_oxide",                  -- Markdown
+                "ast_grep", -- For C#, C/C++, HTML, CSS, JavaScript, Go, Java, Rust
+                "grammarly", -- Text
+                "lua_ls", -- Lua
+                "bashls", -- Bash script
+                "cmake", -- Cmake
+                "jsonls", -- JSON
+                "lemminx", -- XML
+                "yamlls", -- YAML
+                "harper_ls", -- TOML
+                "markdown_oxide", -- Markdown
+                "graphql", -- GraphQL
+                "ltex", -- Latex
+                "dockerls", -- Dockerfile
                 "docker_compose_language_service", -- Docker compose
-                "dockerls",                        -- Dockerfile
-                "clangd",                          -- C, C++
-                "pyright",                         -- Python
+                "sqls", -- SQL
+                "clangd", -- C, C++
+                "pyright", -- Python
+                "jdtls", -- Java
             },
         })
 
@@ -45,9 +53,9 @@ return {
                 "ruff", -- Python
 
                 -- Formaters
-                "stylua",   -- Lua
-                "black",    -- Python
-                "isort",    -- Python
+                "stylua", -- Lua
+                "black", -- Python
+                "isort", -- Python
                 "prettier", -- FE
             },
         })

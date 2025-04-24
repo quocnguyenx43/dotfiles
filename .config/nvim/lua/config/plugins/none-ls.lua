@@ -5,9 +5,6 @@ return {
 
         null_ls.setup({
             sources = {
-                -- Linting
-                -- null_ls.builtins.diagnostics.ruff, -- Python
-
                 -- Formatting
                 null_ls.builtins.formatting.stylua, -- Lua
                 null_ls.builtins.formatting.black,  -- Python
@@ -21,4 +18,3 @@ return {
         keymap.set("n", "<leader>gf", function() lsp.buf.format() end, {})
     end,
 }
-
