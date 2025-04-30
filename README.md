@@ -5,29 +5,29 @@
   [JetBrainsMonoNL-Medium.ttf](https://github.com/podkovyrin/JetBrainsMono/blob/feature/no-ligatures-1-0-3/no-ligatures/JetBrainsMonoNL-Medium.ttf)
 
 ## Tools & Apps
-- GNU Stow (apt)
+- GNU Stow (apt for Linux and brew for MacOS)
 - zsh (apt): default shell
-- Wezterm (deb): default terminal
-- tmux (apt)
+- Wezterm (deb for Linux, application for MacOS): default terminal
+- tmux (apt for Linux, brew for MacOS)
 - Oh My Zsh:
     - zsh-autosugesstions (github)
     - zsh-syntax-highlighting (github)
 - Others CLI tools (dependencies):
-    + fzf (latest on Github)
-    + fdfind (latest on Github)
-    + eza (latest on Github)
-    + zoxide (latest on Github)
-    + yazi (change to install using snap)
-    + ripgrep
-    + bat
-    + jq
-    + neofetch
-    + htop
-    + ffmpeg
-    + imagemagick
-    + p7zip-full p7zip-rar (7zip)
-    + poppler-utils (Poppler)
-    + wl-clipboard
+    + fzf (latest on Github for Linux, brew for MacOS)
+    + fdfind (latest on Github, brew for MacOS)
+    + eza (latest on Github, brew for MacOS)
+    + zoxide (latest on Github, brew for MacOS)
+    + ripgrep (apt for Linux, brew for MacOS)
+    + bat (batcat apt for Linux, bat brew for MacOS)
+    + jq (apt for Linux, brew for MacOS)
+    + neofetch (apt for Linux, brew for MacOS)
+    + htop (apt for Linux, brew for MacOS)
+    + ffmpeg (apt for Linux, brew for MacOS)
+    + imagemagick (apt for Linux, brew for MacOS)
+    + 7zip: p7zip-full p7zip-rar (Linux), sevenzip (MacOS)
+    + poppler: poppler-utils (apt for Linux), poppler (brew for MacOS)
+    + wl-clipboard (apt for Linux only)
+    + yazi (change to install using snap, brew for MacOS)
 - Desktop apps:
     + Coding: VSCode, Postman, VMWare
     + Note: Sublime text
@@ -36,7 +36,7 @@
 - Dev apps:
     + make
     + git, lazygit
-    + docker, lazydocker
+    + docker, lazydocker (docker engine for Linux, docker desktop for MacOS)
     + uv, ruff (python)
     + nodejs, npm (javscript)
     + golang-go (go)
@@ -58,7 +58,7 @@
 
 ## Setup for MacOS:
 - Tcilling windows: Aerospace, yabai
-- Brew file, brew file lock json
+- Brew file, brew file lock json: brew lock file
 - SkechyBar
 - skhd
 - App manager: mas
