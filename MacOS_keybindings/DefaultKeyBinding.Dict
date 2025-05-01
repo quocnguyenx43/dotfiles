@@ -1,0 +1,6 @@
+{
+    "^x" = "cut:";
+    "^c" = "copy:";
+    "^v" = "paste:";
+    "~." = (insertText:, "👍");
+}

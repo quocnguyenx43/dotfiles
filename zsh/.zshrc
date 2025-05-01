@@ -67,15 +67,21 @@ fi
 ## fzf & fd
 eval "$(fzf --zsh)"
 
+if [[ "$(uname)" == "Linux" ]]; then
+    BAT='batcat'
+elif [[ "$(uname)" == "Darwin" ]]; then
+    BAT='bat'
+fi
+
 show_preview="
 if [ -d {} ]; then
     eza --tree --all --level=1 --color=always {} | head -200
 else
-    batcat -n --color=always --line-range :500 {}
+    $BAT -n --color=always --line-range :500 {}
 fi"
 export FZF_DEFAULT_COMMAND="fd . --type file --exclude .git --no-ignore --ignore-case --hidden --follow"
 export FZF_DEFAULT_OPTS="--height 70% --layout reverse --border --preview '$show_preview'"
-export FZF_CTRL_R_OPTS="--height 70% --preview 'echo {2..} | batcat --color=always -pl sh' --preview-window 'wrap,up,5'"
+export FZF_CTRL_R_OPTS="--height 70% --preview 'echo {2..} | $BAT --color=always -pl sh' --preview-window 'wrap,up,5'"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type directory . $HOME"
 

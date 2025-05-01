@@ -42,5 +42,13 @@
                 "../sublime-text/Preferences.sublime-settings"
             ]
         }
+    },
+    "keybindings": {
+        "MacOS": {
+            "path": "Library/Keybindings",
+            "files_folders": [
+                "../MacOS_keybindings/DefaultKeyBinding.Dict"
+            ]
+        }
     }
 }

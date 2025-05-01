@@ -19,3 +19,7 @@ stow-del:
 	$(MAKE) -C ssh stow-del
 	$(MAKE) -C tmux stow-del
 	$(MAKE) -C wezterm stow-del
+
+clean:
+	rm -rf ./Linux
+	rm -rf ./MacOS
