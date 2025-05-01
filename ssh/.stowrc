@@ -1,0 +1,4 @@
+--target=~/.ssh
+--adopt
+--ignore=.stowrc
+--ignore=Makefile

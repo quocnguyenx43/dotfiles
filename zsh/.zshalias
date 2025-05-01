@@ -1,0 +1,126 @@
+# Remove apt packages
+function apt_completely_remove_package() {
+    sudo apt-get remove --auto-remove --purge $1
+    sudo apt-get clean
+    sudo apt-get autoremove -y
+}
+
+# Tmux new-session
+function tmux_new_session() {
+    tmux new-session -d -s "$1"
+}
+
+# Yazi
+function yz() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
+# Python environment
+function create_virtual_python_environment() {
+    if [[ "$1" == "uv" ]]; then
+        echo "Virtual environment using uv."
+        uv init -p 3.12
+        uv venv -p 3.12
+        uv sync
+        uv add pip
+        source .venv/bin/activate
+        pip install --upgrade pip
+    else 
+        echo "Virtual environment using venv."
+        python3.12 -m venv .venv
+        source .venv/bin/activate
+        pip install --upgrade pip
+    fi
+}
+
+# Find something
+function global_find() {
+    fd $1 /
+}
+
+# Common
+alias c="clear"
+
+# Useful custom
+alias crm="apt_completely_remove_package"
+alias gfind="global_find"
+
+# Python
+alias cpv=create_virtual_python_environment
+alias apv='source ./.venv/bin/activate'
+alias dpv='deactivate'
+
+# Tmux
+alias tns="tmux_new_session"
+
+# Apps
+alias nv='nvim'
+alias dc='docker compose'
+alias lzd='lazydocker'
+alias lzg='lazygit'
+if [[ "$(uname)" == "Linux" ]]; then
+    alias bcat='batcat'
+    alias fd='fdfind'
+elif [[ "$(uname)" == "Darwin" ]]; then
+    alias bcat='bat'
+fi
+alias cd='z'
+
+if [[ "$PC_TYPE" == "WORK" ]]; then
+    alias cdpj='cd "$HOME/workspace/414n/projects" && echo "$HOME/workspace/414n/projects"'
+    alias cdrs='cd "$HOME/workspace/414n/research" && echo "$HOME/workspace/414n/research"'
+else
+    alias cdpj='cd "$HOME/qn/area/coding" && echo "$HOME/qn/area/coding"'
+    alias cdwork='cd "$HOME/qn/area/work" && echo "$HOME/qn/area/work"'
+fi
+
+my_help () {
+    # ** COMP **
+    if [[ "$PC_TYPE" == "WORK" ]]; then
+        echo "Terminal Proxy (postman, apt, apt-get, flatpak)"
+        echo "\t enable_terminal_proxy (epx)"
+        echo "\t disable_terminal_proxy (dpx)"
+        
+        echo "Docker Proxy (docker, docker compose)"
+        echo "\t restart_docker_proxy (rsdk)"
+        echo "\t enable_docker_proxy (edkpx)"
+        echo "\t disable_docker_proxy (ddkpx)"
+    fi
+
+    echo "Common"
+    echo "\t clear (c)"
+    if [[ "$(uname)" == "Linux" ]]; then
+        echo "\t apt_completely_remove_package (crm)"
+    fi
+
+    echo "Python"
+    echo "\t create_virtual_python_environment (cpv) [uv | venv]"
+    echo "\t source ./.venv/bin/activate (apv)"
+    echo "\t deactivate (dpv)"
+
+    echo "Apps"
+    echo "\t nvim (nv)"
+    echo "\t wezterm (wezterm)"
+    echo "\t docker compose (dc)"
+    echo "\t lazydocker (lzd)"
+    echo "\t lazygit (lzg)"
+    echo "\t proxychains (pxc)"
+    echo "\t proxychains4 (pxc4)"
+
+    if [[ "$PC_TYPE" == "WORK" ]]; then
+        # ** COMP **
+        echo "\t cdpj"
+        echo "\t cdrs"
+    else
+        echo "Personal"
+        echo "\t cdpj"
+        echo "\t cdwork"
+    fi
+}
+
+alias mh='my_help'

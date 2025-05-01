@@ -2,7 +2,7 @@
 export TERM="tmux-256color"
 
 # Bash-like paths
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:$PATH
 
 # ZSH
 alias reload-zsh='source ~/.zshrc'
@@ -73,11 +73,11 @@ if [ -d {} ]; then
 else
     batcat -n --color=always --line-range :500 {}
 fi"
-export FZF_DEFAULT_COMMAND="fdfind . --type file --exclude .git --no-ignore --ignore-case --hidden --follow"
+export FZF_DEFAULT_COMMAND="fd . --type file --exclude .git --no-ignore --ignore-case --hidden --follow"
 export FZF_DEFAULT_OPTS="--height 70% --layout reverse --border --preview '$show_preview'"
 export FZF_CTRL_R_OPTS="--height 70% --preview 'echo {2..} | batcat --color=always -pl sh' --preview-window 'wrap,up,5'"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="fdfind --type directory . $HOME"
+export FZF_ALT_C_COMMAND="fd --type directory . $HOME"
 
 ## Advanced custom FZF
 export FZF_COMPLETION_TRIGGER='*'

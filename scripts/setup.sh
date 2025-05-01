@@ -1,11 +1,102 @@
-# Change DNS to Google (for faster): 8.8.8.8, 8.8.4.4
-sudo echo "nameserver 8.8.8.8" >> /etc/resolv.conf
-sudo echo "nameserver 8.8.4.4" >> /etc/resolv.conf
+#!/bin/bash
+set -e
 
-# Enable firewall
-sudo ufw enable
+# Identity OS and then run the appropriate script
+OS_TYPE="$(uname)"
 
-# Docker
-sudo usermod -a -G docker $USER
+if [[ "$OS_TYPE" == "Linux" ]]; then
+  OS_NAME="$(lsb_release -si)"
+  OS_VERSION="$(lsb_release -sr)"
+  echo "OS: $OS_NAME $OS_VERSION"
+elif [[ "$OS_TYPE" == "Darwin" ]]; then
+  OS_NAME="macOS"
+  OS_VERSION="$(sw_vers -productVersion)"
+  echo "OS: $OS_NAME $OS_VERSION"
+else
+  echo "Unsupported OS: $OS_TYPE"
+  exit 1
+fi
 
-sudo chown -R $USER:$USER /opt
+# # Enable firewall
+# sudo ufw enable
+
+# # Docker
+# sudo usermod -a -G docker $USER
+
+# # Change DNS to Google and Cloudflare (for faster): 8.8.8.8, 8.8.4.4
+# sudo echo "nameserver 8.8.8.8" >> /etc/resolv.conf
+# sudo echo "nameserver 1.1.1.1" >> /etc/resolv.conf
+
+# # Change ownership of /opt to the current user
+# sudo chown -R $USER:$USER /opt
+
+# Define the path to the JSON file
+JSON_FILE="conf_dirs.json"
+
+# Function to create directories based on the OS
+create_dirs() {
+  if [[ ! -f "$JSON_FILE" ]]; then
+    echo "JSON file not found!"
+    exit 1
+  fi
+
+  for app in $(jq -r 'keys[]' "$JSON_FILE"); do
+    for os in $(jq -r ".${app} | keys[]" "$JSON_FILE"); do
+      if [[ "$os" == "MacOS" && "$OS_TYPE" == "Darwin" ]]; then
+        # Create directories for MacOS
+        path=$(jq -r ".${app}.MacOS.path" "$JSON_FILE")
+        mkdir -p "$HOME/$path" && mkdir -p "../MacOS/$path"
+        echo "$app MacOS dir:"
+        echo "--- at: $HOME/$path"
+        echo "--- at: ../MacOS/$path"
+
+        # Copy files and folders into ../MacOS
+        files_folders=$(jq -r ".${app}.MacOS.files_folders[]" "$JSON_FILE")
+        for item in $files_folders; do
+          if [[ -e "$item" ]]; then
+            cp -r "$item" "../MacOS/$path"
+            echo "Copied $item -> ../MacOS/$path"
+          else
+            echo "Warning: $item does not exist."
+          fi
+        done
+      elif [[ "$os" == "Linux" && "$OS_TYPE" == "Linux" ]]; then
+        # Create directories for Linux
+        path=$(jq -r ".${app}.Linux.path" "$JSON_FILE")        
+        mkdir -p "$HOME/$path" && mkdir -p "../Linux/$path"
+        echo "$app Linux dir:"
+        echo "--- at: $HOME/$path"
+        echo "--- at: ../MacOS/$path"
+
+        # Copy files and folders into ../Linux
+        files_folders=$(jq -r ".${app}.Linux.files_folders[]" "$JSON_FILE")
+        for item in $files_folders; do
+          if [[ -e "$item" ]]; then
+            cp -r "$item" "../Linux/$path"
+            echo "Copied $item -> ../Linux/$path"
+          else
+            echo "Warning: $item does not exist."
+          fi
+        done
+      fi
+    done
+  done
+}
+
+create_dirs
+
+if [[ "$OS_TYPE" == "Linux" ]]; then
+  cp -r .stowrc ../Linux/
+  cp -r Makefile ../Linux/
+elif [[ "$OS_TYPE" == "Darwin" ]]; then
+  cp -r .stowrc ../MacOS/
+  cp -r Makefile ../MacOS/
+else
+  echo "Unsupported OS: $OS_TYPE"
+  exit 1
+fi
+
+echo ""
+echo "Copied .stowrc and Makefile susccessfully!"
+
+exit

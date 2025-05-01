@@ -14,7 +14,7 @@
     - zsh-syntax-highlighting (github)
 - Others CLI tools (dependencies):
     + fzf (latest on Github for Linux, brew for MacOS)
-    + fdfind (latest on Github, brew for MacOS)
+    + fd, fdfind (latest on Github, brew for MacOS)
     + eza (latest on Github, brew for MacOS)
     + zoxide (latest on Github, brew for MacOS)
     + ripgrep (apt for Linux, brew for MacOS)

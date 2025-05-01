@@ -1,0 +1,46 @@
+{
+    "config": {
+        "MacOS": {
+            "path": ".config",
+            "files_folders": [
+                "../nvim",
+                "../yazi"
+            ]
+        },
+        "Linux": {
+            "path": ".config",
+            "files_folders": [
+                "../nvim",
+                "../yazi"
+            ]
+        }
+    },
+    "vscode": {
+        "MacOS": {
+            "path": "Library/Application Support/Code/User",
+            "files_folders": [
+                "../vscode/settings.json"
+            ]
+        },
+        "Linux": {
+            "path": ".config/Code/User",
+            "files_folders": [
+                "../vscode/settings.json"
+            ]
+        }
+    },
+    "sublimetext": {
+        "MacOS": {
+            "path": "Library/Application Support/Sublime Text/Packages/User",
+            "files_folders": [
+                "../sublime-text/Preferences.sublime-settings"
+            ]
+        },
+        "Linux": {
+            "path": ".config/sublime-text/Packages/User",
+            "files_folders": [
+                "../sublime-text/Preferences.sublime-settings"
+            ]
+        }
+    }
+}
