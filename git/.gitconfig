@@ -16,3 +16,5 @@
 # ** COMP **
 # [proxies]
 #	 proxy = http://alan1:xe&UvMTrrEOiPhA7@10.5.33.2:6777
+[credential]
+	helper = store
