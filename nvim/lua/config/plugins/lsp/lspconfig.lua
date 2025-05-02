@@ -58,7 +58,7 @@ return {
             },
             dockerls = {}, -- Dockerfile
             docker_compose_language_service = {}, -- Docker compose 
-            sqls = {}, -- SQL
+            -- sqls = {}, -- SQL
             pyright = {}, -- Python
             jdtls = {}, -- Java
 

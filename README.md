@@ -43,6 +43,8 @@
     + jdk 11/17
     + coursier, (cs, scala, scalac, sbt), maven (for scala, java)
     + neovim (github source) -> opt -> zshenv
+
+## Software
     + Hadoop -> opt -> zshenv
     + Spark -> opt -> zshenv
     + Maven -> opt -> zshenv

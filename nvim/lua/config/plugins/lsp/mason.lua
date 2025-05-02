@@ -37,7 +37,7 @@ return {
                 "ltex", -- Latex
                 "dockerls", -- Dockerfile
                 "docker_compose_language_service", -- Docker compose
-                "sqls", -- SQL
+                -- "sqls", -- SQL
                 "clangd", -- C, C++
                 "pyright", -- Python
                 "jdtls", -- Java
