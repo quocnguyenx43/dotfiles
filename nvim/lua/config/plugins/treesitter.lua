@@ -46,7 +46,7 @@ return {
                 "dockerfile",
                 "make",
                 "cmake",
-                "sql",
+                -- "sql",
                 "c",
                 "cpp",
                 "java",

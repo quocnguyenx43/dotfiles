@@ -16,11 +16,11 @@ config.font = wezterm.font_with_fallback(
 		'Menlo',
 	}
 )
-config.font_size = 11
+config.font_size = 14
 
 -- Window & tab
 config.enable_tab_bar = false
-config.window_decorations = "NONE"
+-- config.window_decorations = "NONE"
 config.window_padding = {
 	left = 5,
 	right = 0,
@@ -30,7 +30,7 @@ config.window_padding = {
 
 wezterm.on("gui-startup", function()
 	local tab, pane, window = mux.spawn_window({})
-	window:gui_window():maximize()
+	window:gui_window():set_inner_size(1280, 720)
 end)
 
 -- -- Others

@@ -49,19 +49,55 @@
     + Spark -> opt -> zshenv
     + Maven -> opt -> zshenv
 
-## Setup for Ubuntu
+## Setup tips
 - Change DNS to Google for faster internet (script)
 - Enable firewall - ufw (script)
 - Config docker user (scrip)
 - Change owner /opt/ to $USER
-- Apps:
-    + Gnome Tweaks: Map Caps Lock to ESC
-    + Startup Program
+
+## Setup for Ubuntu
+- Gnome Tweaks: Map Caps Lock to ESC
+- Startup Program
 
 ## Setup for MacOS:
+- Brew, brew lock file
+- Shortcuts, hot keys (built-in)
+    - Disable Capslock action
+    - Show launchpad: Control-A 
+    - Show desktop: Control-D
+    - Stage manager: Control-S
+    - Show mission control: Option-Tab
+        - Move left desktop: Control-Command-Left
+        - Move right desktop: Control-Command-
+    - Focus to the next window on the same app: Hyper-C
+    - Quick note: Control-B
+    - Change input source: Control-Shift-Space
+    - Sportlight search: Command-Space
+    - Finder search: Option-Command-Space
+    - Quit app: Command-Q
+- Shortcuts:
+    - Karabiner Elements: Enable Capslocks -> HyperKey
+    - Raycast: Window Management and App Management
+        - Brave: Hyper-B
+        - Finder: Hyper-F
+        - Notion: Hyper-N
+        - Spotify: Hyper-M
+        - Sublime-Text: Hyper-S
+        - Wezterm: Hyper-T
+        - VSCode: Hyper-D
+        - Zalo: Hyper-Z
+        - Clipboard History: Hyper-V
+        - Window:
+            - Almost Maximize: Control-Shift-dot
+            - Top Half: Control-Shift-Up
+            - Bottom Half: Control-Shift-Down
+            - Left Half: Control-Shift-Left
+            - Right Half: Control-Shift-Right
+            - Move Up: Control-Up
+            - Move Down: Control-Down
+            - Move Left: Control-Left
+            - Move Right: Control-Right
 - Tcilling windows: Aerospace, yabai
-- Brew file, brew file lock json: brew lock file
 - SkechyBar
 - skhd
 - App manager: mas
-

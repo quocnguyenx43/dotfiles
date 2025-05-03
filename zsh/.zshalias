@@ -75,7 +75,7 @@ if [[ "$PC_TYPE" == "WORK" ]]; then
     alias cdpj='cd "$HOME/workspace/414n/projects" && echo "$HOME/workspace/414n/projects"'
     alias cdrs='cd "$HOME/workspace/414n/research" && echo "$HOME/workspace/414n/research"'
 else
-    alias cdpj='cd "$HOME/qn/area/coding" && echo "$HOME/qn/area/coding"'
+    alias cdcode='cd "$HOME/qn/area/coding" && echo "$HOME/qn/area/coding"'
     alias cdwork='cd "$HOME/qn/area/work" && echo "$HOME/qn/area/work"'
 fi
 
