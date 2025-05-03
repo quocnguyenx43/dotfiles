@@ -87,11 +87,20 @@
         - Zalo: Hyper-Z
         - Clipboard History: Hyper-V
         - Window:
-            - Almost Maximize: Control-Shift-dot
+            - Almost Maximize: Control-Shift-.
+            - Maximize: Control-Option-Shift-.
+            - Center: Control-Shift-/
+            - Center-Half: Control-Shift-,
+            - Make size smaller: Control-+
+            - Make size larget: Control-Shift-+
             - Top Half: Control-Shift-Up
             - Bottom Half: Control-Shift-Down
             - Left Half: Control-Shift-Left
             - Right Half: Control-Shift-Right
+            - Top Left Quarter: Control-H
+            - Top Right Quarter: Control-L
+            - Bottom Left Quarter: Control-J
+            - Bottom Right Quarter: Control-K
             - Move Up: Control-Up
             - Move Down: Control-Down
             - Move Left: Control-Left
