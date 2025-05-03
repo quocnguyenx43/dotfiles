@@ -1,8 +1,7 @@
 # What's inside:
 
 ## Fonts
-- **JetBrains Mono NL**  
-  [JetBrainsMonoNL-Medium.ttf](https://github.com/podkovyrin/JetBrainsMono/blob/feature/no-ligatures-1-0-3/no-ligatures/JetBrainsMonoNL-Medium.ttf)
+- **JetBrains Mono Fonts**: [JetBrainsMonoNL-Medium.ttf](https://github.com/podkovyrin/JetBrainsMono/blob/feature/no-ligatures-1-0-3/no-ligatures/JetBrainsMonoNL-Medium.ttf)
 
 ## Tools & Apps
 - GNU Stow (apt for Linux and brew for MacOS)
