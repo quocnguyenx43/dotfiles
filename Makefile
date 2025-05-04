@@ -3,8 +3,16 @@
 all: stow
 
 stow:
-	echo "Run setting up script..." && cd ./scripts && ./setup.sh
-	$(MAKE) -C MacOS
+	echo "Run setting up script..." && \
+		chmod +x ./scripts/ubuntu.sh && \
+		chmod +x ./scripts/macos.sh && \
+		cd ./scripts && ./setup.sh
+	@if [ -d ./MacOS ]; then \
+		$(MAKE) -C MacOS; \
+	fi
+	@if [ -d ./Linux ]; then \
+		$(MAKE) -C Linux; \
+	fi
 	$(MAKE) -C zsh
 	$(MAKE) -C git
 	$(MAKE) -C ssh
@@ -14,8 +22,16 @@ stow:
 	$(MAKE) -C wget
 
 stow-del:
-	echo "Run setting up script..." && cd ./scripts && ./setup.sh
-	$(MAKE) -C MacOS stow-del
+	echo "Run setting up script..." && \
+		chmod +x ./scripts/ubuntu.sh && \
+		chmod +x ./scripts/macos.sh && \
+		cd ./scripts && ./setup.sh
+	@if [ -d ./MacOS ]; then \
+		$(MAKE) -C MacOS stow-del; \
+	fi
+	@if [ -d ./Linux ]; then \
+		$(MAKE) -C Linux stow-del; \
+	fi
 	$(MAKE) -C zsh stow-del
 	$(MAKE) -C git stow-del
 	$(MAKE) -C ssh stow-del

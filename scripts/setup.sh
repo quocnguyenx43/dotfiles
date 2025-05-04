@@ -55,7 +55,7 @@ create_dirs() {
             mkdir -p "$HOME/$path" && mkdir -p "../Linux/$path"
             echo "$app Linux dir:"
             echo "--- at: $HOME/$path"
-            echo "--- at: ../MacOS/$path"
+            echo "--- at: ../Linux/$path"
 
             # Copy files and folders into ../Linux
             files_folders=$(jq -r ".${app}.Linux.files_folders[]" "$JSON_FILE")
@@ -87,5 +87,11 @@ fi
 
 echo ""
 echo "Copied .stowrc and Makefile susccessfully!"
+
+echo ""
+echo "Creating some config folders & files"
+sudo mkdir -p $HOME/.ssh
+sudo chown -R "$USER":"$USER" ~/.ssh
+sudo chmod 700 ~/.ssh
 
 exit
