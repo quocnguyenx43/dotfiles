@@ -60,20 +60,21 @@
 
 ## Setup for MacOS:
 - Brew, brew lock file
-- Shortcuts, hot keys (built-in)
+- Shortcuts, hot keys (built-in): Setting up for each device in keyboard settings
     - Disable Capslock action
-    - Show launchpad: Control-A 
-    - Show desktop: Control-D
-    - Stage manager: Control-S
-    - Show mission control: Option-Tab
-        - Move left desktop: Control-Command-Left
-        - Move right desktop: Control-Command-
-    - Focus to the next window on the same app: Hyper-C
-    - Quick note: Control-B
-    - Change input source: Control-Shift-Space
-    - Sportlight search: Command-Space
-    - Finder search: Option-Command-Space
-    - Quit app: Command-Q
+    - Mapping: Control -> Command, Command -> Control
+    - Show launchpad: (Command-Option-F) / (Control-Alt-F position)
+    - Show desktop: (Command-Option-D) / (Control-Alt-D position)
+    - Stage manager: (Command-Option-S) / (Control-Alt-S position)
+    - Show mission control: Option-Tab (Alt-Tab position)
+        - Move left desktop: Command-Option-Left (Control-Alt-Left position)
+        - Move right desktop: Command-Option-Right (Control-Alt-Right position)
+    - Open quick note: Command-Option-N / (Control-Alt-N position)
+    - Focus to the next window on the same app: Hyper-C (Command-Control-Option-Shift-C)
+    - Change input source: Command-Shift-Space (Control-Shift-Space position)
+    - Sportlight search: Control-Space (Window-Space position)
+    - Finder search: Control-Option-Space (Window-Alt-Space position)
+    - Quit app: Command-Q (Control-Q position)
 - Shortcuts:
     - Karabiner Elements: Enable Capslocks -> HyperKey
     - Raycast: Window Management and App Management
@@ -105,6 +106,7 @@
             - Move Down: Control-Down
             - Move Left: Control-Left
             - Move Right: Control-Right
+- Notch
 - Tcilling windows: Aerospace, yabai
 - SkechyBar
 - skhd

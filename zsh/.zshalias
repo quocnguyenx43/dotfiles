@@ -79,6 +79,10 @@ else
     alias cdwork='cd "$HOME/qn/area/work" && echo "$HOME/qn/area/work"'
 fi
 
+alias dt='cd "$HOME/Desktop" && echo "$HOME/Desktop"'
+alias dl='cd "$HOME/Downloads" && echo "$HOME/Downloads"'
+alias dc='cd "$HOME/Documents" && echo "$HOME/Documents"'
+
 my_help () {
     # ** COMP **
     if [[ "$PC_TYPE" == "WORK" ]]; then

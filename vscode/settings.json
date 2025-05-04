@@ -19,5 +19,5 @@
     "update.showReleaseNotes": false,
     "workbench.iconTheme": "vscode-icons",
     "makefile.configureOnOpen": true,
-    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDragAndDrop": false
 }

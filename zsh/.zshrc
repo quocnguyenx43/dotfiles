@@ -52,8 +52,8 @@ export LANG=en_US.UTF-8
 bindkey -v
 
 ## zsh-auto-suggestions
-bindkey '^I'   complete-word       # tab          | complete
-bindkey '^[[Z' autosuggest-accept  # shift + tab  | autosuggest
+bindkey '^I'        complete-word       # tab          | complete
+bindkey '^[[Z'      autosuggest-accept  # shift + tab  | autosuggest
 
 # Editor
 if [[ -n $SSH_CONNECTION ]]; then

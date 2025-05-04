@@ -1,6 +1,4 @@
 --target=~/
 --adopt
 --ignore=.stowrc
---ignore=macos.sh
---ignore=ubuntu.sh
 --ignore=Makefile
