@@ -32,7 +32,6 @@ end
 
 -- Theme & font
 config.color_scheme = "Tokyo Night"
-config.window_background_opacity = 0.98
 config.font = wezterm.font_with_fallback(
     {
         "JetBrains Mono NL",
@@ -53,18 +52,37 @@ config.window_padding = {
     bottom = 10,
 }
 
+-- Never show close confirmation dialog
+config.window_close_confirmation = 'AlwaysPrompt'
+
 wezterm.on("gui-startup", function()
     local tab, pane, window = mux.spawn_window({})
     window:gui_window():set_inner_size(width, height)
 end)
 
-
 -- Keybindings
 if is_macos then
     config.keys = {
-
+        {
+            key = "LeftArrow",
+            mods = "ALT",
+            action = wezterm.action.SendString("\x1bb"),
+        },
+        {
+            key = "RightArrow",
+            mods = "ALT",
+            action = wezterm.action.SendString("\x1bf"),
+        },
+        {
+            key = "Backspace",
+            mods = "ALT",
+            action = wezterm.action.SendString("\x1b\x7f"),
+        },
     }
 end
+
+-- Default program
+config.default_prog = { "/bin/zsh", "-c", "exec ./.wezterm_startup.sh" }
 
 -- Others
 config.adjust_window_size_when_changing_font_size = true

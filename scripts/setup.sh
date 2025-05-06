@@ -91,7 +91,11 @@ echo "Copied .stowrc and Makefile susccessfully!"
 echo ""
 echo "Creating some config folders & files"
 sudo mkdir -p $HOME/.ssh
-sudo chown -R "$USER":"$USER" ~/.ssh
+if [[ "$OS_TYPE" == "Linux" ]]; then
+    sudo chown -R "$USER":"$USER" ~/.ssh
+elif [[ "$OS_TYPE" == "Darwin" ]]; then
+    sudo chown -R $USER ~/.ssh
+fi
 sudo chmod 700 ~/.ssh
 
 exit

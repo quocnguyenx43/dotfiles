@@ -4,6 +4,7 @@
             "path": ".config",
             "files_folders": [
                 "../nvim",
+                "../karabiner",
                 "../yazi"
             ]
         },

@@ -1,3 +1,14 @@
+# PC_TYPE: PERSONAL | WORK
+PC_TYPE_FILE="$HOME/.zsh_pc_type"
+
+if [[ -f "$PC_TYPE_FILE" ]]; then
+    export PC_TYPE="$(cat "$PC_TYPE_FILE")"
+else
+    read "?Please enter your PC_TYPE (e.g., PERSONAL or WORK): " PC_TYPE
+    echo "$PC_TYPE" > "$PC_TYPE_FILE"
+    export PC_TYPE
+fi
+
 # Colors
 export TERM="tmux-256color"
 
@@ -12,8 +23,6 @@ alias edit-zsh='nvim ~/.zshrc'
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 plugins=(
-    alias-finder
-    aliases
     ubuntu
     tmux
     tmuxinator
@@ -48,12 +57,12 @@ setopt hist_verify
 # Lang settings
 export LANG=en_US.UTF-8
 
-# Key bindings (Vim style)
-bindkey -v
+# Key bindings (Emacs style)
+bindkey -e
 
 ## zsh-auto-suggestions
-bindkey '^I'        complete-word       # tab          | complete
-bindkey '^[[Z'      autosuggest-accept  # shift + tab  | autosuggest
+bindkey '^I'    complete-word       # tab          | complete
+bindkey '^[[Z'  autosuggest-accept  # shift + tab  | autosuggest
 
 # Editor
 if [[ -n $SSH_CONNECTION ]]; then
@@ -116,9 +125,11 @@ _fzf_compgen_dir() {
 eval "$(zoxide init zsh)"
 
 # Custom source
-ZSH_CUSTOM=
 ZSH_ENV="$HOME/.zshenv"
 ZSH_ALIAS="$HOME/.zshalias"
+ZSH_PROXY="$HOME/.zshproxy"
+ZSH_FUNCTION="$HOME/.zshfunction"
+ZSH_HELP="$HOME/.zshhelp"
 
 if [ -f "$ZSH_ENV" ]; then
     source "$ZSH_ENV"
@@ -128,6 +139,16 @@ if [ -f "$ZSH_ALIAS" ]; then
     source "$ZSH_ALIAS"
 fi
 
-if [ -f "$ZSH_CUSTOM" ]; then
-    source "$ZSH_CUSTOM"
+if [[ "$PC_TYPE" == "WORK" ]]; then
+    if [ -f "$ZSH_PROXY" ]; then
+        source "$ZSH_PROXY"
+    fi
+fi
+
+if [ -f "$ZSH_FUNCTION" ]; then
+    source "$ZSH_FUNCTION"
+fi
+
+if [ -f "$ZSH_HELP" ]; then
+    source "$ZSH_HELP"
 fi

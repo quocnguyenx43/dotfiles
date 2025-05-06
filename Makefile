@@ -9,6 +9,7 @@ stow:
 		cd ./scripts && ./setup.sh
 	@if [ -d ./MacOS ]; then \
 		$(MAKE) -C MacOS; \
+		$(MAKE) -C brew; \
 	fi
 	@if [ -d ./Linux ]; then \
 		$(MAKE) -C Linux; \
@@ -28,6 +29,7 @@ stow-del:
 		cd ./scripts && ./setup.sh
 	@if [ -d ./MacOS ]; then \
 		$(MAKE) -C MacOS stow-del; \
+		$(MAKE) -C brew del; \
 	fi
 	@if [ -d ./Linux ]; then \
 		$(MAKE) -C Linux stow-del; \

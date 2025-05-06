@@ -1,11 +1,9 @@
-export PC_TYPE="PERSONAL"
-
-# Neovim intel
+# Neovim Intel
 if [[ -d "/opt/nvim/nvim-linux-x86_64/bin" && -f "/opt/nvim/nvim-linux-x86_64/bin/nvim" ]]; then
     export PATH=$PATH:/opt/nvim/nvim-linux-x86_64/bin
 fi
 
-# Linux dev envs
+# Linux
 if [[ "$(uname)" == "Linux" ]]; then
     # JAVA
     export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
@@ -29,7 +27,11 @@ if [[ "$(uname)" == "Linux" ]]; then
     export SPARK_HOME=/opt/spark/spark-3.5.4-bin-hadoop3-scala2.13
     export PYTHONPATH=$SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.9.7-src.zip:$PYTHONPATH
     export PATH=$SPARK_HOME/bin:$SPARK_HOME/python:$PATH
+# MacOS
 elif [[ "$(uname)" == "Darwin" ]]; then
     # Visual Studio Code
     export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+    # Sublime Text
+    export PATH="$PATH:/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl"
 fi

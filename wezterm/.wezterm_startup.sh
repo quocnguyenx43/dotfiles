@@ -1,11 +1,28 @@
-#!/bin/bash
+#!/bin/zsh
 
-if [ -z "$TMUX" ]; then
-    LAST_SESSION=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | tail -n 1)
+# MacOS
+if [[ "$(uname)" == "Darwin" ]]; then
+    export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
+else
+    export PATH="/usr/local/bin:$PATH"
+fi
+
+# Ensure colors
+export TERM=wezterm
+
+TMUX_BIN="$(command -v tmux)"
+
+if [ -z "$TMUX" ] && [ -n "$TMUX_BIN" ]; then
+    LAST_SESSION=$($TMUX_BIN list-sessions -F "#{session_name}" 2>/dev/null | head -n 1)
     if [ -n "$LAST_SESSION" ]; then
-        tmux attach-session -t "$LAST_SESSION"
+        exec $TMUX_BIN attach-session -t "$LAST_SESSION" \;\
+            set-option display-time 10000 \;\
+            display-message "Get back to session '$LAST_SESSION'"
     else
-        tmux new-session -s new
+        $TMUX_BIN new-session -d -s new-session
+        exec $TMUX_BIN attach-session -t new-session \;\
+            set-option display-time 10000 \;\
+            display-message "🐧 New tmux session started!"
     fi
 fi
 

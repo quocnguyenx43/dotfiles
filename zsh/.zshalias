@@ -1,9 +1,19 @@
-# Remove apt packages
-function apt_completely_remove_package() {
-    sudo apt-get remove --auto-remove --purge $1
-    sudo apt-get clean
-    sudo apt-get autoremove -y
-}
+# Package manager
+if [[ "$(uname)" == "Linux" ]]; then
+    # Remove apt packages
+    function apt_completely_remove_package() {
+        sudo apt-get remove --auto-remove --purge $1
+        sudo apt-get clean
+        sudo apt-get autoremove -y
+    }
+    alias crm="apt_completely_remove_package"
+elif [[ "$(uname)" == "Darwin" ]]; then
+    # Remove brew packages
+    function brew_completely_remove_package() {
+        brew uninstall --force $1
+        brew cleanup
+    }
+fi
 
 # Tmux new-session
 function tmux_new_session() {
@@ -12,12 +22,12 @@ function tmux_new_session() {
 
 # Yazi
 function yz() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		builtin cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+        builtin cd -- "$cwd"
+    fi
+    rm -f -- "$tmp"
 }
 
 # Python environment
@@ -47,7 +57,11 @@ function global_find() {
 alias c="clear"
 
 # Useful custom
-alias crm="apt_completely_remove_package"
+if [[ "$(uname)" == "Linux" ]]; then
+    alias crm="apt_completely_remove_package"
+elif [[ "$(uname)" == "Darwin" ]]; then
+    alias crm="brew_completely_remove_package"
+fi
 alias gfind="global_find"
 
 # Python
@@ -71,6 +85,8 @@ elif [[ "$(uname)" == "Darwin" ]]; then
 fi
 alias cd='z'
 
+# Change directory aliases
+# ** COMP **
 if [[ "$PC_TYPE" == "WORK" ]]; then
     alias cdpj='cd "$HOME/workspace/414n/projects" && echo "$HOME/workspace/414n/projects"'
     alias cdrs='cd "$HOME/workspace/414n/research" && echo "$HOME/workspace/414n/research"'
@@ -82,49 +98,3 @@ fi
 alias dt='cd "$HOME/Desktop" && echo "$HOME/Desktop"'
 alias dl='cd "$HOME/Downloads" && echo "$HOME/Downloads"'
 alias dc='cd "$HOME/Documents" && echo "$HOME/Documents"'
-
-my_help () {
-    # ** COMP **
-    if [[ "$PC_TYPE" == "WORK" ]]; then
-        echo "Terminal Proxy (postman, apt, apt-get, flatpak)"
-        echo "\t enable_terminal_proxy (epx)"
-        echo "\t disable_terminal_proxy (dpx)"
-        
-        echo "Docker Proxy (docker, docker compose)"
-        echo "\t restart_docker_proxy (rsdk)"
-        echo "\t enable_docker_proxy (edkpx)"
-        echo "\t disable_docker_proxy (ddkpx)"
-    fi
-
-    echo "Common"
-    echo "\t clear (c)"
-    if [[ "$(uname)" == "Linux" ]]; then
-        echo "\t apt_completely_remove_package (crm)"
-    fi
-
-    echo "Python"
-    echo "\t create_virtual_python_environment (cpv) [uv | venv]"
-    echo "\t source ./.venv/bin/activate (apv)"
-    echo "\t deactivate (dpv)"
-
-    echo "Apps"
-    echo "\t nvim (nv)"
-    echo "\t wezterm (wezterm)"
-    echo "\t docker compose (dc)"
-    echo "\t lazydocker (lzd)"
-    echo "\t lazygit (lzg)"
-    echo "\t proxychains (pxc)"
-    echo "\t proxychains4 (pxc4)"
-
-    if [[ "$PC_TYPE" == "WORK" ]]; then
-        # ** COMP **
-        echo "\t cdpj"
-        echo "\t cdrs"
-    else
-        echo "Personal"
-        echo "\t cdpj"
-        echo "\t cdwork"
-    fi
-}
-
-alias mh='my_help'

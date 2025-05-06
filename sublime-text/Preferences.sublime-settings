@@ -1,3 +1,21 @@
 {
-    
+    "color_scheme": "Mariana.sublime-color-scheme",
+    "theme": "Default Dark.sublime-theme",
+    "default_encoding": "UTF-8",
+    "file_exclude_patterns":
+    [
+        ".DS_Store",
+        "Desktop.ini",
+        "*.pyc",
+        "._*",
+        "Thumbs.db",
+        ".Spotlight-V100",
+        ".Trashes"
+    ],
+    "folder_exclude_patterns":
+    [
+        ".git",
+    ],
+    "font_face": "monospace",
+    "highlight_modified_tabs": true
 }
