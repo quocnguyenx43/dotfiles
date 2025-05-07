@@ -1,7 +1,7 @@
-.PHONY: cast del
+.PHONY: bundle remove-bundle
 
-all: cast
+all: bundle
 
-cast:
-	
-del:
+bundle:
+
+remove-bundle:

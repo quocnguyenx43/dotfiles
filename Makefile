@@ -32,7 +32,7 @@ stow-del:
 		$(MAKE) -C brew del; \
 	fi
 	@if [ -d ./Linux ]; then \
-		$(MAKE) -C Linux stow-del; \
+		$(MAKE) -C Linux bundle-remove; \
 	fi
 	$(MAKE) -C zsh stow-del
 	$(MAKE) -C git stow-del

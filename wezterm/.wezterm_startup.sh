@@ -1,14 +1,12 @@
 #!/bin/zsh
 
-# MacOS
+# if MacOS
 if [[ "$(uname)" == "Darwin" ]]; then
     export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
+    export TERM=wezterm # Ensure colors
 else
     export PATH="/usr/local/bin:$PATH"
 fi
-
-# Ensure colors
-export TERM=wezterm
 
 TMUX_BIN="$(command -v tmux)"
 

@@ -15,6 +15,7 @@ local font_size = 12
 local window_decorations = "RESIZE"
 local width = 1280
 local height = 720
+local maximize = true
 
 if is_macos then
     shell = "/bin/zsh"
@@ -22,12 +23,14 @@ if is_macos then
     window_decorations = "NONE"
     width = 1280
     height = 720
+    maximize = false
 elseif is_linux then
     shell = "/usr/bin/zsh"
-    font_size = 10
+    font_size = 11
     window_decorations = "TITLE | RESIZE"
     width = 1600
     height = 900
+    maximize = true
 end
 
 -- Theme & font
@@ -55,10 +58,18 @@ config.window_padding = {
 -- Never show close confirmation dialog
 config.window_close_confirmation = 'AlwaysPrompt'
 
-wezterm.on("gui-startup", function()
-    local tab, pane, window = mux.spawn_window({})
-    window:gui_window():set_inner_size(width, height)
-end)
+-- Set the size of the window
+if maximize then
+    wezterm.on("gui-startup", function()
+        local tab, pane, window = mux.spawn_window({})
+        window:gui_window():maximize()
+    end)
+else
+    wezterm.on("gui-startup", function()
+        local tab, pane, window = mux.spawn_window({})
+        window:gui_window():set_inner_size(width, height)
+    end)
+end
 
 -- Keybindings
 if is_macos then

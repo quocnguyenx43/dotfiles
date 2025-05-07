@@ -1,4 +1,9 @@
 {
+    // // ** COMP **
+    // // Proxy
+    // "http.proxy": "http://alan1:xe&UvMTrrEOiPhA7@10.5.33.2:6777",
+    // "http.proxyStrictSSL": false,
+
     // Editor
     "editor.fontFamily": "monospace",
     "editor.mouseWheelZoom": true,
