@@ -66,5 +66,8 @@
     },
     "kanata_service": {
         "ubuntu": ".config/systemd/user"
+    },
+    "i3": {
+        "ubuntu": ".config/i3"
     }
 }

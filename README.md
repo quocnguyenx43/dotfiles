@@ -124,6 +124,8 @@
 # Ubuntu
 - Package manager: apt
 - Default shell: zsh
-- Gnome Tweaks: Map Caps Lock to ESC
-- Startup Program
-- Cargo -> kanata
+- kanata: Map Caps Lock to ESC
+- i3:
+    - Status bar: i3blocks
+
+sudo apt install i3 i3blocks
