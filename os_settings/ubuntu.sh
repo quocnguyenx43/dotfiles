@@ -1,17 +1,42 @@
 #!/bin/bash
 
-# Enable firewall
-sudo ufw enable
+# Ask for the administrator password upfront
+sudo -v
 
-# Docker
-sudo usermod -a -G docker $USER
+# Keep-alive: update existing `sudo` time stamp until `.macos` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+# Enable firewall
+ufw enable
+
+# Add privileges to Docker
+usermod -aG docker "$USER"
 
 # Change DNS to Google and Cloudflare (for faster): 8.8.8.8, 8.8.4.4
-# sudo echo "nameserver 8.8.8.8" >> /etc/resolv.conf
-# sudo echo "nameserver 1.1.1.1" >> /etc/resolv.conf
+# echo "nameserver 8.8.8.8" >> /etc/resolv.conf
+# echo "nameserver 1.1.1.1" >> /etc/resolv.conf
 
-# Setup tips
-# - Change DNS to Google for faster internet (script)
-# - Enable firewall - ufw (script)
-# - Config docker user (scrip)
-# - Change owner /opt/ to $USER
+# Change owner of /opt/ to current user
+sudo chown -R "$USER:$USER" /opt
+
+# Setup Kanata
+if ! getent group uinput > /dev/null; then
+    groupadd uinput
+fi
+
+usermod -aG input $USER
+usermod -aG uinput $USER
+
+echo 'KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"' |\
+    tee /etc/udev/rules.d/99-input.rules > /dev/null
+
+echo 'KERNEL=="uinput", GROUP="input", MODE="0660"' |\
+    tee /etc/udev/rules.d/99-uinput.rules > /dev/null
+
+udevadm control --reload-rules
+udevadm trigger
+
+echo "User group result"
+ls -l /dev/uinput
+
+sudo modprobe uinput

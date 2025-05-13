@@ -60,5 +60,11 @@
     },
     "skhd": {
         "macos": ".config/skhd"
+    },
+    "kanata": {
+        "ubuntu": ".config/kanata"
+    },
+    "kanata_service": {
+        "ubuntu": ".config/systemd/user"
     }
 }

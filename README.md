@@ -126,3 +126,4 @@
 - Default shell: zsh
 - Gnome Tweaks: Map Caps Lock to ESC
 - Startup Program
+- Cargo -> kanata

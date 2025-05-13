@@ -1,0 +1,13 @@
+[Unit]
+Description=Kanata
+Documentation=https://github.com/jtroo/kanata
+
+[Service]
+Environment=PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin
+Environment=DISPLAY=:0
+Type=simple
+ExecStart=/bin/bash -c 'exec /usr/local/bin/kanata --cfg $HOME/.config/kanata/kanata.kbd'
+Restart=no
+
+[Install]
+WantedBy=default.target

@@ -117,23 +117,48 @@ for app in $(jq -r 'keys[]' "$JSON_CONF_DIR_FILE"); do
         exit 1
     fi
 
+    # Skipping for some apps doesnt have on this OS
+    if [[ "$path" == "null" ]]; then
+        echo "Skipping $app: Does not supported on $OS!"
+        continue
+    fi
+
     # Create directories
-    res1=$(make_dir "$HOME/$path")
-    res2=$(make_dir "./$OUTPUT_DIR/$path")
+
+    # If the path is absolute
+    if [[ "$path" = /* ]]; then
+        res1=$(make_dir "$path")
+        res2=$(make_dir "./$OUTPUT_DIR$path")
+
+        echo "$app - $OS directories (absolute path):"
+        if [[ $res1 -eq 1 ]]; then
+            echo "   - created: $path"
+        else
+            echo "   - exists: $path"
+        fi
+        if [[ $res2 -eq 1 ]]; then
+            echo "   - created: ./$OUTPUT_DIR$path"
+        else 
+            echo "   - exists: ./$OUTPUT_DIR$path"
+        fi
+    else
+        res1=$(make_dir "$HOME/$path")
+        res2=$(make_dir "./$OUTPUT_DIR/$path")
+        
+        echo "$app - $OS directories:"
+        if [[ $res1 -eq 1 ]]; then
+            echo "   - created: $HOME/$path"
+        else
+            echo "   - exists: $HOME/$path"
+        fi
+        if [[ $res2 -eq 1 ]]; then
+            echo "   - created: ./$OUTPUT_DIR/$path"
+        else 
+            echo "   - exists: ./$OUTPUT_DIR/$path"
+        fi
+    fi
 
     # replicate_structure $app "$HOME/$path"
-
-    echo "$app - $OS directories:"
-    if [[ $res1 -eq 1 ]]; then
-        echo "   - created: $HOME/$path"
-    else
-        echo "   - exists: $HOME/$path"
-    fi
-    if [[ $res2 -eq 1 ]]; then
-        echo "   - created: ./$OUTPUT_DIR/$path"
-    else 
-        echo "   - exists: ./$OUTPUT_DIR/$path"
-    fi
 
     # Copy all config files for each app
     if [[ -d "$app" ]]; then
@@ -177,7 +202,7 @@ if [[ "$RUN_OS_SETUP" != "false" ]]; then
     elif [[ "$OS" == "ubuntu" ]]; then
         echo "Configuring Ubuntu..."
         echo "OS Version: $OS_VERSION"
-        chmod +x ./os_settings/ubuntu.sh && ./os_settings/ubuntu.sh && wait
+        chmod +x ./os_settings/ubuntu.sh && sudo ./os_settings/ubuntu.sh && wait
     else
         exit 1
     fi

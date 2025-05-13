@@ -26,7 +26,7 @@ if is_macos then
     maximize = false
 elseif is_linux then
     shell = "/usr/bin/zsh"
-    font_size = 11
+    font_size = 10
     window_decorations = "TITLE | RESIZE"
     width = 1600
     height = 900
