@@ -1,0 +1,55 @@
+# Change window focus
+alt - s : yabai -m window --focus south
+alt - w : yabai -m window --focus north
+alt - a : yabai -m window --focus west
+alt - d : yabai -m window --focus east
+
+# Move window
+shift + alt - s : yabai -m window --swap south
+shift + alt - w : yabai -m window --swap north
+shift + alt - a : yabai -m window --swap west
+shift + alt - d : yabai -m window --swap east
+
+# Change display focus
+cmd + alt - a: yabai -m display --focus west
+cmd + alt - d: yabai -m display --focus east
+
+# Move window to display left and right
+cmd + shift + alt - a : yabai -m window --display west; yabai -m display --focus west;
+cmd + shift + alt - d : yabai -m window --display east; yabai -m display --focus east;
+
+# Rotate layout
+shift + alt - r : yabai -m space --rotate 270
+shift + alt - y : yabai -m space --mirror y-axis
+shift + alt - x : yabai -m space --mirror x-axis
+shift + alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
+
+# Maximize window
+shift + alt - m : yabai -m window --toggle zoom-fullscreen
+
+# Balance window size
+shift + alt - e : yabai -m space --balance
+
+# Create a new space
+alt - n : yabai -m space --create && \
+    index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
+    yabai -m space --focus "${index}"
+
+# Switch focus to a space
+cmd - tab : yabai -m space --focus next
+cmd - escape : yabai -m space --focus prev
+alt - 1 : yabai -m space --focus 1
+alt - 2 : yabai -m space --focus 2
+alt - 3 : yabai -m space --focus 3
+alt - 4 : yabai -m space --focus 4
+
+# Move window to prev and next space
+shift + alt - p : yabai -m window --space prev;
+shift + alt - n : yabai -m window --space next;
+shift + alt - 1 : yabai -m window --space 1; yabai -m space --focus 1
+shift + alt - 2 : yabai -m window --space 2; yabai -m space --focus 2
+shift + alt - 3 : yabai -m window --space 3; yabai -m space --focus 3
+shift + alt - 4 : yabai -m window --space 4; yabai -m space --focus 4
+
+# Show desktop
+# cmd - e : yabai -m space --toggle show-desktop

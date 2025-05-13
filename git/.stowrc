@@ -1,4 +1,0 @@
---target=~/
---adopt
---ignore=.stowrc
---ignore=Makefile

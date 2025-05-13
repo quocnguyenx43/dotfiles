@@ -18,10 +18,10 @@ show_help () {
 
     echo "Common"
     echo "\t--- clear (c)"
-    if [[ "$(uname)" == "Linux" ]]; then
-        echo "\t--- apt_completely_remove_package (crm)"
-    elif [[ "$(uname)" == "Darwin" ]]; then
+    if [[ "$OS" == "macos" ]]; then
         echo "\t--- brew_completely_remove_package (crm)"
+    else
+        echo "\t--- apt_completely_remove_package (crm)"
     fi
     echo "\t--- global_find (gfind)"
 

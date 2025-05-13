@@ -1,9 +1,5 @@
 #!/bin/sh
 
-echo
-echo "Changing macOS settings..."
-echo
-
 # Ask for the administrator password upfront
 sudo -v
 
@@ -53,10 +49,7 @@ defaults write com.apple.screencapture "type" -string "png"
 defaults write com.apple.screencapture "disable-shadow" -bool "false"
 
 # Create and set screenshots directory
-mkdir -p "${HOME}/screenshots"
-defaults write com.apple.screencapture "location" -string "${HOME}/screenshots" && killall SystemUIServer
-
-killall Finder
+defaults write com.apple.screencapture "location" -string "${HOME}/Desktop"
 
 # Finder: Add option to quit
 defaults write com.apple.finder "QuitMenuItem" -bool "true"
@@ -99,6 +92,19 @@ defaults write NSGlobalDomain "NSTableViewDefaultSizeMode" -int "2"
 /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist
 
+# Show the ~/Library folder
+chflags nohidden ~/Library && xattr -d com.apple.FinderInfo ~/Library
+
+# Show the /Volumes folder
+sudo chflags nohidden /Volumes
+
+# Expand the following File Info panes:
+# “General”, “Open with”, and “Sharing & Permissions”
+defaults write com.apple.finder FXInfoPanesExpanded -dict \
+    General -bool true \
+    OpenWith -bool true \
+    Privileges -bool true 
+
 # Desktop: Keep folders on top when sorting by name
 defaults write com.apple.finder "_FXSortFoldersFirstOnDesktop" -bool "true"
 
@@ -112,7 +118,7 @@ defaults write com.apple.finder "ShowRemovableMediaOnDesktop" -bool "true"
 defaults write com.apple.finder "ShowMountedServersOnDesktop" -bool "true"
 
 # Menubar: Solid black menu bar
-defaults write com.apple.menuextra.clock "FlashDateSeparators" -bool "false" && killall SystemUIServer
+defaults write com.apple.menuextra.clock "FlashDateSeparators" -bool "false"
 
 # Mouse: Tracking speed
 defaults write NSGlobalDomain com.apple.mouse.scaling -float "1"
@@ -153,6 +159,10 @@ defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
 # Keyboard: Turn the keyboard source indicator
 defaults write kCFPreferencesAnyApplication TSMLanguageIndicatorEnabled -bool "true"
+ 
+# Keyboard: Enable mouse zooming
+defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
+defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 1048576
 
 # Mission control: Group windows by application
 defaults write com.apple.dock "expose-group-apps" -bool "true"
@@ -201,8 +211,21 @@ defaults write NSGlobalDomain AppleLocale -string "en_US@currency=USD"
 defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
 defaults write NSGlobalDomain AppleMetricUnits -bool true
 
+# Safari and Webkit
+
+# Privacy: don’t send search queries to Apple
+defaults write com.apple.Safari UniversalSearchEnabled -bool false
+defaults write com.apple.Safari SuppressSearchSuggestions -bool true
+
+# Press Tab to highlight each item on a web page
+defaults write com.apple.Safari WebKitTabToLinksPreferenceKey -bool true
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2TabsToLinks -bool true
+
+# Show the full URL in the address bar (note: this still hides the scheme)
+defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
+
 # Change timezone
-# sudo systemsetup -settimezone "Asia/Ho_Chi_Minh" > /dev/null
+sudo systemsetup -settimezone "Asia/Ho_Chi_Minh" > /dev/null
 
 # Energy
 
@@ -216,13 +239,16 @@ sudo pmset -a autorestart 1
 sudo systemsetup -setrestartfreeze on
 
 # Sleep the display after 15 minutes
-sudo pmset -a displaysleep 10
+sudo pmset -a displaysleep 15
 
 # Disable machine sleep while charging
 sudo pmset -c sleep 30
 
 # Set machine sleep to 5 minutes on battery
-sudo pmset -b sleep 5
+sudo pmset -b sleep 3
+
+# Deep sleep, 86400 = 24 hours, 5400 = 1 hour 30 mins
+sudo pmset -a standbydelay 5400
 
 # Restart some applications may have been running when the settings were changed
 APPS=(
@@ -238,8 +264,50 @@ APPS=(
     "Activity Monitor"
     "TextEdit"
     "Calendar"
+    "Activity Monitor"
+    "Address Book"
+    "Calendar"
+    "cfprefsd"
+    "Contacts"
+    "Dock"
+    "Finder"
+    "Google Chrome Canary"
+    "Google Chrome"
+    "Mail"
+    "Messages"
+    "Opera"
+    "Photos"
+    "Safari"
+    "SizeUp"
+    "Spectacle"
+    "SystemUIServer"
+    "Terminal"
+    "Transmission"
+    "Tweetbot"
+    "Twitter"
+    "iCal"
 )
 
 for APP in "${APPS[@]}"; do
     killall "$APP" &>/dev/null
 done
+
+# Package maneger: Homebrew
+
+# Tilling window: Starting Yabai
+# echo
+# if command -v yabai >/dev/null 2>&1; then
+#     yabai --start-service
+#     echo "Yabai is started."
+# else
+#     echo "Running Yabai but Yabai is not installed."
+# fi
+
+# Shortcut deamon: skhd
+echo
+if command -v skhd >/dev/null 2>&1; then
+    skhd --start-service
+    echo "skhd is started."
+else
+    echo "Running skhd but skhd is not installed."
+fi

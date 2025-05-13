@@ -1,47 +1,27 @@
-.PHONY: stow stow-del
+.PHONY: install clean
 
-all: stow
+all: install
 
-stow:
-	echo "Run setting up script..." && \
-		chmod +x ./scripts/ubuntu.sh && \
-		chmod +x ./scripts/macos.sh && \
-		cd ./scripts && ./setup.sh
-	@if [ -d ./MacOS ]; then \
-		$(MAKE) -C MacOS; \
-		$(MAKE) -C brew; \
+install:
+	echo "Run setup script..." && \
+		chmod +x ./setup.sh && \
+		./setup.sh --no-os-setup
+	@if [ -d ./.outputs ]; then \
+		$(MAKE) -C ./.outputs install; \
 	fi
-	@if [ -d ./Linux ]; then \
-		$(MAKE) -C Linux; \
-	fi
-	$(MAKE) -C zsh
-	$(MAKE) -C git
-	$(MAKE) -C ssh
-	$(MAKE) -C tmux
-	$(MAKE) -C wezterm
-	$(MAKE) -C curl
-	$(MAKE) -C wget
 
-stow-del:
-	echo "Run setting up script..." && \
-		chmod +x ./scripts/ubuntu.sh && \
-		chmod +x ./scripts/macos.sh && \
-		cd ./scripts && ./setup.sh
-	@if [ -d ./MacOS ]; then \
-		$(MAKE) -C MacOS stow-del; \
-		$(MAKE) -C brew del; \
+install-os-setup:
+	echo "Run setup script..." && \
+		chmod +x ./setup.sh && \
+		./setup.sh
+	@if [ -d ./.outputs ]; then \
+		$(MAKE) -C ./.outputs install; \
 	fi
-	@if [ -d ./Linux ]; then \
-		$(MAKE) -C Linux bundle-remove; \
-	fi
-	$(MAKE) -C zsh stow-del
-	$(MAKE) -C git stow-del
-	$(MAKE) -C ssh stow-del
-	$(MAKE) -C tmux stow-del
-	$(MAKE) -C wezterm stow-del
-	$(MAKE) -C curl stow-del
-	$(MAKE) -C wget stow-del
 
 clean:
-	rm -rf ./Linux
-	rm -rf ./MacOS
+	@if [ -d ./.outputs ]; then \
+		$(MAKE) -C ./.outputs clean; \
+	fi
+	echo "Run cleaning script..." && \
+		chmod +x ./clean.sh && \
+		./clean.sh

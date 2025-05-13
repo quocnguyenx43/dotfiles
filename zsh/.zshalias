@@ -1,5 +1,5 @@
 # Package manager
-if [[ "$(uname)" == "Linux" ]]; then
+if [[ "$OS" == "ubuntu" ]]; then
     # Remove apt packages
     function apt_completely_remove_package() {
         sudo apt-get remove --auto-remove --purge $1
@@ -7,7 +7,7 @@ if [[ "$(uname)" == "Linux" ]]; then
         sudo apt-get autoremove -y
     }
     alias crm="apt_completely_remove_package"
-elif [[ "$(uname)" == "Darwin" ]]; then
+else
     # Remove brew packages
     function brew_completely_remove_package() {
         brew uninstall --force $1
@@ -57,9 +57,9 @@ function global_find() {
 alias c="clear"
 
 # Useful custom
-if [[ "$(uname)" == "Linux" ]]; then
+if [[ "$OS" == "ubuntu" ]]; then
     alias crm="apt_completely_remove_package"
-elif [[ "$(uname)" == "Darwin" ]]; then
+else
     alias crm="brew_completely_remove_package"
 fi
 alias gfind="global_find"
@@ -77,10 +77,10 @@ alias nv='nvim'
 alias dc='docker compose'
 alias lzd='lazydocker'
 alias lzg='lazygit'
-if [[ "$(uname)" == "Linux" ]]; then
+if [[ "$OS" == "ubuntu" ]]; then
     alias bcat='batcat'
     alias fd='fdfind'
-elif [[ "$(uname)" == "Darwin" ]]; then
+else
     alias bcat='bat'
 fi
 alias cd='z'

@@ -1,23 +1,63 @@
-# PC_TYPE: PERSONAL | WORK
 PC_TYPE_FILE="$HOME/.zsh_pc_type"
+OS_FILE="$HOME/.zsh_os"
+OS_VERSION_FILE="$HOME/.zsh_os_version"
+ARCH_FILE="$HOME/.zsh_arch"
 
 if [[ -f "$PC_TYPE_FILE" ]]; then
-    export PC_TYPE="$(cat "$PC_TYPE_FILE")"
-else
-    read "?Please enter your PC_TYPE (e.g., PERSONAL or WORK): " PC_TYPE
-    echo "$PC_TYPE" > "$PC_TYPE_FILE"
-    export PC_TYPE
+    PC_TYPE="$(cat "$PC_TYPE_FILE")"
 fi
+
+if [[ -f "$OS_FILE" ]]; then
+    OS="$(cat "$OS_FILE")"
+fi
+
+if [[ -f "$OS_VERSION_FILE" ]]; then
+    OS_VERSION="$(cat "$OS_VERSION_FILE")"
+fi
+
+if [[ -f "$ARCH_FILE" ]]; then
+    ARCH="$(cat "$ARCH_FILE")"
+fi
+
+export PC_TYPE
+export OS
+export OS_VERSION
+export ARCH
 
 # Colors
 export TERM="tmux-256color"
 
-# Bash-like paths
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:$PATH
+# For ARM macOS
+if [[ "$OS" == "macos" && "$ARCH" == "arm64" ]]; then
+    # Homebrew
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+
+    # Paths
+    export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:/opt/homebrew/opt/python@3/bin:$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:$PATH
+
+    # Editor
+    export EDITOR="/opt/homebrew/bin/code"
+
+# For AMD macOS
+elif [[ "$OS" == "macos" && "$ARCH" == "amd64" ]]; then
+    # Paths
+    export PATH=/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/.local/bin:/usr/bin:$PATH
+
+    # Editor
+    export EDITOR="/usr/local/bin/code"
+
+# For Ubuntu
+else
+    # Paths
+    export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:$PATH
+
+    # Editor
+    export EDITOR="/usr/bin/code"
+fi
 
 # ZSH
-alias reload-zsh='source ~/.zshrc'
-alias edit-zsh='nvim ~/.zshrc'
+alias reload-zsh="source ~/.zshrc"
+alias edit-zsh="$EDITOR ~/.zshrc"
 
 # Oh my ZSH
 export ZSH="$HOME/.oh-my-zsh"
@@ -64,22 +104,15 @@ bindkey -e
 bindkey '^I'    complete-word       # tab          | complete
 bindkey '^[[Z'  autosuggest-accept  # shift + tab  | autosuggest
 
-# Editor
-if [[ -n $SSH_CONNECTION ]]; then
-    export EDITOR='/usr/bin/code'
-else
-    export EDITOR='/usr/bin/nvim'
-fi
-
 # Personal
 
 ## fzf & fd
 eval "$(fzf --zsh)"
 
-if [[ "$(uname)" == "Linux" ]]; then
-    BAT='batcat'
-elif [[ "$(uname)" == "Darwin" ]]; then
+if [[ "$OS" == "macos" ]]; then
     BAT='bat'
+else
+    BAT='batcat'
 fi
 
 show_preview="

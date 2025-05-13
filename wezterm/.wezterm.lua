@@ -47,7 +47,7 @@ config.font_size = font_size
 
 -- Window & tab
 config.enable_tab_bar = false
-config.window_decorations = window_decorations
+-- config.window_decorations = window_decorations
 config.window_padding = {
     left = 5,
     right = 0,
@@ -72,25 +72,23 @@ else
 end
 
 -- Keybindings
-if is_macos then
-    config.keys = {
-        {
-            key = "LeftArrow",
-            mods = "ALT",
-            action = wezterm.action.SendString("\x1bb"),
-        },
-        {
-            key = "RightArrow",
-            mods = "ALT",
-            action = wezterm.action.SendString("\x1bf"),
-        },
-        {
-            key = "Backspace",
-            mods = "ALT",
-            action = wezterm.action.SendString("\x1b\x7f"),
-        },
-    }
-end
+config.keys = {
+    {
+        key = "LeftArrow",
+        mods = "ALT",
+        action = wezterm.action.SendString("\x1bb"),
+    },
+    {
+        key = "RightArrow",
+        mods = "ALT",
+        action = wezterm.action.SendString("\x1bf"),
+    },
+    {
+        key = "Backspace",
+        mods = "ALT",
+        action = wezterm.action.SendString("\x1b\x7f"),
+    },
+}
 
 -- Default program
 config.default_prog = { "/bin/zsh", "-c", "exec ./.wezterm_startup.sh" }

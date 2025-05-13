@@ -1,0 +1,13 @@
+# App Launcher (Hyper key: ctrl + shift + cmd + alt)
+ctrl + shift + cmd + alt - b : ~/.config/skhd/scripts/open-app.sh "Brave Browser"
+ctrl + shift + cmd + alt - f : ~/.config/skhd/scripts/open-app.sh "Finder"
+ctrl + shift + cmd + alt - w : ~/.config/skhd/scripts/open-app.sh "WezTerm"
+ctrl + shift + cmd + alt - c : ~/.config/skhd/scripts/open-app.sh "Cursor"
+ctrl + shift + cmd + alt - v : ~/.config/skhd/scripts/open-app.sh "Visual Studio Code"
+ctrl + shift + cmd + alt - s : ~/.config/skhd/scripts/open-app.sh "Sublime Text"
+ctrl + shift + cmd + alt - n : ~/.config/skhd/scripts/open-app.sh "Notion"
+ctrl + shift + cmd + alt - z : ~/.config/skhd/scripts/open-app.sh "Zalo"
+ctrl + shift + cmd + alt - m : ~/.config/skhd/scripts/open-app.sh "Spotify"
+
+# Restart/stop skhd
+ctrl + alt - r : skhd --restart-service

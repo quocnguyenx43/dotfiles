@@ -2,6 +2,9 @@
     email = quocnguyenx43@gmail.com
     name = quocnguyen
 
+[github]
+    user = quocnguyenx43
+
 # ** COMP **
 # [user]
 #    email = alan@guardian.tech
@@ -14,4 +17,4 @@
     ui = auto
 
 [credential]
-	helper = store
+    helper = store
