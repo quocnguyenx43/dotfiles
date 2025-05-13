@@ -58,8 +58,8 @@ automatically-unhide-macos-hidden-apps = false
     alt-comma = 'layout accordion horizontal vertical'
     
     alt-shift-space = 'layout floating tiling'
-    alt-shift-enter = 'exec-and-forget ${XDG_CONFIG_HOME}/aerospace/scripts/floating-centralize.sh'
-    alt-shift-period = 'fullscreen'
+    alt-shift-period = 'exec-and-forget ${XDG_CONFIG_HOME}/aerospace/scripts/floating-centralize.sh'
+    alt-shift-enter = 'fullscreen'
 
     alt-a = 'focus left'
     alt-s = 'focus down'
