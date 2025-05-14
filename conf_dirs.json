@@ -69,5 +69,8 @@
     },
     "i3": {
         "ubuntu": ".config/i3"
+    },
+    "gtk_4_0": {
+        "ubuntu": ".config/gtk-4.0"
     }
 }
