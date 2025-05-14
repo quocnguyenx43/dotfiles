@@ -198,11 +198,15 @@ if [[ "$RUN_OS_SETUP" != "false" ]]; then
     if [[ "$OS" == "macos" ]]; then
         echo "Configuring macOS..."
         echo "OS Version: $OS_VERSION"
-        chmod +x ./os_settings/macos.sh && ./os_settings/macos.sh && wait
+        chmod +x ./os_settings/macos-settings.sh && ./os_settings/macos-settings.sh && wait
+        echo "Configuring macOS tools..."
+        chmod +x ./os_settings/macos-tools.sh && ./os_settings/macos-tools.sh && wait
     elif [[ "$OS" == "ubuntu" ]]; then
         echo "Configuring Ubuntu..."
         echo "OS Version: $OS_VERSION"
-        chmod +x ./os_settings/ubuntu.sh && sudo ./os_settings/ubuntu.sh && wait
+        # chmod +x ./os_settings/ubuntu-settings.sh && sudo ./os_settings/ubuntu-settings.sh && wait
+        echo "Configuring Ubuntu tools..."
+        chmod +x ./os_settings/ubuntu-tools.sh && sudo ./os_settings/ubuntu-tools.sh && wait
     else
         exit 1
     fi

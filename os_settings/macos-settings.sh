@@ -13,10 +13,11 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 sudo nvram StartupMute=%01
 
 # Change Mac name
-sudo scutil --set ComputerName "quocnguyen's MacBook"
-sudo scutil --set HostName "quocnguyen-macbook"
-sudo scutil --set LocalHostName "quocnguyen-macbook"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server.plist NetBIOSName -string "quocnguyen-macbook"
+USER_NAME="quocnguyen"
+sudo scutil --set ComputerName "${USER_NAME}'s MacBook"
+sudo scutil --set HostName "${USER_NAME}-macbook"
+sudo scutil --set LocalHostName "${USER_NAME}-macbook"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server.plist NetBIOSName -string "${USER_NAME}-macbook"
 
 # Set dock position to the bottom
 defaults write com.apple.dock "orientation" -string "bottom"
@@ -292,22 +293,4 @@ for APP in "${APPS[@]}"; do
     killall "$APP" &>/dev/null
 done
 
-# Package maneger: Homebrew
-
-# Tilling window: Starting Yabai
-# echo
-# if command -v yabai >/dev/null 2>&1; then
-#     yabai --start-service
-#     echo "Yabai is started."
-# else
-#     echo "Running Yabai but Yabai is not installed."
-# fi
-
-# Shortcut deamon: skhd
-echo
-if command -v skhd >/dev/null 2>&1; then
-    skhd --start-service
-    echo "skhd is started."
-else
-    echo "Running skhd but skhd is not installed."
-fi
+echo "macOS configuration done"
