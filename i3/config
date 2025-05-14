@@ -7,11 +7,11 @@ font pango:DejaVu Sans Mono 8
 # Start XDG autostart .desktop files using dex (Do like what GNOME do)
 exec --no-startup-id dex --autostart --environment i3
 
-# Lock on suspend or sleep
+# Lock on suspend or sleep, shortcut for suspend: Super+L
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 bindsym Mod4+L exec systemctl suspend
 
-# 
+# GUI for NetworkManager
 exec --no-startup-id nm-applet
 
 ## Screenshots
@@ -31,9 +31,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 # Menu bar
 bar {
-    status_command i3blocks
+    status_command i3status
     tray_output primary
-    position top
 }
 
 for_window [class=".*"] border none
