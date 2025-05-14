@@ -128,5 +128,6 @@
     - kanata: Map Caps Lock to ESC
 - Tilling window manager (i3):
     - Status bar: i3blocks, i3status, bumblebee-status
+- Spotlight
 - CopyQ:
     - Clipboard History: Control-Shift-V
