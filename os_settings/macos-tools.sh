@@ -7,7 +7,7 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 ## Package maneger: Homebrew
-# ./brew/brew.sh && wait
+# chmod +x ./brew/brew.sh && ./brew/brew.sh && wait
 echo "Homebrew setup done"
 
 ## Tilling window: Starting Yabai
