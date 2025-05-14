@@ -124,8 +124,9 @@
 # Ubuntu
 - Package manager: apt
 - Default shell: zsh
-- kanata: Map Caps Lock to ESC
-- i3:
-    - Status bar: i3blocks
-
-sudo apt install i3 i3blocks
+- Shortcuts:
+    - kanata: Map Caps Lock to ESC
+- Tilling window manager (i3):
+    - Status bar: i3blocks, i3status, bumblebee-status
+- CopyQ:
+    - Clipboard History: Control-Shift-V
