@@ -70,6 +70,12 @@
     "i3": {
         "ubuntu": ".config/i3"
     },
+    "i3blocks": {
+        "ubuntu": ".config/i3blocks"
+    },
+    "bumblebee_status": {
+        "ubuntu": ".config/bumblebee-status"
+    },
     "gtk_4_0": {
         "ubuntu": ".config/gtk-4.0"
     }

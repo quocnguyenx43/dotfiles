@@ -127,7 +127,12 @@
 - Shortcuts:
     - kanata: Map Caps Lock to ESC
 - Tilling window manager (i3):
-    - Status bar: i3blocks, i3status, bumblebee-status
+    - Status bar:
+        + i3blocks, i3status
+        + bumblebee-status (Github release)
+            + nic: iw, python3-netifaces
+            + pasink: pulseaudio, pavucontrol
+            + brightness: brightnessctl
 - Spotlight
 - CopyQ:
     - Clipboard History: Control-Shift-V

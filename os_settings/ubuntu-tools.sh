@@ -7,7 +7,7 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Update the system
-chmod +x ./apt/apt.sh && ./apt/apt.sh && wait
+# chmod +x ./apt/apt.sh && ./apt/apt.sh && wait
 echo "apt setup done"
 
 # Enable UFW firewall
