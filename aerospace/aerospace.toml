@@ -1,0 +1,309 @@
+# Open when login
+after-login-command = []
+after-startup-command = [
+    'workspace 0', 'layout h_accordion',
+    'workspace 1', 'layout h_accordion',
+    'workspace 2', 'layout h_accordion',
+    'workspace 4', 'layout h_accordion',
+    'workspace 5', 'layout h_accordion',
+    'workspace 6', 'layout h_accordion',
+    'workspace 7', 'layout h_accordion',
+    'workspace 8', 'layout h_accordion',
+    'workspace 9', 'layout h_accordion',
+    'workspace Default-1', 'layout floating',
+    'workspace Default-2', 'layout h_accordion',
+    'workspace Any-1', 'layout floating',
+    'workspace Any-2', 'layout h_accordion',
+    'workspace Note', 'layout h_accordion',
+    'workspace Message', 'layout h_tiles',
+]
+start-at-login = true
+
+# Normalization
+enable-normalization-flatten-containers = false
+enable-normalization-opposite-orientation-for-nested-containers = false
+
+# Padding window for accordion
+accordion-padding = 30
+
+# Default layout for root
+default-root-container-layout = 'tiles'
+default-root-container-orientation = 'horizontal'
+
+# Move mouse location to focused workspace and focused monitor
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+# on-focus-changed = "move-mouse window-lazy-center"
+
+automatically-unhide-macos-hidden-apps = false
+
+[key-mapping]
+    preset = 'qwerty'
+
+[gaps]
+    inner.horizontal = 30
+    inner.vertical =   30
+    outer.left =       15
+    outer.bottom =     15
+    outer.top =        15
+    outer.right =      15
+
+[exec]
+    inherit-env-vars = true
+
+[exec.env-vars]
+    XDG_CONFIG_HOME = '${HOME}/.config'
+
+[mode.main.binding]
+    alt-slash = 'layout tiles horizontal vertical'
+    alt-comma = 'layout accordion horizontal vertical'
+    
+    alt-shift-space = 'layout floating tiling'
+    alt-shift-period = 'exec-and-forget ${XDG_CONFIG_HOME}/aerospace/scripts/floating-centralize.sh'
+    alt-shift-enter = 'fullscreen'
+
+    alt-a = 'focus left'
+    alt-s = 'focus down'
+    alt-w = 'focus up'
+    alt-d = 'focus right'
+
+    alt-shift-a = 'move left'
+    alt-shift-s = 'move down'
+    alt-shift-w = 'move up'
+    alt-shift-d = 'move right'
+
+    cmd-alt-shift-a = ['join-with left', 'mode main']
+    cmd-alt-shift-s = ['join-with down', 'mode main']
+    cmd-alt-shift-w = ['join-with up', 'mode main']
+    cmd-alt-shift-d = ['join-with right', 'mode main']
+
+    alt-minus = 'resize smart -50'
+    alt-equal = 'resize smart +50'
+
+    alt-1 = 'workspace 1'
+    alt-2 = 'workspace 2'
+    alt-3 = 'workspace 3'
+    alt-4 = 'workspace 4'
+    alt-5 = 'workspace 5'
+    alt-6 = 'workspace 6'
+    alt-7 = 'workspace 7'
+    alt-8 = 'workspace 8'
+    alt-9 = 'workspace 9'
+
+    alt-shift-1 = ['move-node-to-workspace 1', 'workspace 1']
+    alt-shift-2 = ['move-node-to-workspace 2', 'workspace 2']
+    alt-shift-3 = ['move-node-to-workspace 3', 'workspace 3']
+    alt-shift-4 = ['move-node-to-workspace 4', 'workspace 4']
+    alt-shift-5 = ['move-node-to-workspace 5', 'workspace 5']
+    alt-shift-6 = ['move-node-to-workspace 6', 'workspace 6']
+    alt-shift-7 = ['move-node-to-workspace 7', 'workspace 7']
+    alt-shift-8 = ['move-node-to-workspace 8', 'workspace 8']
+    alt-shift-9 = ['move-node-to-workspace 9', 'workspace 9']
+
+    alt-f = 'workspace Default-1' # Default screen 1
+    alt-g = 'workspace Default-2' # Default screen 2
+    alt-c = 'workspace Any-1' # Any screen 1
+    alt-v = 'workspace Any-2' # Any screen 2
+    alt-x = 'workspace Note' # Note
+    alt-z = 'workspace Message' # Message
+
+    alt-shift-f =['move-node-to-workspace Default-1', 'workspace Default-1'] # Default screen 1
+    alt-shift-g = ['move-node-to-workspace Default-2', 'workspace Default-2'] # Default screen 2
+    alt-shift-c = ['move-node-to-workspace Any-1', 'workspace Any-1'] # Default screen 1
+    alt-shift-v = ['move-node-to-workspace Any-2', 'workspace Any-2'] # Default screen 2
+    alt-shift-x =  ['move-node-to-workspace Note', 'workspace Note'] # Note
+    alt-shift-z = ['move-node-to-workspace Message', 'workspace Message'] # Message
+
+    # Go to the previous focused workspace
+    alt-tab = 'workspace-back-and-forth'
+
+    # Move workspace to another monitor
+    alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+
+    # Chagne mode
+    alt-shift-semicolon = 'mode service'
+
+[mode.service.binding]
+    esc = 'mode main'
+    alt-r = ['reload-config', 'mode main']
+    alt-f = ['flatten-workspace-tree', 'mode main']
+    alt-backspace = ['close-all-windows-but-current', 'mode main']
+
+    alt-h = 'exec-and-forget ${XDG_CONFIG_HOME}/aerospace/scripts/floating-move.sh -36 0'
+    alt-j = 'exec-and-forget ${XDG_CONFIG_HOME}/aerospace/scripts/floating-move.sh 0 36'
+    alt-k = 'exec-and-forget ${XDG_CONFIG_HOME}/aerospace/scripts/floating-move.sh 0 -36'
+    alt-l = 'exec-and-forget ${XDG_CONFIG_HOME}/aerospace/scripts/floating-move.sh 36 0'
+
+    alt-shift-h = 'exec-and-forget ${XDG_CONFIG_HOME}/aerospace/scripts/floating-resize.sh -128 0'
+    alt-shift-j = 'exec-and-forget ${XDG_CONFIG_HOME}/aerospace/scripts/floating-resize.sh 0 -128'
+    alt-shift-k = 'exec-and-forget ${XDG_CONFIG_HOME}/aerospace/scripts/floating-resize.sh 0 128'
+    alt-shift-l = 'exec-and-forget ${XDG_CONFIG_HOME}/aerospace/scripts/floating-resize.sh 128 0'
+
+# Disable some apps
+
+[[on-window-detected]]
+if.app-id = "com.apple.Music"
+run = ["layout floating"]
+
+[[on-window-detected]]
+if.app-id = "com.apple.shortcuts"
+run = ["layout floating"]
+
+[[on-window-detected]]
+if.app-id = "com.apple.Photos"
+run = ["layout floating"]
+
+[[on-window-detected]]
+if.app-id = "com.apple.clock"
+run = ["layout floating"]
+
+[[on-window-detected]]
+if.app-id = "com.apple.findmy"
+run = ["layout floating"]
+
+[[on-window-detected]]
+if.app-id = "com.apple.weather"
+run = ["layout floating"]
+
+[[on-window-detected]]
+if.app-id = "com.apple.Maps"
+run = ["layout floating"]
+
+[[on-window-detected]]
+if.app-id = "com.apple.AddressBook"
+run = ["layout floating"]
+
+[[on-window-detected]]
+if.app-id = "com.apple.FaceTime"
+run = ["layout floating"]
+
+[[on-window-detected]]
+if.app-id = "com.apple.MobileSMS"
+run = ["layout floating"]
+
+[[on-window-detected]]
+if.app-id = "com.apple.VoiceMemos"
+run = ["layout floating"]
+
+[[on-window-detected]]
+if.app-id = "com.apple.reminders"
+run = ["layout floating"]
+
+[[on-window-detected]]
+if.app-id = "com.apple.WorkflowKit.ShortcutsViewService"
+run = ["layout floating"]
+
+[[on-window-detected]]
+if.app-id = "com.apple.iCal"
+run = ["layout floating"]
+
+[[on-window-detected]]
+if.app-id = "com.apple.news"
+run = ["layout floating"]
+
+[[on-window-detected]]
+if.app-id = "com.apple.podcasts"
+run = ["layout floating"]
+
+[[on-window-detected]]
+if.app-id = "com.apple.TV"
+run = ["layout floating"]
+
+[[on-window-detected]]
+if.app-id = "com.apple.Home"
+run = ["layout floating"]
+
+[[on-window-detected]]
+if.app-id = "com.apple.Passwords"
+run = ["layout floating"]
+
+[[on-window-detected]]
+if.app-id = "com.apple.stocks"
+run = ["layout floating"]
+
+[[on-window-detected]]
+if.app-id = "com.apple.PhotoBooth"
+run = ["layout floating"]
+
+[[on-window-detected]]
+if.app-id = "com.apple.iBooksX"
+run = ["layout floating"]
+
+# Default 1
+
+[[on-window-detected]]
+if.app-id = "com.apple.finder"
+run = ["layout floating", "move-node-to-workspace Default-1"]
+
+[[on-window-detected]]
+if.app-id = "com.apple.AppStore"
+run = ["layout floating", "move-node-to-workspace Default-1"]
+
+[[on-window-detected]]
+if.app-id = "com.spotify.client"
+run = ["layout floating", "move-node-to-workspace Default-1"]
+
+[[on-window-detected]]
+if.app-id = "io.github.hluk.CopyQ"
+run = ["layout floating"]
+
+# Any 1
+
+[[on-window-detected]]
+if.app-id = "com.postmanlabs.mac"
+run = ["move-node-to-workspace Any-1"]
+
+# Note
+
+[[on-window-detected]]
+if.app-id = "com.sublimetext.4"
+run = "move-node-to-workspace Note"
+
+[[on-window-detected]]
+if.app-id = "notion.id"
+run = "move-node-to-workspace Note"
+
+[[on-window-detected]]
+if.app-id = "com.apple.Notes"
+run = "move-node-to-workspace Note"
+
+# Message
+
+[[on-window-detected]]
+if.app-id = "com.vng.zalo"
+run = "move-node-to-workspace Message"
+
+[[on-window-detected]]
+if.app-id = "com.vng.zalo.zalocall"
+run = "move-node-to-workspace Message"
+
+[[on-window-detected]]
+if.app-id = "ru.keepcoder.Telegram"
+run = "move-node-to-workspace Message"
+
+# Default-2
+
+[[on-window-detected]]
+if.app-id = "com.brave.Browser"
+run = "move-node-to-workspace Default-2"
+
+[[on-window-detected]]
+if.app-id = "com.apple.Safari"
+run = "move-node-to-workspace Default-2"
+
+[[on-window-detected]]
+if.app-id = "com.microsoft.VSCode"
+run = "move-node-to-workspace Default-2"
+
+[[on-window-detected]]
+if.app-id = "com.todesktop.230313mzl4w4u92"
+run = "move-node-to-workspace Default-2"
+
+[[on-window-detected]]
+if.app-id = "com.github.wez.wezterm"
+run = "move-node-to-workspace Default-2"
+
+[workspace-to-monitor-force-assignment]
+    Default-1 = '^built-in retina display$'
+    Any-1 = '^built-in retina display$'
+    Note = '^built-in retina display$'
+    Message = '^built-in retina display$'

@@ -1,0 +1,100 @@
+# Package manager
+if [[ "$OS" == "ubuntu" ]]; then
+    # Remove apt packages
+    function apt_completely_remove_package() {
+        sudo apt-get remove --auto-remove --purge $1
+        sudo apt-get clean
+        sudo apt-get autoremove -y
+    }
+    alias crm="apt_completely_remove_package"
+else
+    # Remove brew packages
+    function brew_completely_remove_package() {
+        brew uninstall --force $1
+        brew cleanup
+    }
+fi
+
+# Tmux new-session
+function tmux_new_session() {
+    tmux new-session -d -s "$1"
+}
+
+# Yazi
+function yz() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+        builtin cd -- "$cwd"
+    fi
+    rm -f -- "$tmp"
+}
+
+# Python environment
+function create_virtual_python_environment() {
+    if [[ "$1" == "uv" ]]; then
+        echo "Virtual environment using uv."
+        uv init -p 3.12
+        uv venv -p 3.12
+        uv sync
+        uv add pip
+        source .venv/bin/activate
+        pip install --upgrade pip
+    else 
+        echo "Virtual environment using venv."
+        python3.12 -m venv .venv
+        source .venv/bin/activate
+        pip install --upgrade pip
+    fi
+}
+
+# Find something
+function global_find() {
+    fd $1 /
+}
+
+# Common
+alias c="clear"
+
+# Useful custom
+if [[ "$OS" == "ubuntu" ]]; then
+    alias crm="apt_completely_remove_package"
+else
+    alias crm="brew_completely_remove_package"
+fi
+alias gfind="global_find"
+
+# Python
+alias cpv=create_virtual_python_environment
+alias apv='source ./.venv/bin/activate'
+alias dpv='deactivate'
+
+# Tmux
+alias tns="tmux_new_session"
+
+# Apps
+alias nv='nvim'
+alias dc='docker compose'
+alias lzd='lazydocker'
+alias lzg='lazygit'
+if [[ "$OS" == "ubuntu" ]]; then
+    alias bcat='batcat'
+    alias fd='fdfind'
+else
+    alias bcat='bat'
+fi
+alias cd='z'
+
+# Change directory aliases
+# ** COMP **
+if [[ "$PC_TYPE" == "WORK" ]]; then
+    alias cdpj='cd "$HOME/workspace/414n/projects" && echo "$HOME/workspace/414n/projects"'
+    alias cdrs='cd "$HOME/workspace/414n/research" && echo "$HOME/workspace/414n/research"'
+else
+    alias cdcode='cd "$HOME/qn/area/coding" && echo "$HOME/qn/area/coding"'
+    alias cdwork='cd "$HOME/qn/area/work" && echo "$HOME/qn/area/work"'
+fi
+
+alias dt='cd "$HOME/Desktop" && echo "$HOME/Desktop"'
+alias dl='cd "$HOME/Downloads" && echo "$HOME/Downloads"'
+alias dc='cd "$HOME/Documents" && echo "$HOME/Documents"'

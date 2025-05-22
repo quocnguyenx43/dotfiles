@@ -1,0 +1,89 @@
+{
+    "zsh": {
+        "macos": "",
+        "ubuntu": ""
+    },
+    "wezterm": {
+        "macos": "",
+        "ubuntu": ""
+    },
+    "curl": {
+        "macos": "",
+        "ubuntu": ""
+    },
+    "wget": {
+        "macos": "",
+        "ubuntu": ""
+    },
+    "git": {
+        "macos": "",
+        "ubuntu": ""
+    },
+    "nvim": {
+        "macos": ".config/nvim",
+        "ubuntu": ".config/nvim"
+    },
+    "ssh": {
+        "macos": ".ssh",
+        "ubuntu": ".ssh"
+    },
+    "sublime_text": {
+        "macos": "Library/Application Support/Sublime Text/Packages/User",
+        "ubuntu": ".config/sublime-text/Packages/User"
+    },
+    "tmux": {
+        "macos": "",
+        "ubuntu": ""
+    },
+    "tmux_scripts": {
+        "macos": ".tmux_scripts",
+        "ubuntu": ".tmux_scripts"
+    },
+    "vscode": {
+        "macos": "Library/Application Support/Code/User",
+        "ubuntu": ".config/Code/User"
+    },
+    "yazi": {
+        "macos": ".config/yazi",
+        "ubuntu": ".config/yazi"
+    },
+    "keybindings": {
+        "macos": "Library/KeyBindings"
+    },
+    "osascripts": {
+        "macos": ".osascripts"
+    },
+    "karabiner": {
+        "macos": ".config/karabiner"
+    },
+    "aerospace": {
+        "macos": ".config/aerospace"
+    },
+    "yabai": {
+        "macos": ".config/yabai"
+    },
+    "skhd": {
+        "macos": ".config/skhd"
+    },
+    "kanata": {
+        "ubuntu": ".config/kanata"
+    },
+    "kanata_service": {
+        "ubuntu": ".config/systemd/user"
+    },
+    "i3": {
+        "ubuntu": ".config/i3"
+    },
+    "i3blocks": {
+        "ubuntu": ".config/i3blocks"
+    },
+    "bumblebee_status": {
+        "ubuntu": ".config/bumblebee-status"
+    },
+    "polybar": {
+        "ubuntu": ".config/polybar"
+    },
+    "gtk_4_0": {
+        "ubuntu": ".config/gtk-4.0"
+    }
+}

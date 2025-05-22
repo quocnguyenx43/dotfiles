@@ -1,0 +1,13 @@
+"$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
+
+[manager]
+ratio          = [ 1, 4, 3 ]
+linemode       = "size_and_btime"
+show_hidden    = true
+show_symlink   = true
+mouse_events   = [ "click", "scroll", "drag" ]
+
+[preview]
+wrap            = "no"
+max_width       = 1000
+max_height      = 1000

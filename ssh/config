@@ -1,0 +1,74 @@
+Host qn
+    HostName 192.168.1.6
+    User qn
+
+Host kafka
+    HostName 10.2.123.130
+    IdentityFile ~/.ssh/id_ed25519
+    User workspace
+
+Host db
+    HostName 10.2.123.107
+    IdentityFile ~/.ssh/id_ed25519
+    User workspace
+
+Host be
+    HostName 10.2.123.101
+    IdentityFile ~/.ssh/id_ed25519
+    User workspace
+
+Host reverse-proxy
+    HostName 10.2.123.123
+    IdentityFile ~/.ssh/id_ed25519
+    User workspace
+
+Host spark-master
+    HostName 10.2.123.131
+    IdentityFile ~/.ssh/id_ed25519
+    User workspace
+    Port 22
+
+Host spark-worker-01
+    HostName 10.2.123.133
+    IdentityFile ~/.ssh/id_ed25519
+    User workspace
+    Port 22
+
+Host spark-worker-02
+    HostName 10.2.123.134
+    IdentityFile ~/.ssh/id_ed25519
+    User workspace
+    Port 22
+
+Host spark-worker-03
+    HostName 10.2.123.135
+    IdentityFile ~/.ssh/id_ed25519
+    User workspace
+    Port 22
+
+Host sensor
+    HostName 172.16.204.201
+    IdentityFile ~/.ssh/id_ed25519
+    User ubuntu
+    Port 5389
+
+Host nd-client
+    HostName 10.5.5.207
+    User ubuntu
+    Port 22
+
+Host vm-ndpi-sensor
+    HostName 172.16.224.137
+    User messi-ndpi
+
+Host vm-ndpi-gateway
+    HostName 172.16.224.140
+    User asdasdasd
+
+Host vm-db
+    HostName 172.16.224.133
+    User root
+
+Host vm-db-20
+    HostName 172.16.224.132
+    User root

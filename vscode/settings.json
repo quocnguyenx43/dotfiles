@@ -1,0 +1,28 @@
+{
+    // // ** COMP **
+    // // Proxy
+    // "http.proxy": "http://alan1:xe&UvMTrrEOiPhA7@10.5.33.2:6777",
+    // "http.proxyStrictSSL": false,
+
+    // Editor
+    "editor.fontFamily": "monospace",
+    "editor.mouseWheelZoom": true,
+    "editor.tabSize": 4,
+    "editor.columnSelection": false,
+    "editor.comments.ignoreEmptyLines": false,
+    "editor.cursorBlinking": "solid",
+    "diffEditor.wordWrap": "off",
+
+    // Explorer
+    "explorer.compactFolders": false,
+
+    // Workbench
+    "workbench.colorTheme": "Default Dark Modern",
+
+    // Others
+    "update.enableWindowsBackgroundUpdates": false,
+    "update.showReleaseNotes": false,
+    "workbench.iconTheme": "vscode-icons",
+    "makefile.configureOnOpen": true,
+    "explorer.confirmDragAndDrop": false
+}

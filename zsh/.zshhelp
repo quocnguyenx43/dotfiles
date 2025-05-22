@@ -1,0 +1,59 @@
+show_help () {
+    # ** COMP **
+    if [[ "$PC_TYPE" == "WORK" ]]; then
+        echo "Proxy"
+        echo "\tTerminal (postman, apt, apt-get, flatpak)"
+        echo "\t--- enable_terminal_proxy (epx)"
+        echo "\t--- disable_terminal_proxy (dpx)"
+        
+        echo "\tDocker (docker, docker compose)"
+        echo "\t--- restart_docker_proxy (rsdk)"
+        echo "\t--- enable_docker_proxy (edkpx)"
+        echo "\t--- disable_docker_proxy (ddkpx)"
+
+        echo "\tProxychains"
+        echo "\t--- proxychains (pxc)"
+        echo "\t--- proxychains4 (pxc4)"
+    fi
+
+    echo "Common"
+    echo "\t--- clear (c)"
+    if [[ "$OS" == "macos" ]]; then
+        echo "\t--- brew_completely_remove_package (crm)"
+    else
+        echo "\t--- apt_completely_remove_package (crm)"
+    fi
+    echo "\t--- global_find (gfind)"
+
+    echo "Python"
+    echo "\t--- create_virtual_python_environment (cpv) [uv | venv]"
+    echo "\t--- source ./.venv/bin/activate (apv)"
+    echo "\t--- deactivate (dpv)"
+
+    echo "Tmux"
+    echo "\t--- tmux_new_session (tns)"
+
+    echo "Apps"
+    echo "\t--- nvim (nv)"
+    echo "\t--- docker compose (dc)"
+    echo "\t--- lazydocker (lzd)"
+    echo "\t--- lazygit (lzg)"
+    echo "\t--- batcat (bcat )"
+
+    # ** COMP **
+    echo "Change directory"
+    echo "  + Common"
+    echo "\t--- dt (Desktop)"
+    echo "\t--- dl (Downloads)"
+    echo "\t--- dc (Documents)"
+    if [[ "$PC_TYPE" == "WORK" ]]; then
+        echo "\t--- cdpj"
+        echo "\t--- cdrs"
+    else
+        echo "  + Personal"
+        echo "\t--- cdpj"
+        echo "\t--- cdwork"
+    fi
+}
+
+alias h='show_help'

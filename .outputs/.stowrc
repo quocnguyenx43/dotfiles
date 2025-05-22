@@ -1,0 +1,5 @@
+--target=~/
+--no-folding
+--adopt
+--ignore=.stowrc
+--ignore=Makefile

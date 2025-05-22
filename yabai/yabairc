@@ -1,0 +1,39 @@
+# System Integrity Protection status: disabled
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
+# Default layout
+yabai -m config layout bsp
+
+# New window to right and bottom
+yabai -m config window_placement second_child
+
+# Padding
+yabai -m config top_padding 12
+yabai -m config bottom_padding 12
+yabai -m config left_padding 12
+yabai -m config right_padding 12
+yabai -m config window_gap 12
+
+# Mouse
+yabai -m config mouse_follows_focus on
+yabai -m config mouse_modifier alt
+yabai -m config mouse_action1 move # action1: left click
+yabai -m config mouse_action2 resize # action2: right click
+
+yabai -m mouse_drop_action swap
+
+# Disable specific apps
+APPS=(
+    # macOS apps
+    "Finder"
+    "System Settings"
+    "Calculator"
+    "QuickTime Player"
+    # Other
+    "Karabiner-Elements"
+)
+
+for app in "${APPS[@]}"; do
+    yabai -m rule --add app="^${app}$" manage=off
+done

@@ -1,0 +1,57 @@
+# ** COMP **
+alias pxc='proxychains'
+alias pxc4='proxychains4'
+
+# Proxy
+http_proxy='http://alan1:xe&UvMTrrEOiPhA7@10.5.33.2:6777'
+https_proxy='http://alan1:xe&UvMTrrEOiPhA7@10.5.33.2:6777'
+no_proxy=localhost,::1,127.0.0.1
+
+HTTP_PROXY='http://alan1:xe&UvMTrrEOiPhA7@10.5.33.2:6777'
+HTTPS_PROXY='http://alan1:xe&UvMTrrEOiPhA7@10.5.33.2:6777'
+NO_PROXY=localhost,::1,127.0.0.1
+
+enable_terminal_proxy() {
+    export http_proxy
+    export https_proxy
+    export no_proxy
+    export HTTP_PROXY
+    export HTTPS_PROXY
+    export NO_PROXY
+}
+
+disable_terminal_proxy() {
+    unset http_proxy
+    unset https_proxy
+    unset no_proxy
+    unset HTTP_PROXY
+    unset HTTPS_PROXY
+    unset NO_PROXY
+}
+
+restart_docker() {
+    sudo systemctl daemon-reload
+    sudo systemctl restart docker
+}
+
+enable_docker_proxy() {
+    sudo touch "$/etc/systemd/system/docker.service.d/http-proxy.conf"
+    {
+        echo '[Service]'
+        echo "Environment=\"HTTP_PROXY=$HTTP_PROXY\""
+        echo "Environment=\"HTTPS_PROXY=$HTTPS_PROXY\""
+        echo "Environment=\"NO_PROXY=$NO_PROXY\""
+    } | sudo tee "$/etc/systemd/system/docker.service.d/http-proxy.conf" > /dev/null
+    restart_docker
+}
+
+disable_docker_proxy() {
+    echo '' | sudo tee "$/etc/systemd/system/docker.service.d/http-proxy.conf" > /dev/null
+    restart_docker
+}
+
+alias epx='enable_terminal_proxy'
+alias dpx='disable_terminal_proxy'
+alias rsdk='restart_docker'
+alias edkpx='enable_docker_proxy'
+alias ddkpx='disable_docker_proxy'
