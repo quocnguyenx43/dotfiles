@@ -141,12 +141,11 @@ ulauncher
 fix zshproxy file
 
 fix gitconfig tren cong ty
-add keybinding to open app => dung exec
-fix man hinh
+add launcher to open app => dung exec
+fix man hinh, layout, app run on each layout
 fix apt => tao may moi config tu dau toi cuoi va list ra cac packages must have => structure lai repo
 fix brew file => fix macos-tools
 fix os configs
 
 dont use: bumblebee_status, i3blocks
-
 can setup in ubuntu: katana (in os settings)
