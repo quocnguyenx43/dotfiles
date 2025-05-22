@@ -129,7 +129,8 @@
 - Tilling window manager (i3):
     - Status bar: polybar
     - App launcher: rofi
-    - Notification: 
+    - Compositor: picom
+    - Notification: dunst
     - Screenshot: flameshot
 - Spotlight
 - CopyQ:

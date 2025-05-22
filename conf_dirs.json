@@ -85,5 +85,11 @@
     },
     "gtk_4_0": {
         "ubuntu": ".config/gtk-4.0"
+    },
+    "picom": {
+        "ubuntu": ".config/picom"
+    },
+    "dunst": {
+        "ubuntu": ".config/dunst"
     }
 }
