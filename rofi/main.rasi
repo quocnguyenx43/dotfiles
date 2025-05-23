@@ -2,8 +2,8 @@ configuration {
     font:                           "Roboto mono 11";
     show-icons:                     true;
     icon-theme:                     "Papirus";
-    display-drun:                   "";
-    display-window:                 "";
+    display-drun:                   ">";
+    display-window:                 ">";
     drun-display-format:            "{name}";
     disable-history:                false;
     sidebar-mode:                   false;
@@ -96,8 +96,8 @@ element-icon {
 }
 
 element-text {
-    background-color: 				@al;
-    text-color:       				inherit;
+    background-color:               @al;
+    text-color:                     inherit;
     expand:                         true;
     horizontal-align:               0;
     vertical-align:                 0.5;
