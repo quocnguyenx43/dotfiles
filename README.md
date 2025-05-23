@@ -132,7 +132,6 @@
     - Compositor: picom
     - Notification: dunst
     - Screenshot: flameshot
-- Spotlight
 - CopyQ:
     - Clipboard History: Control-Shift-V
 

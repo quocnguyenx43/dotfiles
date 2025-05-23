@@ -91,5 +91,8 @@
     },
     "dunst": {
         "ubuntu": ".config/dunst"
+    },
+    "rofi": {
+        "ubuntu": ".config/rofi"
     }
 }
