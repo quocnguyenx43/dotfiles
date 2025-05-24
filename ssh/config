@@ -2,6 +2,10 @@ Host qn
     HostName 192.168.1.6
     User qn
 
+Host vm-test
+    HostName 172.16.133.129
+    User quocnguyen-vm2
+
 Host kafka
     HostName 10.2.123.130
     IdentityFile ~/.ssh/id_ed25519
