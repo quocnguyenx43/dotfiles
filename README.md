@@ -122,6 +122,10 @@
         - Clipboard History: Command-Shift-V (Control-Shift-V position)
 
 # Ubuntu
+- Required fonts:
+    + Nerdfonts [https://www.nerdfonts.com/font-downloads]
+        + 0xProto Nerd Font
+        + Symbols Nerd Font
 - Package manager: apt
 - Default shell: zsh
 - Shortcuts:
@@ -142,6 +146,7 @@ fix zshproxy file
 
 fix gitconfig tren cong ty
 add launcher to open app => dung exec
+da setup xong i3 su dung env monitor => check
 fix man hinh, layout, app run on each layout
 fix apt => tao may moi config tu dau toi cuoi va list ra cac packages must have => structure lai repo
 fix brew file => fix macos-tools

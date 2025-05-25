@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Reference: os_settings/ubuntu-monitor-setup.sh
+
 PRIMARY=$(cat ~/.zsh_primary_monitor)
 SECONDARY=$(cat ~/.zsh_secondary_monitor)
 ON_RIGHT=$(cat ~/.zsh_primary_monitor_on_right)

@@ -1,6 +1,7 @@
 # Mod1: Alt
 set $mod Mod1
 
+include ~/.config/i3/env
 include ~/.config/i3/config.d/startup.conf
 include ~/.config/i3/config.d/monitor.conf
 include ~/.config/i3/config.d/appearance.conf
@@ -18,4 +19,5 @@ default_orientation auto
 no_focus [window_role="pop-up"]
 
 include ~/.config/i3/config.d/keybindings.conf
+include ~/.config/i3/config.d/windows.conf
 include ~/.config/i3/config.d/launcher.conf

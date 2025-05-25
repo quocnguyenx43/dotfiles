@@ -5,6 +5,7 @@ PC_PRIMARY_MONITOR="$HOME/.zsh_primary_monitor"
 PC_SECONDARY_MONITOR="$HOME/.zsh_secondary_monitor"
 PC_PRIMARY_ON_RIGHT="$HOME/.zsh_primary_monitor_on_right"
 ZPROFILE="$HOME/.zprofile"
+I3_ENV_FILE="$HOME/.config/i3/env"
 
 # Check if monitor config files exist already
 if [[ -f "$PC_PRIMARY_MONITOR" && -f "$PC_SECONDARY_MONITOR" && -f "$PC_PRIMARY_ON_RIGHT" ]]; then
@@ -30,9 +31,9 @@ else
     if [[ ${#monitors[@]} -eq 1 ]]; then
         PRIMARY_MONITOR="${monitors[0]}"
         echo "$PRIMARY_MONITOR" > "$PC_PRIMARY_MONITOR"
-        echo "" > "$PC_SECONDARY_MONITOR"
+        echo "$PRIMARY_MONITOR" > "$PC_SECONDARY_MONITOR"
         echo "0" > "$PC_PRIMARY_ON_RIGHT"
-        echo "Only one monitor detected. Primary monitor set to: $PRIMARY_MONITOR"
+        echo "Only one monitor detected. Primary and secondary monitor set to: $PRIMARY_MONITOR"
         echo
     else
         # Prompt for primary monitor choice
@@ -79,6 +80,7 @@ else
         echo "Primary monitor saved as: $PRIMARY_MONITOR"
         echo "Secondary monitor saved as: $SECONDARY_MONITOR"
         echo "Is primary monitor on the right? : $PRIMARY_ON_RIGHT"
+        echo "Modified ~/.zsh_primary_monitor and related files."
         echo
     fi
 fi
@@ -105,4 +107,17 @@ add_or_update_export PRIMARY_MONITOR "$PC_PRIMARY_MONITOR"
 add_or_update_export SECONDARY_MONITOR "$PC_SECONDARY_MONITOR"
 add_or_update_export PRIMARY_MONITOR_ON_RIGHT "$PC_PRIMARY_ON_RIGHT"
 
-echo "Done. Please reload your shell or run 'source ~/.zprofile' to apply changes."
+echo "Modified $ZPROFILE"
+
+# Path to i3 env config
+mkdir -p "$(dirname "$I3_ENV_FILE")"
+
+{
+    echo "set \$primary_monitor \"$(<"$PC_PRIMARY_MONITOR")\""
+    echo "set \$secondary_monitor \"$(<"$PC_SECONDARY_MONITOR")\""
+    echo "set \$primary_monitor_on_right \"$(<"$PC_PRIMARY_ON_RIGHT")\""
+} > "$I3_ENV_FILE"
+
+echo "Updated i3 env variables in $I3_ENV_FILE"
+
+echo "Modified $I3_ENV_FILE"

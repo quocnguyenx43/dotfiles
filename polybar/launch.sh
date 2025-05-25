@@ -13,7 +13,7 @@ echo "--- Primary bar ---" | tee -a /tmp/primary-bar.log
 polybar primary-bar 2>&1 | tee -a /tmp/primary-bar.log & disown
 
 # Launch secondary bar only if SECONDARY_MONITOR is not empty
-if [ -n "$SECONDARY_MONITOR" ]; then
+if [[ -n "$SECONDARY_MONITOR" && "$SECONDARY_MONITOR" != "$PRIMARY_MONITOR" ]]; then
     echo "--- Secondary bar ---" | tee -a /tmp/secondary-bar.log
     polybar secondary-bar 2>&1 | tee -a /tmp/secondary-bar.log & disown
 fi
