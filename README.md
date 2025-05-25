@@ -131,10 +131,12 @@
 - Shortcuts:
     - kanata: Map Caps Lock to ESC
 - Tilling window manager (i3):
+    - Background: feh
     - Status bar: polybar
     - App launcher: rofi
     - Compositor: picom
     - Notification: dunst
     - Screenshot: flameshot
+    - Required packages for xwindows: xdotool xprop
 - CopyQ:
     - Clipboard History: Control-Shift-V
