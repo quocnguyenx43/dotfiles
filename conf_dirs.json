@@ -94,5 +94,9 @@
     },
     "rofi": {
         "ubuntu": ".config/rofi"
+    },
+    "work_scripts": {
+        "ubuntu": ".scripts",
+        "macos": ".scripts"
     }
 }
