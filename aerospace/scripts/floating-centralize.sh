@@ -8,3 +8,4 @@ source "${XDG_CONFIG_HOME}/aerospace/scripts/display-info.sh"
 
 # Centralize floating window
 osascript "${HOME}/.osascripts/centralize-window.applescript" "$screen_width" "$screen_height"
+${HOME}/.osascripts/bash/show-notification.sh "Floating window centralized" "Aerospace"

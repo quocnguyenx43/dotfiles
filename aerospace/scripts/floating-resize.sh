@@ -10,3 +10,4 @@ if [ $# -lt 2 ]; then
 fi
 
 osascript "${HOME}/.osascripts/resize-window.applescript" "$1" "$2"
+${HOME}/.osascripts/bash/show-notification.sh "Floating window resized" "Aerospace"

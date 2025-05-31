@@ -10,8 +10,16 @@ brew "eza"
 brew "fd"
 # Play, record, convert, and stream audio and video
 brew "ffmpeg"
+# Collection of GNU find, xargs, and locate
+brew "findutils"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# Distributed revision control system
+brew "git"
+# GNU implementation of the famous stream editor
+brew "gnu-sed"
+# GNU grep, egrep and fgrep
+brew "grep"
 # Improved top (interactive process viewer)
 brew "htop"
 # Tools and libraries to manipulate images in many formats
@@ -32,10 +40,18 @@ brew "neofetch"
 brew "neovim"
 # Platform built on V8 to build network applications
 brew "node"
+# OpenBSD freely-licensed SSH connectivity tools
+brew "openssh"
+# 7-Zip (high compression file archiver) implementation
+brew "p7zip"
+# Parallel gzip
+brew "pigz"
 # PDF rendering library (based on the xpdf-3.0 code base)
 brew "poppler"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.12"
+# Perl-powered file rename script with many helpful built-ins
+brew "rename"
 # SVG rendering tool and library
 brew "resvg"
 # Search tool like grep and The Silver Searcher
@@ -46,6 +62,10 @@ brew "sevenzip"
 brew "stow"
 # Terminal multiplexer
 brew "tmux"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
+# Internet file retriever
+brew "wget"
 # Blazing fast terminal file manager written in Rust, based on async I/O
 brew "yazi"
 # Shell extension to navigate your filesystem faster

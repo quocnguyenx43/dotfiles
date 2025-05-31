@@ -5,11 +5,12 @@ set -o pipefail
 
 NOTIFY_SCRIPT="${HOME}/.osascripts/show-notification.applescript"
 
-if [ $# -eq 0 ]; then
-    echo "Usage: $0 <message>"
+if [ $# -lt 2 ]; then
+    echo "Usage: $0 <message> <title>"
     exit 1
 fi
 
 MESSAGE="$1"
+TITLE="$2"
 
-osascript "$NOTIFY_SCRIPT" "$MESSAGE"
+osascript "$NOTIFY_SCRIPT" "$MESSAGE" "$TITLE"

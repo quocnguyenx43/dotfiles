@@ -5,5 +5,11 @@ on run argv
         set messageText to "Default Notification"
     end if
 
-    display notification messageText with title "🚀 Custom Notification"
+    if (count of argv) > 1 then
+        set titleText to item 2 of argv
+    else
+        set titleText to "🚀 Custom Notification"
+    end if
+
+    display notification messageText with title titleText
 end run

@@ -1,5 +1,9 @@
 # Fonts
-- **JetBrains Mono Fonts**: [JetBrainsMonoNL-Medium.ttf](https://github.com/podkovyrin/JetBrainsMono/blob/feature/no-ligatures-1-0-3/no-ligatures/JetBrainsMonoNL-Medium.ttf)
+- **JetBrains Mono Fonts**: 
+    + [JetBrainsMonoNL-Medium.ttf](https://github.com/podkovyrin/JetBrainsMono/blob/feature/no-ligatures-1-0-3/no-ligatures/JetBrainsMonoNL-Medium.ttf)
+- **Nert Fonts**:
+    + 0xProto Nerd Font
+    + Symbols Nerd Font
 
 # Tools
 - GNU Stow (apt or brew installation)
@@ -42,9 +46,9 @@
     + neovim (github source) -> opt -> zshenv
 
 # Software
-    + Hadoop -> opt -> zshenv
-    + Spark -> opt -> zshenv
-    + Maven -> opt -> zshenv
+    - Hadoop -> opt -> zshenv
+    - Spark -> opt -> zshenv
+    - Maven -> opt -> zshenv
 
 # macOS
 - Package manager: Homebrew
@@ -122,10 +126,6 @@
         - Clipboard History: Command-Shift-V (Control-Shift-V position)
 
 # Ubuntu
-- Required fonts:
-    + Nerdfonts [https://www.nerdfonts.com/font-downloads]
-        + 0xProto Nerd Font
-        + Symbols Nerd Font
 - Package manager: apt
 - Default shell: zsh
 - Shortcuts:
