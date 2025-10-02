@@ -25,6 +25,7 @@
 
     // Workbench
     "workbench.colorTheme": "Default Dark Modern",
+    "workbench.activityBar.orientation": "vertical",
 
     // Others
     "update.enableWindowsBackgroundUpdates": false,

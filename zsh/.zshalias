@@ -48,6 +48,11 @@ function create_virtual_python_environment() {
     fi
 }
 
+# dbt
+# Always update this env
+# python -m pip install --upgrade pip wheel setuptools
+alias dbtenv='source ${HOME}/.dbt-env/bin/activate'
+
 # Find something
 function global_find() {
     fd $1 /
@@ -84,6 +89,18 @@ else
     alias bcat='bat'
 fi
 alias cd='z'
+
+# Kubernetes
+source <(kubectl completion zsh)
+alias kbc='kubectl'
+alias kbc-c='kubectl-convert'
+alias kind='kind'
+alias mkb='minikube'
+complete -o default -F __start_kubectl kbc
+complete -o default -F __start_kubectl kbc-c
+complete -o default -F __start_kubectl kubectl
+complete -o default -F __start_kubectl kind
+complete -o default -F __start_kubectl mkb
 
 # Change directory aliases
 # ** COMP **

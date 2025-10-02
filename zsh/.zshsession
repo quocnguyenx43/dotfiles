@@ -1,0 +1,9 @@
+# ** COMP **
+if [[ "$PC_TYPE" == "WORK" ]]; then
+    tmux new-session -d -s "default"
+    tmux new-session -d -s "prodution"
+    tmux new-session -d -s "staging"
+else
+    tmux new-session -d -s "default"
+    tmux new-session -d -s "coding"
+fi

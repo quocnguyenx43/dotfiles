@@ -40,12 +40,12 @@ automatically-unhide-macos-hidden-apps = false
     preset = 'qwerty'
 
 [gaps]
-    inner.horizontal = 30
-    inner.vertical =   30
-    outer.left =       15
-    outer.bottom =     15
-    outer.top =        15
-    outer.right =      15
+    inner.horizontal = 2
+    inner.vertical =   2
+    outer.left =       0
+    outer.bottom =     0
+    outer.top =        0
+    outer.right =      0
 
 [exec]
     inherit-env-vars = true
@@ -89,29 +89,31 @@ automatically-unhide-macos-hidden-apps = false
     alt-8 = 'workspace 8'
     alt-9 = 'workspace 9'
 
-    alt-shift-1 = ['move-node-to-workspace 1', 'workspace 1']
-    alt-shift-2 = ['move-node-to-workspace 2', 'workspace 2']
-    alt-shift-3 = ['move-node-to-workspace 3', 'workspace 3']
-    alt-shift-4 = ['move-node-to-workspace 4', 'workspace 4']
-    alt-shift-5 = ['move-node-to-workspace 5', 'workspace 5']
-    alt-shift-6 = ['move-node-to-workspace 6', 'workspace 6']
-    alt-shift-7 = ['move-node-to-workspace 7', 'workspace 7']
-    alt-shift-8 = ['move-node-to-workspace 8', 'workspace 8']
-    alt-shift-9 = ['move-node-to-workspace 9', 'workspace 9']
+    alt-shift-1 = ['move-node-to-workspace 1']
+    alt-shift-2 = ['move-node-to-workspace 2']
+    alt-shift-3 = ['move-node-to-workspace 3']
+    alt-shift-4 = ['move-node-to-workspace 4']
+    alt-shift-5 = ['move-node-to-workspace 5']
+    alt-shift-6 = ['move-node-to-workspace 6']
+    alt-shift-7 = ['move-node-to-workspace 7']
+    alt-shift-8 = ['move-node-to-workspace 8']
+    alt-shift-9 = ['move-node-to-workspace 9']
 
     alt-f = 'workspace Default-1' # Default screen 1
     alt-g = 'workspace Default-2' # Default screen 2
     alt-c = 'workspace Any-1' # Any screen 1
     alt-v = 'workspace Any-2' # Any screen 2
+    alt-t = 'workspace Terminal' # Terminal
     alt-x = 'workspace Note' # Note
     alt-z = 'workspace Message' # Message
 
-    alt-shift-f =['move-node-to-workspace Default-1', 'workspace Default-1'] # Default screen 1
-    alt-shift-g = ['move-node-to-workspace Default-2', 'workspace Default-2'] # Default screen 2
-    alt-shift-c = ['move-node-to-workspace Any-1', 'workspace Any-1'] # Default screen 1
-    alt-shift-v = ['move-node-to-workspace Any-2', 'workspace Any-2'] # Default screen 2
-    alt-shift-x =  ['move-node-to-workspace Note', 'workspace Note'] # Note
-    alt-shift-z = ['move-node-to-workspace Message', 'workspace Message'] # Message
+    alt-shift-f =['move-node-to-workspace Default-1']
+    alt-shift-g = ['move-node-to-workspace Default-2']
+    alt-shift-c = ['move-node-to-workspace Any-1']
+    alt-shift-v = ['move-node-to-workspace Any-2']
+    alt-shift-t = ['move-node-to-workspace Terminal']
+    alt-shift-x =  ['move-node-to-workspace Note']
+    alt-shift-z = ['move-node-to-workspace Message']
 
     # Go to the previous focused workspace
     alt-tab = 'workspace-back-and-forth'
@@ -228,6 +230,10 @@ run = ["layout floating"]
 if.app-id = "com.apple.iBooksX"
 run = ["layout floating"]
 
+[[on-window-detected]]
+if.app-id = "com.apple.QuickTimePlayerX"
+run = ["layout floating"]
+
 # Default 1
 
 [[on-window-detected]]
@@ -246,12 +252,6 @@ run = ["layout floating", "move-node-to-workspace Default-1"]
 if.app-id = "io.github.hluk.CopyQ"
 run = ["layout floating"]
 
-# Any 1
-
-[[on-window-detected]]
-if.app-id = "com.postmanlabs.mac"
-run = ["move-node-to-workspace Any-1"]
-
 # Note
 
 [[on-window-detected]]
@@ -264,6 +264,10 @@ run = "move-node-to-workspace Note"
 
 [[on-window-detected]]
 if.app-id = "com.apple.Notes"
+run = "move-node-to-workspace Note"
+
+[[on-window-detected]]
+if.app-id = "com.apple.TextEdit"
 run = "move-node-to-workspace Note"
 
 # Message
@@ -298,9 +302,11 @@ run = "move-node-to-workspace Default-2"
 if.app-id = "com.todesktop.230313mzl4w4u92"
 run = "move-node-to-workspace Default-2"
 
+# Terminal
+
 [[on-window-detected]]
 if.app-id = "com.github.wez.wezterm"
-run = "move-node-to-workspace Default-2"
+run = "move-node-to-workspace Terminal"
 
 [workspace-to-monitor-force-assignment]
     Default-1 = '^built-in retina display$'

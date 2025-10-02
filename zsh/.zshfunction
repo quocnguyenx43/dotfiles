@@ -1,3 +1,4 @@
+# Compressing a folder
 function targz() {
     local tmpFile="${@%/}.tar";
     tar -cvf "${tmpFile}" --exclude=".DS_Store" "${@}" || return 1;

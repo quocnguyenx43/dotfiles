@@ -19,5 +19,6 @@ default_orientation auto
 no_focus [window_role="pop-up"]
 
 include ~/.config/i3/config.d/keybindings.conf
+include ~/.config/i3/config.d/workspaces.conf
 include ~/.config/i3/config.d/windows.conf
 include ~/.config/i3/config.d/launcher.conf

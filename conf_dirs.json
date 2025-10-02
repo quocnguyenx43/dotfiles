@@ -43,6 +43,14 @@
         "macos": "Library/Application Support/Code/User",
         "ubuntu": ".config/Code/User"
     },
+    "cursor": {
+        "macos": "Library/Application Support/Cursor/User",
+        "ubuntu": ".config/Cursor/User"
+    },
+    "claude": {
+        "macos": "Library/Application Support/Claude/",
+        "ubuntu": ""
+    },
     "yazi": {
         "macos": ".config/yazi",
         "ubuntu": ".config/yazi"

@@ -8,6 +8,8 @@ brew "coreutils"
 brew "eza"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
+# OCR (Optical Character Recognition) engine
+brew "tesseract"
 # Play, record, convert, and stream audio and video
 brew "ffmpeg"
 # Collection of GNU find, xargs, and locate
@@ -30,6 +32,10 @@ brew "jq"
 brew "lazydocker"
 # Simple terminal UI for git commands
 brew "lazygit"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.13"
+# LLM inference in C/C++
+brew "llama.cpp"
 # Utility for directing compilation
 brew "make"
 # Collection of tools that nobody wrote when UNIX was young
@@ -40,6 +46,8 @@ brew "neofetch"
 brew "neovim"
 # Platform built on V8 to build network applications
 brew "node"
+# Create, run, and share large language models (LLMs)
+brew "ollama"
 # OpenBSD freely-licensed SSH connectivity tools
 brew "openssh"
 # 7-Zip (high compression file archiver) implementation
@@ -64,24 +72,34 @@ brew "stow"
 brew "tmux"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Extremely fast Python package installer and resolver, written in Rust
+brew "uv"
 # Internet file retriever
 brew "wget"
+# Library to create, extract, and modify Windows Imaging files
+brew "wimlib"
 # Blazing fast terminal file manager written in Rust, based on async I/O
 brew "yazi"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
 # Simple hotkey-daemon for macOS.
 brew "koekeishiya/formulae/skhd"
+# A tiling window manager for macOS based on binary space partitioning.
+brew "koekeishiya/formulae/yabai"
 # AeroSpace is an i3-like tiling window manager for macOS
 cask "aerospace"
 # Application launcher and productivity software
 cask "alfred"
+# Anthropic's official Claude AI desktop app
+cask "claude"
+# Free app that makes your Internet safer
+cask "cloudflare-warp"
 # Clipboard manager with advanced features
 cask "copyq"
 # Write, edit, and chat about your code with AI
 cask "cursor"
 # App to build and share containerised applications and microservices
-cask "docker"
+cask "docker-desktop"
 # Web browser
 cask "firefox"
 cask "font-symbols-only-nerd-font"
@@ -99,6 +117,10 @@ cask "postman"
 cask "spotify"
 # Text editor for code, markup and prose
 cask "sublime-text"
+# Native GUI tool for relational databases
+cask "tableplus"
+# Remote access and connectivity software focused on security
+cask "teamviewer"
 # Messaging app with a focus on speed and security
 cask "telegram"
 # Open-source code editor
@@ -109,9 +131,15 @@ cask "wezterm"
 cask "zalo"
 vscode "github.copilot"
 vscode "github.copilot-chat"
+vscode "kevinrose.vsc-python-indent"
 vscode "ms-python.debugpy"
 vscode "ms-python.python"
 vscode "ms-python.vscode-pylance"
+vscode "ms-toolsai.jupyter"
+vscode "ms-toolsai.jupyter-keymap"
+vscode "ms-toolsai.jupyter-renderers"
+vscode "ms-toolsai.vscode-jupyter-cell-tags"
+vscode "ms-toolsai.vscode-jupyter-slideshow"
 vscode "ms-vscode-remote.remote-ssh"
 vscode "ms-vscode-remote.remote-ssh-edit"
 vscode "ms-vscode.makefile-tools"

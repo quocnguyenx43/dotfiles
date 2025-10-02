@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/Users/quocnguyen/Desktop",
+        "/Users/quocnguyen/Downloads"
+      ],
+      "autoStart": true
+    }
+  }
+}

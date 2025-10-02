@@ -140,3 +140,10 @@
     - Required packages for xwindows: xdotool xprop
 - CopyQ:
     - Clipboard History: Control-Shift-V
+- Work:
+    - Proxy:
+        - proxychains4
+        - privoxy
+
+pipx install sqlfmt
+pre-commit => using sqlfmt through pre-commit

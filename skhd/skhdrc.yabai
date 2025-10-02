@@ -1,8 +1,8 @@
 # Change window focus
-alt - s : yabai -m window --focus south
-alt - w : yabai -m window --focus north
-alt - a : yabai -m window --focus west
-alt - d : yabai -m window --focus east
+alt - a : ~/.config/skhd/scripts/change-focus.sh west
+alt - d : ~/.config/skhd/scripts/change-focus.sh east
+alt - w : ~/.config/skhd/scripts/change-focus.sh north
+alt - s : ~/.config/skhd/scripts/change-focus.sh south
 
 # Move window
 shift + alt - s : yabai -m window --swap south
@@ -53,3 +53,26 @@ shift + alt - 4 : yabai -m window --space 4; yabai -m space --focus 4
 
 # Show desktop
 # cmd - e : yabai -m space --toggle show-desktop
+
+# App Launcher (Hyper key: ctrl + shift + cmd + alt)
+ctrl + shift + cmd + alt - b : ~/.config/skhd/scripts/open-app.sh "Brave Browser" \
+                               && ~/.osascripts/bash/show-notification.sh "Open Brave Browser" "skhd"
+ctrl + shift + cmd + alt - f : ~/.config/skhd/scripts/open-app.sh "Finder"  \
+                               && ~/.osascripts/bash/show-notification.sh "Open Finder" "skhd"
+ctrl + shift + cmd + alt - w : ~/.config/skhd/scripts/open-app.sh "WezTerm"  \
+                               && ~/.osascripts/bash/show-notification.sh "Open WezTerm" "skhd"
+ctrl + shift + cmd + alt - c : ~/.config/skhd/scripts/open-app.sh "Cursor"  \
+                               && ~/.osascripts/bash/show-notification.sh "Open Cursor" "skhd"
+ctrl + shift + cmd + alt - v : ~/.config/skhd/scripts/open-app.sh "Visual Studio Code"  \
+                               && ~/.osascripts/bash/show-notification.sh "Open Visual Studio Code" "skhd"
+ctrl + shift + cmd + alt - s : ~/.config/skhd/scripts/open-app.sh "Sublime Text"  \
+                               && ~/.osascripts/bash/show-notification.sh "Open Sublime Text" "skhd"
+ctrl + shift + cmd + alt - n : ~/.config/skhd/scripts/open-app.sh "Notion"  \
+                               && ~/.osascripts/bash/show-notification.sh "Open Notion" "skhd"
+ctrl + shift + cmd + alt - z : ~/.config/skhd/scripts/open-app.sh "Zalo"  \
+                               && ~/.osascripts/bash/show-notification.sh "Open Zalo" "skhd"
+ctrl + shift + cmd + alt - m : ~/.config/skhd/scripts/open-app.sh "Spotify"  \
+                               && ~/.osascripts/bash/show-notification.sh "Open Spotify" "skhd"
+
+# Restart/stop skhd
+ctrl + alt - r : skhd --restart-service && ~/.osascripts/bash/show-notification.sh "Restart skhd" "skhd"
