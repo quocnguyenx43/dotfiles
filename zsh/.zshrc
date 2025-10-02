@@ -184,6 +184,7 @@ ZSH_ENV="$HOME/.zshenv"
 ZSH_ALIAS="$HOME/.zshalias"
 ZSH_PROXY="$HOME/.zshproxy"
 ZSH_FUNCTION="$HOME/.zshfunction"
+ZSH_SESSION="$HOME/.zshsession"
 ZSH_HELP="$HOME/.zshhelp"
 
 if [ -f "$ZSH_ENV" ]; then
@@ -194,14 +195,18 @@ if [ -f "$ZSH_ALIAS" ]; then
     source "$ZSH_ALIAS"
 fi
 
+if [ -f "$ZSH_FUNCTION" ]; then
+    source "$ZSH_FUNCTION"
+fi
+
 if [[ "$PC_TYPE" == "WORK" ]]; then
     if [ -f "$ZSH_PROXY" ]; then
         source "$ZSH_PROXY"
     fi
 fi
 
-if [ -f "$ZSH_FUNCTION" ]; then
-    source "$ZSH_FUNCTION"
+if [ -f "$ZSH_SESSION" ]; then
+    source "$ZSH_SESSION"
 fi
 
 if [ -f "$ZSH_HELP" ]; then
