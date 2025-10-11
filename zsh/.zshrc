@@ -47,7 +47,7 @@ export SECONDARY_MONITOR
 export PRIMARY_MONITOR_ON_RIGHT
 
 # Colors
-export TERM="tmux-256color"
+# export TERM="tmux-256color"
 
 # For ARM macOS
 if [[ "$OS" == "macos" && "$ARCH" == "arm64" ]]; then

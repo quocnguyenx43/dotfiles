@@ -44,11 +44,15 @@ Host spark-worker-03
     User workspace
     Port 22
 
-Host nd-sensor
+Host nd-sensor-dev
     HostName 172.16.204.201
     IdentityFile ~/.ssh/id_ed25519
     User ubuntu
     Port 5389
+
+Host nd-sensor-prod
+    HostName 10.2.48.18
+    User nd-sensor-01
 
 # nDPI-iptables
 

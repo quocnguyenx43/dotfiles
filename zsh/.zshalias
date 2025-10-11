@@ -90,6 +90,11 @@ else
 fi
 alias cd='z'
 
+# Docker
+alias dkc-stop='docker stop $(docker ps -aq)'
+alias dkc-rm='docker rm $(docker ps -aq)'
+alias dkv-prune='docker volume prune -f'
+
 # Kubernetes
 source <(kubectl completion zsh)
 alias kbc='kubectl'

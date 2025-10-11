@@ -43,6 +43,10 @@
         "macos": "Library/Application Support/Code/User",
         "ubuntu": ".config/Code/User"
     },
+    "azure_data_studio": {
+        "macos": "Library/Application Support/azuredatastudio/User",
+        "ubuntu": ".config/azuredatastudio/User"
+    },
     "cursor": {
         "macos": "Library/Application Support/Cursor/User",
         "ubuntu": ".config/Cursor/User"
