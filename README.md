@@ -147,3 +147,14 @@
 
 pipx install sqlfmt
 pre-commit => using sqlfmt through pre-commit
+docker
+kubectl
+kind
+terraform
+helm
+
+Docker-in-Docker: create a Linux container => mount this /var/run/docker.sock into the container => it works
+
+# 3️⃣ fix permissions
+sudo usermod -aG docker $USER
+newgrp dockerr
