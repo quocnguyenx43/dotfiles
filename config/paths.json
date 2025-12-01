@@ -1,0 +1,77 @@
+{
+    "common": {
+        "state": {
+            "macos": "",
+            "ubuntu": ""
+        },
+        "zsh": {
+            "macos": "",
+            "ubuntu": ""
+        },
+        "curl": {
+            "macos": "",
+            "ubuntu": ""
+        },
+        "wget": {
+            "macos": "",
+            "ubuntu": ""
+        },
+        "git": {
+            "macos": "",
+            "ubuntu": ""
+        },
+        "ssh": {
+            "macos": ".ssh",
+            "ubuntu": ".ssh"
+        },
+        "wezterm": {
+            "macos": "",
+            "ubuntu": ""
+        },
+        "yazi": {
+            "macos": ".config/yazi",
+            "ubuntu": ".config/yazi"
+        },
+        "tmux": {
+            "macos": "",
+            "ubuntu": ""
+        },
+        "nvim": {
+            "macos": ".config/nvim",
+            "ubuntu": ".config/nvim"
+        },
+        "sublime_text": {
+            "macos": "Library/Application Support/Sublime Text/Packages/User",
+            "ubuntu": ".config/sublime-text/Packages/User"
+        },
+        "vscode": {
+            "macos": "Library/Application Support/Code/User",
+            "ubuntu": ".config/Code/User"
+        },
+        "cursor": {
+            "macos": "Library/Application Support/Cursor/User",
+            "ubuntu": ".config/Cursor/User"
+        }
+    },
+    "macos": {
+        "keybindings": "Library/KeyBindings",
+        "osascripts": ".osascripts",
+        "karabiner": ".config/karabiner",
+        "aerospace": ".config/aerospace",
+        "yabai": ".config/yabai",
+        "skhd": ".config/skhd",
+        "claude": "Library/Application Support/Claude/"
+    },
+    "ubuntu": {
+        "kanata": ".config/kanata",
+        "kanata_service": ".config/systemd/user",
+        "i3": ".config/i3",
+        "i3blocks": ".config/i3blocks",
+        "bumblebee_status": ".config/bumblebee-status",
+        "polybar": ".config/polybar",
+        "gtk_4_0": ".config/gtk-4.0",
+        "picom": ".config/picom",
+        "dunst": ".config/dunst",
+        "rofi": ".config/rofi"
+    }
+}

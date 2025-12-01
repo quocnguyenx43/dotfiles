@@ -1,27 +1,22 @@
-.PHONY: install clean
+.PHONY: install os uninstall
 
 all: install
 
 install:
-	echo "Run setup script..." && \
-		chmod +x ./setup.sh && \
-		./setup.sh --no-os-setup
-	@if [ -d ./.outputs ]; then \
-		$(MAKE) -C ./.outputs install; \
+	echo "Setting up..." && \
+		chmod +x ./scripts/state.sh && ./scripts/state.sh && \
+		chmod +x ./scripts/stow.sh && ./scripts/stow.sh
+	@if [ -d ./apps ]; then \
+		$(MAKE) -C ./apps install; \
 	fi
 
-install-os-setup:
-	echo "Run setup script..." && \
-		chmod +x ./setup.sh && \
-		./setup.sh
-	@if [ -d ./.outputs ]; then \
-		$(MAKE) -C ./.outputs install; \
-	fi
+os:
+	echo "OS setting up..." && \
+		chmod +x ./scripts/os.sh && ./scripts/os.sh
 
-clean:
-	@if [ -d ./.outputs ]; then \
-		$(MAKE) -C ./.outputs clean; \
+uninstall:
+	@if [ -d ./apps ]; then \
+		$(MAKE) -C ./apps uninstall; \
 	fi
-	echo "Run cleaning script..." && \
-		chmod +x ./clean.sh && \
-		./clean.sh
+	echo "Cleaning up..." && \
+		chmod +x ./scripts/clean.sh && ./scripts/clean.sh

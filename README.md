@@ -1,58 +1,104 @@
-# Fonts
-- **JetBrains Mono Fonts**: 
-    + [JetBrainsMonoNL-Medium.ttf](https://github.com/podkovyrin/JetBrainsMono/blob/feature/no-ligatures-1-0-3/no-ligatures/JetBrainsMonoNL-Medium.ttf)
-- **Nert Fonts**:
-    + 0xProto Nerd Font
-    + Symbols Nerd Font
+# qn's dotfiles
 
-# Tools
-- GNU Stow (apt or brew installation)
-- Wezterm (apt or brew installtion)
-- tmux (apt or brew installtion)
+## TODO
+- Fix apt and brew packages
+- Fix OS script
+- Docker-in-Docker: create a Linux container => mount this /var/run/docker.sock into the container => it works
+- Fix work_scripts: ./common/work
+- Add secrets template
+
+## Fonts
+- [JetBrains Mono NL (no ligatures)](https://github.com/podkovyrin/JetBrainsMono/blob/feature/no-ligatures-1-0-3/no-ligatures/JetBrainsMonoNL-Medium.ttf)
+- Nerd Fonts: 0xProto Nerd Font and Symbols Nerd Font
+
+## Core Tools
+- GNU Stow (apt | brew)
+- Wezterm (apt | brew)
+- tmux (apt | brew)
 - Oh My Zsh:
     - zsh-autosugesstions (Github)
     - zsh-syntax-highlighting (Github)
-- Others CLI tools (dependencies):
-    + fzf (latest version on Github for Linux, brew for macOS)
-    + fd, fdfind (latest version on Github for Linux, brew for MacOS)
-    + eza (latest version on Github for Linux, brew for MacOS)
-    + zoxide (latest version on Github for Linux, brew for MacOS)
-    + ripgrep (apt or brew installtion)
-    + bat (apt or brew installtion)
-    + jq (apt or brew installtion)
-    + neofetch (apt or brew installtion)
-    + htop (apt or brew installtion)
-    + ffmpeg (apt or brew installtion)
-    + imagemagick (apt or brew installtion)
-    + 7zip: p7zip-full p7zip-rar (Linux), sevenzip (MacOS)
-    + poppler: poppler-utils (apt for Linux), poppler (brew for MacOS)
-    + wl-clipboard (apt for Linux only)
-    + yazi (change to install using snap, brew for MacOS)
-- Desktop apps:
-    + Coding: Cursor, VSCode, XCode, Postman, Docker, VMWare
-    + Browser: Brave, Firefox
-    + Note: Sublime Text, Notion
-    + Terminal: WezTerm
-    + DB: MongoDB Compass, Redis Insights, Data Grip, Navicat, TablePlus, Azure Data Studio
-- Dev apps:
-    + make
-    + git, lazygit
-    + docker, lazydocker (docker engine for Linux, docker desktop for MacOS)
-    + uv, ruff (python)
-    + nodejs, npm (javscript)
-    + golang-go (go)
-    + jdk 11/17
-    + coursier, (cs, scala, scalac, sbt), maven (for scala, java)
-    + neovim (github source) -> opt -> zshenv
 
-# Software
-    - Hadoop -> opt -> zshenv
-    - Spark -> opt -> zshenv
-    - Maven -> opt -> zshenv
+## CLI Utilities
 
-# macOS
-- Package manager: Homebrew
-- Default shell: zsh
+> Navigation, search, text, sys-info, archives
+
+- fzf — latest release (GitHub for Linux, brew on macOS)
+- fd / fdfind — latest release (GitHub for Linux, brew on macOS)
+- eza — latest release (GitHub for Linux, brew on macOS)
+- zoxide — latest release (GitHub for Linux, brew on macOS)
+- ripgrep — apt / brew
+- bat — apt / brew
+- jq — apt / brew
+- neofetch — apt / brew
+- htop — apt / brew
+- ffmpeg — apt / brew
+- imagemagick — apt / brew
+- 7zip
+    - Linux: p7zip-full p7zip-rar
+    - macOS: sevenzip
+- poppler
+    - Linux: poppler-utils
+    - macOS: poppler
+- wl-clipboard — apt (Linux only)
+- yazi — snap (Linux), brew (macOS)
+
+## Development Stack
+
+> Languages, build tools, dev helpers
+
+- make
+- Version control:
+    - git, lazygit
+- Containers & DevOps:
+    - docker / lazydocker
+    - kubectl
+    - kind
+    - terraform
+    - helm
+- Python:
+    - uv, ruff
+- JavaScript:
+    - nodejs, npm
+- Go:
+    - golang-go
+- Rust:
+    - cargo
+- JVM stack:
+    - jdk 11/17
+    - coursier (cs, scala, scalac, sbt)
+    - maven
+- Editor integration:
+    - neovim (built from source, added to PATH via .zshenv)
+- Commit hooks:
+    - pre-commit (using sqlfmt)
+
+## Desktop Application
+- Coding
+    - Cursor
+    - VSCode
+    - XCode (macOS)
+    - Postman
+    - Docker
+    - VMWare
+- Browser
+    - Brave
+    - Firefox
+- Notes
+    - Sublime Text
+    - Notion
+- Terminal
+    - WezTerm
+- Databases
+    - MongoDB Compass
+    - Redis Insights
+    - DataGrip
+    - Navicat
+    - TablePlus
+
+## macOS
+- Package Manager: `brew`
+- Default Shell: `zsh`
 - Shortcuts, hot keys (built-in): Setting up for each device in keyboard settings
     - Disable Capslock action
     - Mapping: Control -> Command, Command -> Control
@@ -145,16 +191,17 @@
         - proxychains4
         - privoxy
 
-pipx install sqlfmt
-pre-commit => using sqlfmt through pre-commit
-docker
-kubectl
-kind
-terraform
-helm
+## Quickstart Scripts
 
-Docker-in-Docker: create a Linux container => mount this /var/run/docker.sock into the container => it works
+Run in order:
 
-# 3️⃣ fix permissions
-sudo usermod -aG docker $USER
-newgrp dockerr
+- `scripts/state.sh` — detect and save machine type
+- `scripts/os.sh` — detect OS + architecture
+- `scripts/stow.sh` — apply symlinks (GNU Stow)
+- `scripts/clean.sh` — cleanup generated folders
+
+## Author
+__Maintained by Quoc Nguyen__
+- GitHub: [@quocnguyenx43](https://github.com/quocnguyenx43/)
+- LinkedIn: [@quocnguyenx43](https://www.linkedin.com/in/quocnguyenx43/)
+- Email: [quocnguyenx43@gmail.com](mailto:{quocnguyenx43@gmail.com})
