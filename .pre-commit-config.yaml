@@ -1,0 +1,22 @@
+repos:
+  - repo: https://github.com/scop/pre-commit-shfmt
+    rev: v3.10.0-1
+    hooks:
+      - id: shfmt
+        name: shfmt (scripts)
+        files: ^scripts/.*\.sh$
+        args: ["-w"]
+
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.10.0.1
+    hooks:
+      - id: shellcheck
+        name: shellcheck (scripts)
+        files: ^scripts/.*\.sh$
+
+  - repo: https://github.com/JohnnyMorganz/StyLua
+    rev: v0.20.0
+    hooks:
+      - id: stylua
+        name: stylua (nvim lua)
+        files: ^common/nvim/lua/.*\.lua$

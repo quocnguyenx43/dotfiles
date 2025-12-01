@@ -1,12 +1,5 @@
 # qn's dotfiles
 
-## TODO
-- Fix apt and brew packages
-- Fix OS script
-- Docker-in-Docker: create a Linux container => mount this /var/run/docker.sock into the container => it works
-- Fix work_scripts: ./common/work
-- Add secrets template
-
 ## Fonts
 - [JetBrains Mono NL (no ligatures)](https://github.com/podkovyrin/JetBrainsMono/blob/feature/no-ligatures-1-0-3/no-ligatures/JetBrainsMonoNL-Medium.ttf)
 - Nerd Fonts: 0xProto Nerd Font and Symbols Nerd Font
@@ -191,13 +184,37 @@
         - proxychains4
         - privoxy
 
-## Quickstart Scripts
+## Repo layout
 
-Run in order:
+- `common/`: cross-platform configs that are shared between macOS and Ubuntu (e.g. `nvim`, `zsh`, `ssh`, `wezterm`, `yazi`, `vscode`, `cursor`, `sublime_text`).
+- `macos/`: macOS-only configs (Karabiner, Aerospace, Yabai, `skhd`, AppleScripts, system keybindings, Claude settings).
+- `ubuntu/`: Ubuntu-only configs (i3, i3blocks, polybar, rofi, dunst, picom, kanata, etc).
+- `config/paths.json`: mapping from logical app name → OS-specific config path under `$HOME` that `scripts/stow.sh` uses to copy/sync configs.
+- `apps/`: a mirror of the target paths that `scripts/stow.sh` populates; you normally don’t edit this by hand.
+
+## How `config/paths.json` is used
+
+- `scripts/stow.sh` reads `config/paths.json` with `jq` and uses the `OS` detected by `scripts/state.sh` to pick the right path for each app.
+- Section `common` has entries like `"nvim": { "macos": ".config/nvim", "ubuntu": ".config/nvim" }` so the same config is copied to the correct `$HOME` path on both OSes.
+- Sections `macos` and `ubuntu` hold OS-specific tools (window managers, status bars, etc.), each mapped to a single path under `$HOME`.
+- For each entry:
+  - Creates the target directory under `$HOME` (e.g. `$HOME/.config/nvim`).
+  - Creates the corresponding directory under `apps/` (e.g. `apps/.config/nvim`).
+  - Copies everything from `<section>/<app>/` into the `apps/` mirror so you can inspect the final config tree.
+
+To add a new tool:
+- Add its directory under `common/`, `macos/`, or `ubuntu/` (e.g. `common/wezterm/`).
+- Add a key to `config/paths.json` with the appropriate macOS/Ubuntu paths.
+- Re-run `scripts/state.sh` (if needed) and `scripts/stow.sh`.
+
+## Scripts
+
+### Run in order:
 
 - `scripts/state.sh` — detect and save machine type
 - `scripts/os.sh` — detect OS + architecture
-- `scripts/stow.sh` — apply symlinks (GNU Stow)
+- `scripts/check_env.sh` — health check for required tools
+- `scripts/stow.sh` — apply configs based on config/paths.json
 - `scripts/clean.sh` — cleanup generated folders
 
 ## Author
