@@ -32,17 +32,18 @@ function yz() {
 
 # Python environment
 function create_virtual_python_environment() {
+    local python_version=3.12
     if [[ "$1" == "uv" ]]; then
         echo "Virtual environment using uv."
-        uv init -p 3.12
-        uv venv -p 3.12
+        uv init -p ${python_version}
+        uv venv -p ${python_version}
         uv sync
         uv add pip
         source .venv/bin/activate
         pip install --upgrade pip
     else 
         echo "Virtual environment using venv."
-        python3.12 -m venv .venv
+        python${python_version} -m venv .venv
         source .venv/bin/activate
         pip install --upgrade pip
     fi
@@ -89,6 +90,7 @@ else
     alias bcat='bat'
 fi
 alias cd='z'
+alias code='cursor'
 
 # Docker
 alias dkc-stop='docker stop $(docker ps -aq)'

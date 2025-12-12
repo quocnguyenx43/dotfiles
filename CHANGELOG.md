@@ -17,3 +17,9 @@ All notable changes to this project will be documented in this file.
 - Added `config/secrets_example.json` as a template for local secrets configuration.
 - Added `scripts/check_env.sh` for environment health checks on macOS and Ubuntu.
 - Set up `pre-commit` with `shfmt`, `shellcheck`, and `stylua` for shell and Neovim Lua files.
+
+## [0.1.0] - 2025-12-12
+
+### Added
+- Added `MACOS.md` and `UBUNTU.md`.
+- Added `claude-code` settings in common.

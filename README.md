@@ -2,187 +2,161 @@
 
 ## Fonts
 - [JetBrains Mono NL (no ligatures)](https://github.com/podkovyrin/JetBrainsMono/blob/feature/no-ligatures-1-0-3/no-ligatures/JetBrainsMonoNL-Medium.ttf)
-- Nerd Fonts: 0xProto Nerd Font and Symbols Nerd Font
+- [0xProto Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/latest) (Nerd Font)
+- [Symbols Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/latest)
 
 ## Core Tools
-- GNU Stow (apt | brew)
-- Wezterm (apt | brew)
-- tmux (apt | brew)
-- Oh My Zsh:
-    - zsh-autosugesstions (Github)
-    - zsh-syntax-highlighting (Github)
+- **GNU Stow** (`apt` | `brew`)
+- **Wezterm** (`apt` | `brew`)
+- **tmux** (`apt` | `brew`)
+- **Oh My Zsh**:
+    - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+    - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 
 ## CLI Utilities
 
 > Navigation, search, text, sys-info, archives
 
-- fzf — latest release (GitHub for Linux, brew on macOS)
-- fd / fdfind — latest release (GitHub for Linux, brew on macOS)
-- eza — latest release (GitHub for Linux, brew on macOS)
-- zoxide — latest release (GitHub for Linux, brew on macOS)
-- ripgrep — apt / brew
-- bat — apt / brew
-- jq — apt / brew
-- neofetch — apt / brew
-- htop — apt / brew
-- ffmpeg — apt / brew
-- imagemagick — apt / brew
+- fzf
+    - Linux: download latest release from GitHub
+    - macOS: install with Homebrew (`brew install fzf`)
+- fd / fdfind
+    - Linux: download latest release from GitHub (binary may be named `fdfind`)
+    - macOS: install with Homebrew (`brew install fd`)
+- eza
+    - Linux: download latest release from GitHub
+    - macOS: install with Homebrew (`brew install eza`)
+- zoxide
+    - Linux: download latest release from GitHub
+    - macOS: install with Homebrew (`brew install zoxide`)
+- ripgrep
+    - Linux: install with `apt`
+    - macOS: install with Homebrew (`brew install ripgrep`)
+- bat
+    - Linux: install with `apt`
+    - macOS: install with Homebrew (`brew install bat`)
+- jq
+    - Linux: install with `apt`
+    - macOS: install with Homebrew (`brew install jq`)
+- neofetch
+    - Linux: install with `apt`
+    - macOS: install with Homebrew (`brew install neofetch`)
+- htop
+    - Linux: install with `apt`
+    - macOS: install with Homebrew (`brew install htop`)
+- ffmpeg
+    - Linux: install with `apt`
+    - macOS: install with Homebrew (`brew install ffmpeg`)
+- imagemagick
+    - Linux: install with `apt`
+    - macOS: install with Homebrew (`brew install imagemagick`)
 - 7zip
-    - Linux: p7zip-full p7zip-rar
-    - macOS: sevenzip
+    - Linux: install `p7zip-full` and `p7zip-rar` with `apt`
+    - macOS: install `sevenzip` with Homebrew (`brew install sevenzip`)
 - poppler
-    - Linux: poppler-utils
-    - macOS: poppler
-- wl-clipboard — apt (Linux only)
-- yazi — snap (Linux), brew (macOS)
+    - Linux: install `poppler-utils` with `apt`
+    - macOS: install `poppler` with Homebrew (`brew install poppler`)
+- wl-clipboard (Linux only; install with `apt`)
+- yazi
+    - Linux: install with snap (`snap install yazi`)
+    - macOS: install with Homebrew (`brew install yazi`)
 
 ## Development Stack
 
 > Languages, build tools, dev helpers
 
-- make
-- Version control:
-    - git, lazygit
-- Containers & DevOps:
-    - docker / lazydocker
+- **Build tools**:
+    - make
+- **Version control**:
+    - git
+    - lazygit
+- **Containers & DevOps**:
+    - docker
+    - lazydocker
     - kubectl
     - kind
     - terraform
     - helm
-- Python:
-    - uv, ruff
-- JavaScript:
-    - nodejs, npm
-- Go:
-    - golang-go
-- Rust:
+- **Python**:
+    - uv
+    - ruff
+- **JavaScript**:
+    - nodejs
+    - npm
+- **Go**:
+    - go
+- **Rust**:
     - cargo
-- JVM stack:
-    - jdk 11/17
-    - coursier (cs, scala, scalac, sbt)
+- **JVM stack**:
+    - jdk (11/17)
+    - coursier (`cs`, scala, scalac, sbt)
     - maven
-- Editor integration:
-    - neovim (built from source, added to PATH via .zshenv)
-- Commit hooks:
-    - pre-commit (using sqlfmt)
+- **Editor integration**:
+    - neovim (recommended: build from source; add to PATH in .zshenv)
+- **Commit hooks**:
+    - pre-commit (with [`sqlfmt`](https://github.com/sqlfmt/sqlfmt) as an example hook)
+## Desktop Applications
 
-## Desktop Application
-- Coding
-    - Cursor
-    - VSCode
-    - XCode (macOS)
-    - Postman
-    - Docker
-    - VMWare
-- Browser
-    - Brave
-    - Firefox
-- Notes
-    - Sublime Text
-    - Notion
-- Terminal
-    - WezTerm
-- Databases
-    - MongoDB Compass
-    - Redis Insights
-    - DataGrip
-    - Navicat
-    - TablePlus
+### Code Editors & IDEs
+- [Cursor](https://www.cursor.so/)
+- [Visual Studio Code (VSCode)](https://code.visualstudio.com/)
+- [Xcode](https://developer.apple.com/xcode/) (macOS-only)
+- [Sublime Text](https://www.sublimetext.com/)
+- [Neovim](https://neovim.io/) (see Terminal section)
+
+### API & Development Tools
+- [Postman](https://www.postman.com/)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+- [VMware Fusion/Workstation](https://www.vmware.com/)
+- [TablePlus](https://tableplus.com/) (Database GUI)
+- [DataGrip](https://www.jetbrains.com/datagrip/) (Database IDE)
+- [Navicat](https://www.navicat.com/)
+- [MongoDB Compass](https://www.mongodb.com/try/download/compass)
+- [RedisInsight](https://redis.com/redis-enterprise/redis-insight/)
+
+### Browsers
+- [Brave](https://brave.com/)
+- [Firefox](https://www.mozilla.org/firefox/)
+- [Google Chrome](https://www.google.com/chrome/) (optional)
+
+### Notes & Productivity
+- [Notion](https://www.notion.so/)
+- [Obsidian](https://obsidian.md/) (optional for Markdown knowledge bases)
+- [Sublime Text](https://www.sublimetext.com/) (also listed under editors)
+
+### Terminal Emulators
+- [WezTerm](https://wezfurlong.org/wezterm/)
+
+### AI & LLM Runtime
+- [Ollama](https://ollama.com/)
+- [llama.cpp](https://github.com/ggerganov/llama.cpp)
+- [LM Studio](https://lmstudio.ai/) (optional)
+
+---
+
+## Useful Tools
+
+### Code Understanding & Documentation
+- [CodeWiki](https://github.com/quocnguyenx43/CodeWiki) (internal or personal tool)
+- [DeepWiki](https://github.com/quocnguyenx43/deepwiki) (internal or personal tool)
+- [Sourcegraph](https://sourcegraph.com/) (optional for code search)
+
+### Coding Agents & Code AI
+- [Cursor](https://www.cursor.so/) (AI coding assistant)
+- [Claude](https://www.anthropic.com/products/claude) (Claude-code, via API/browser)
+- [GitHub Copilot](https://github.com/features/copilot)
+- [OpenAI Codex](https://platform.openai.com/docs/guides/code) (API/IDE integrations)
+- [Antigravity](https://github.com/quocnguyenx43/antigravity) (custom tool; optional)
 
 ## macOS
-- Package Manager: `brew`
-- Default Shell: `zsh`
-- Shortcuts, hot keys (built-in): Setting up for each device in keyboard settings
-    - Disable Capslock action
-    - Mapping: Control -> Command, Command -> Control
-    - Show launchpad: (Control-Option-A) / (Window-Alt-F position)
-    - Show desktop: (Control-Option-D) / (Window-Alt-D position)
-    - Stage manager: (Control-Option-S) / (Window-Alt-S position)
-    - Show mission control: Control-Up (Window-Up position)
-        - Move left desktop: Command-Option-Left (Control-Alt-Left position)
-        - Move right desktop: Command-Option-Right (Control-Alt-Right position)
-        - Move desktop 1: Command-Option-1 (Control-Alt-1 position)
-        - Move desktop 2: Command-Option-2 (Control-Alt-2 position)
-    - Change input source: Control-Space (Window-Space position)
-    - Sportlight search: Option-Space (Alt-Space position)
-    - Quit app: Command-Q (Control-Q position)
-- Shortcuts:
-    - Karabiner Elements: Enable Capslocks -> HyperKey
-    - Aerospace:
-        - Layout
-            - Screen 1: Default-1, Any-1, Note, Message
-            - Screen 2 (main): Default-2, Any-2, 0, 1, 2, 3,...
-        - Shortcuts:
-            - Change workspace layout: Alt-slash, Alt-comma
-            - Floating window: Alt-Shift-space
-            - Centralize floating window: Alt-Shift-period
-            - Fullscreen floating window: Alt-Shift-enter
-            - Focus window:
-                - Left: Alt-a
-                - Right: Alt-d
-                - Up: Alt-w
-                - Down: Alt-s
-            - Move window:
-                - Left: Alt-Shift-a
-                - Right: Alt-Shift-d
-                - Up: Alt-Shift-w
-                - Down: Alt-Shift-s
-            - Join window:
-                - Left: Control-Alt-Shift-a
-                - Right: Control-Alt-Shift-d
-                - Up: Control-Alt-Shift-w
-                - Down: Control-Alt-Shift-s
-            - Resize:
-                - Alt-minus
-                - Alt-equal
-            - Workspace:
-                - Alt-<Number>: Change to workspace <number>
-                - Alt-Shift-<Number>: Move to workspace <number>
-                - Workspace:
-                    - f, g: Default-1, Default-2
-                    - c, v: Any-1, Any-2
-                    - x: Note
-                    - z: Message
-                - Alt-tab: Focus to the previous workspace
-                - Alt-shift-tab: Move workspace to another screen
-                - Alt-shift-semicolon: Mode service
-            - Mode service:
-                - Alt-r: Reload config,
-                - Alt-f: Flatten workspace tree
-                - Alt-backspace: Close all windows but keep the current window
-                - Alt-h, Alt-j, Alt-k, Alt-j: Move floating window
-                - Alt-shift-h, Alt-shift-j, Alt-shift-k, Alt-shift-j: Resize floating window
-    - skhd:
-        - Brave: Hyper-b
-        - Finder: Hyper-f
-        - Wezterm: Hyper-w
-        - Cursor: Hyper-c
-        - VSCode: Hyper-v
-        - SublimeText: Hyper-s
-        - Notion: Hyper-n
-        - Spotify: Hyper-m
-    - CopyQ:
-        - Clipboard History: Command-Shift-V (Control-Shift-V position)
+- Package manager: `brew`
+- Default shell: `zsh`
+- Detailed shortcuts, hotkeys, and window manager setup: see `MACOS.md`.
 
-# Ubuntu
-- Package manager: apt
-- Default shell: zsh
-- Shortcuts:
-    - kanata: Map Caps Lock to ESC
-- Tilling window manager (i3):
-    - Background: feh
-    - Status bar: polybar
-    - App launcher: rofi
-    - Compositor: picom
-    - Notification: dunst
-    - Screenshot: flameshot
-    - Required packages for xwindows: xdotool xprop
-- CopyQ:
-    - Clipboard History: Control-Shift-V
-- Work:
-    - Proxy:
-        - proxychains4
-        - privoxy
+## Ubuntu
+- Package manager: `apt`
+- Default shell: `zsh`
+- Tiling WM, status bar, and desktop tooling: see `UBUNTU.md`.
 
 ## Repo layout
 
@@ -211,11 +185,11 @@ To add a new tool:
 
 ### Run in order:
 
-- `scripts/state.sh` — detect and save machine type
-- `scripts/os.sh` — detect OS + architecture
-- `scripts/check_env.sh` — health check for required tools
-- `scripts/stow.sh` — apply configs based on config/paths.json
-- `scripts/clean.sh` — cleanup generated folders
+- `scripts/state.sh` — detect and save machine type.
+- `scripts/os.sh` — detect OS + architecture.
+- `scripts/check_env.sh` — health check for required tools.
+- `scripts/stow.sh` — apply configs based on `config/paths.json`.
+- `scripts/clean.sh` — cleanup generated folders.
 
 ## Author
 __Maintained by Quoc Nguyen__

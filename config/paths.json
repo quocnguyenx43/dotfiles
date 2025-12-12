@@ -51,6 +51,10 @@
         "cursor": {
             "macos": "Library/Application Support/Cursor/User",
             "ubuntu": ".config/Cursor/User"
+        },
+        "claude": {
+            "macos": ".claude",
+            "ubuntu": ".claude"
         }
     },
     "macos": {
@@ -60,7 +64,7 @@
         "aerospace": ".config/aerospace",
         "yabai": ".config/yabai",
         "skhd": ".config/skhd",
-        "claude": "Library/Application Support/Claude/"
+        "claude_desktop": "Library/Application Support/Claude/"
     },
     "ubuntu": {
         "kanata": ".config/kanata",
