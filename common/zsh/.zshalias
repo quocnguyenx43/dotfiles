@@ -109,15 +109,18 @@ complete -o default -F __start_kubectl kubectl
 complete -o default -F __start_kubectl kind
 complete -o default -F __start_kubectl mkb
 
+# OpenVPN
+alias ovpn-start='sudo openvpn --config  --auth-user-pass ~/openvpn/credentials.txt''
+
 # Change directory aliases
 # ** COMP **
-if [[ "$PC_TYPE" == "WORK" ]]; then
-    alias cdpj='cd "$HOME/workspace/414n/projects" && echo "$HOME/workspace/414n/projects"'
-    alias cdrs='cd "$HOME/workspace/414n/research" && echo "$HOME/workspace/414n/research"'
-else
-    alias cdcode='cd "$HOME/qn/area/coding" && echo "$HOME/qn/area/coding"'
-    alias cdwork='cd "$HOME/qn/area/work" && echo "$HOME/qn/area/work"'
-fi
+# if [[ "$PC_TYPE" == "WORK" ]]; then
+#     alias cdpj='cd "$HOME/workspace/414n/projects" && echo "$HOME/workspace/414n/projects"'
+#     alias cdrs='cd "$HOME/workspace/414n/research" && echo "$HOME/workspace/414n/research"'
+# else
+#     alias cdcode='cd "$HOME/qn/area/coding" && echo "$HOME/qn/area/coding"'
+#     alias cdwork='cd "$HOME/qn/area/work" && echo "$HOME/qn/area/work"'
+# fi
 
 alias dt='cd "$HOME/Desktop" && echo "$HOME/Desktop"'
 alias dl='cd "$HOME/Downloads" && echo "$HOME/Downloads"'

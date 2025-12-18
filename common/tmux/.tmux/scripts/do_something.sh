@@ -9,7 +9,7 @@ if [ "$CURRENT_WIDTH" -lt "$MIN_WIDTH" ]; then
   exit 0
 fi
 
-LATEST_FILE=$(ls -1t ~/Documents/git/scratch/todo_[0-9][0-9][0-1][0-9][0-3][0-9].md 2>/dev/null | head -n 1)
+LATEST_FILE=$(ls -1t ~/Documents/todo_[0-9][0-9][0-1][0-9][0-3][0-9].md 2>/dev/null | head -n 1)
 
 # If no TODO file is found, exit early
 if [ -z "$LATEST_FILE" ]; then

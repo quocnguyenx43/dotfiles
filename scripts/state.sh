@@ -107,3 +107,5 @@ echo "OS          = $OS"
 echo "OS_VERSION  = $OS_VERSION"
 echo "ARCH        = $ARCH"
 echo "STATE_DIR   = $STATE_DIR"
+
+export PC_TYPE OS OS_VERSION ARCH STATE_DIR

@@ -1,10 +1,12 @@
 .PHONY: install os uninstall
 
+SHELL := /usr/bin/env bash
+
 all: install
 
 install:
 	echo "Setting up..." && \
-		chmod +x ./scripts/state.sh && ./scripts/state.sh && \
+		chmod +x ./scripts/state.sh && . ./scripts/state.sh && \
 		chmod +x ./scripts/stow.sh && ./scripts/stow.sh
 	@if [ -d ./apps ]; then \
 		$(MAKE) -C ./apps install; \
