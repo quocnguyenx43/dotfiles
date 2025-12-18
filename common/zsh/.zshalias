@@ -110,7 +110,11 @@ complete -o default -F __start_kubectl kind
 complete -o default -F __start_kubectl mkb
 
 # OpenVPN
-alias ovpn-start='sudo openvpn --config  --auth-user-pass ~/openvpn/credentials.txt''
+alias ovpn-start='sudo openvpn --config  --auth-user-pass ~/openvpn/credentials.txt'
+
+alias dt='cd "$HOME/Desktop" && echo "$HOME/Desktop"'
+alias dl='cd "$HOME/Downloads" && echo "$HOME/Downloads"'
+alias dc='cd "$HOME/Documents" && echo "$HOME/Documents"'
 
 # Change directory aliases
 # ** COMP **
@@ -121,7 +125,3 @@ alias ovpn-start='sudo openvpn --config  --auth-user-pass ~/openvpn/credentials.
 #     alias cdcode='cd "$HOME/qn/area/coding" && echo "$HOME/qn/area/coding"'
 #     alias cdwork='cd "$HOME/qn/area/work" && echo "$HOME/qn/area/work"'
 # fi
-
-alias dt='cd "$HOME/Desktop" && echo "$HOME/Desktop"'
-alias dl='cd "$HOME/Downloads" && echo "$HOME/Downloads"'
-alias dc='cd "$HOME/Documents" && echo "$HOME/Documents"'
