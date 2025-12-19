@@ -132,6 +132,9 @@
 - [llama.cpp](https://github.com/ggerganov/llama.cpp)
 - [LM Studio](https://lmstudio.ai/) (optional)
 
+### Network
+- [OpenVPN](https://openvpn.net/)
+
 ---
 
 ## Useful Tools
@@ -168,6 +171,8 @@
 
 ## How `config/paths.json` is used
 
+- Choose correct version of:
+    - `ssh`
 - `scripts/stow.sh` reads `config/paths.json` with `jq` and uses the `OS` detected by `scripts/state.sh` to pick the right path for each app.
 - Section `common` has entries like `"nvim": { "macos": ".config/nvim", "ubuntu": ".config/nvim" }` so the same config is copied to the correct `$HOME` path on both OSes.
 - Sections `macos` and `ubuntu` hold OS-specific tools (window managers, status bars, etc.), each mapped to a single path under `$HOME`.

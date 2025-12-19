@@ -90,7 +90,7 @@ else
     alias bcat='bat'
 fi
 alias cd='z'
-alias code='cursor'
+alias code='cursor' # Must install Cursor
 
 # Docker
 alias dkc-stop='docker stop $(docker ps -aq)'

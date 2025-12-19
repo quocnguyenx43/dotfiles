@@ -29,5 +29,6 @@
 ### Work / Networking
 
 - **Proxy tools**
+  - `openvpn`
   - `proxychains4`
   - `privoxy`
