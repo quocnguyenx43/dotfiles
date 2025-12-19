@@ -87,14 +87,17 @@
     - go
 - **Rust**:
     - cargo
-- **JVM stack**:
+- **JVM stack (Spark, Flink)**:
     - jdk (11/17)
     - coursier (`cs`, scala, scalac, sbt)
-    - maven
+    - sbt / maven (prefer sbt than maven)
 - **Editor integration**:
     - neovim (recommended: build from source; add to PATH in .zshenv)
 - **Commit hooks**:
     - pre-commit (with [`sqlfmt`](https://github.com/sqlfmt/sqlfmt) as an example hook)
+- **Cloud**:
+    - aws-cli
+    - rclone (aws)
 ## Desktop Applications
 
 ### Code Editors & IDEs
