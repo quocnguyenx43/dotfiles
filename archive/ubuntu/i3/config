@@ -1,0 +1,24 @@
+# Mod1: Alt
+set $mod Mod1
+
+include ~/.config/i3/env
+include ~/.config/i3/config.d/startup.conf
+include ~/.config/i3/config.d/monitor.conf
+include ~/.config/i3/config.d/appearance.conf
+
+# Mouse drag and drop: $mod + Mouse
+floating_modifier $mod
+
+# Mouse drag and drop using
+tiling_drag modifier titlebar
+
+# Default orientation
+default_orientation auto
+
+# Dont 
+no_focus [window_role="pop-up"]
+
+include ~/.config/i3/config.d/keybindings.conf
+include ~/.config/i3/config.d/workspaces.conf
+include ~/.config/i3/config.d/windows.conf
+include ~/.config/i3/config.d/launcher.conf

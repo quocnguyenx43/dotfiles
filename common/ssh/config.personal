@@ -1,5 +1,0 @@
-Host github.com-ViReCAX
-    HostName github.com
-    User git
-    IdentityFile ~/.ssh/ViReCAX-gh-key
-    IdentitiesOnly yes

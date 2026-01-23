@@ -1,24 +1,75 @@
-# Package manager
+# Common
+alias c="clear"
+
+# zsh
+alias rzsh="source ~/.zshrc"
+alias ezsh="$EDITOR ~/.zshrc"
+
+# Zoxide
+eval "$(zoxide init zsh)"
+alias cd='z'
+
+# Batcat
 if [[ "$OS" == "ubuntu" ]]; then
-    # Remove apt packages
-    function apt_completely_remove_package() {
-        sudo apt-get remove --auto-remove --purge $1
-        sudo apt-get clean
-        sudo apt-get autoremove -y
-    }
-    alias crm="apt_completely_remove_package"
+    alias bcat='batcat'
+    alias fd='fdfind'
 else
-    # Remove brew packages
-    function brew_completely_remove_package() {
-        brew uninstall --force $1
-        brew cleanup
-    }
+    alias bcat='bat'
 fi
+
+# fzf & fz
+eval "$(fzf --zsh)"
+
+show_preview="
+if [ -d {} ]; then
+    eza --tree --all --level=1 --color=always {} | head -200
+else
+    $BAT -n --color=always --line-range :500 {}
+fi"
+
+export FZF_DEFAULT_COMMAND="fd . --type file --exclude .git --no-ignore --ignore-case --hidden --follow"
+export FZF_DEFAULT_OPTS="--height 70% --layout reverse --border --preview '$show_preview'"
+export FZF_CTRL_R_OPTS="--height 70% --preview 'echo {2..} | $BAT --color=always -pl sh' --preview-window 'wrap,up,5'"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="fd --type directory . $HOME"
+
+export FZF_COMPLETION_TRIGGER='*'
+export FZF_COMPLETION_OPTS='--border --info=inline'
+export FZF_COMPLETION_PATH_OPTS='--walker file,dir,follow,hidden'
+export FZF_COMPLETION_DIR_OPTS='--walker dir,follow'
+
+_fzf_comprun() {
+    local command=$1
+    shift
+
+    case "$command" in
+        cd)           fzf --preview 'eza --tree --all --level=1 --color=always {} | head -200'   "$@" ;;
+        export|unset) fzf --preview "eval 'echo \$'{}"         "$@" ;;
+        ssh)          fzf --preview 'dig {}'                   "$@" ;;
+        *)            fzf --preview '$show_preview' "$@" ;;
+    esac
+}
+
+_fzf_compgen_path() {
+    fd --hidden --follow --exclude ".git" . "$1"
+}
+
+_fzf_compgen_dir() {
+    fd --type d --hidden --follow --exclude ".git" . "$1"
+}
+
+# Tree (shows size of folders and files)
+alias t1='tree -h -s -L 1'
+alias t2='tree -h -s -L 2'
+alias t3='tree -h -s -L 3'
+alias t4='tree -h -s -L 4'
+alias t5='tree -h -s -L 5'
 
 # Tmux new-session
 function tmux_new_session() {
     tmux new-session -d -s "$1"
 }
+alias tns="tmux_new_session"
 
 # Yazi
 function yz() {
@@ -30,98 +81,69 @@ function yz() {
     rm -f -- "$tmp"
 }
 
-# Python environment
-function create_virtual_python_environment() {
-    local python_version=3.12
-    if [[ "$1" == "uv" ]]; then
-        echo "Virtual environment using uv."
-        uv init -p ${python_version}
-        uv venv -p ${python_version}
-        uv sync
-        uv add pip
-        source .venv/bin/activate
-        pip install --upgrade pip
-    else 
-        echo "Virtual environment using venv."
-        python${python_version} -m venv .venv
-        source .venv/bin/activate
-        pip install --upgrade pip
-    fi
-}
-
-# dbt
-# Always update this env
-# python -m pip install --upgrade pip wheel setuptools
-alias dbtenv='source ${HOME}/.dbt-env/bin/activate'
-
 # Find something
 function global_find() {
     fd $1 /
 }
-
-# Common
-alias c="clear"
-
-# Useful custom
-if [[ "$OS" == "ubuntu" ]]; then
-    alias crm="apt_completely_remove_package"
-else
-    alias crm="brew_completely_remove_package"
-fi
 alias gfind="global_find"
 
-# Python
-alias cpv=create_virtual_python_environment
-alias apv='source ./.venv/bin/activate'
-alias dpv='deactivate'
+# Compressing a folder in .targz
+function targz() {
+    local tmpFile="${@%/}.tar";
+    tar -cvf "${tmpFile}" --exclude=".DS_Store" "${@}" || return 1;
 
-# Tmux
-alias tns="tmux_new_session"
+    size=$(
+        stat -f"%z" "${tmpFile}" 2> /dev/null;  # macOS `stat`
+        stat -c"%s" "${tmpFile}" 2> /dev/null;  # GNU `stat`
+    );
+
+    local cmd="";
+
+    # the .tar file is smaller than 50 MB and Zopfli is available; use it
+    if (( size < 52428800 )) && hash zopfli 2> /dev/null; then
+        cmd="zopfli";
+    else
+        if hash pigz 2> /dev/null; then
+            cmd="pigz";
+        else
+            cmd="gzip";
+        fi;
+    fi;
+
+    echo "Compressing .tar ($((size / 1000)) kB) using \`${cmd}\`…";
+    "${cmd}" -v "${tmpFile}" || return 1;
+    [ -f "${tmpFile}" ] && rm "${tmpFile}";
+
+    zippedSize=$(
+        stat -f"%z" "${tmpFile}.gz" 2> /dev/null; # macOS `stat`
+        stat -c"%s" "${tmpFile}.gz" 2> /dev/null; # GNU `stat`
+    );
+
+    echo "${tmpFile}.gz ($((zippedSize / 1000)) kB) created successfully.";
+}
+
+# Determine the size of a directory
+function size() {
+    if du -b /dev/null > /dev/null 2>&1; then
+        local arg=-sbh;
+    else
+        local arg=-sh;
+    fi
+    if [[ -n "$@" ]]; then
+        du $arg -- "$@";
+    else
+        du $arg .[^.]* ./*;
+    fi;
+}
 
 # Apps
 alias nv='nvim'
+alias atg='antigravity'
 alias dc='docker compose'
 alias lzd='lazydocker'
 alias lzg='lazygit'
-if [[ "$OS" == "ubuntu" ]]; then
-    alias bcat='batcat'
-    alias fd='fdfind'
-else
-    alias bcat='bat'
-fi
-alias cd='z'
-alias code='cursor' # Must install Cursor
 
-# Docker
-alias dkc-stop='docker stop $(docker ps -aq)'
-alias dkc-rm='docker rm $(docker ps -aq)'
-alias dkv-prune='docker volume prune -f'
-
-# Kubernetes
-source <(kubectl completion zsh)
-alias kbc='kubectl'
-alias kbc-c='kubectl-convert'
-alias kind='kind'
-alias mkb='minikube'
-complete -o default -F __start_kubectl kbc
-complete -o default -F __start_kubectl kbc-c
-complete -o default -F __start_kubectl kubectl
-complete -o default -F __start_kubectl kind
-complete -o default -F __start_kubectl mkb
-
-# OpenVPN
-alias ovpn-start='sudo openvpn --config  --auth-user-pass ~/openvpn/credentials.txt'
-
+# Change directory
 alias dt='cd "$HOME/Desktop" && echo "$HOME/Desktop"'
 alias dl='cd "$HOME/Downloads" && echo "$HOME/Downloads"'
 alias dc='cd "$HOME/Documents" && echo "$HOME/Documents"'
-
-# Change directory aliases
-# ** COMP **
-# if [[ "$PC_TYPE" == "WORK" ]]; then
-#     alias cdpj='cd "$HOME/workspace/414n/projects" && echo "$HOME/workspace/414n/projects"'
-#     alias cdrs='cd "$HOME/workspace/414n/research" && echo "$HOME/workspace/414n/research"'
-# else
-#     alias cdcode='cd "$HOME/qn/area/coding" && echo "$HOME/qn/area/coding"'
-#     alias cdwork='cd "$HOME/qn/area/work" && echo "$HOME/qn/area/work"'
-# fi

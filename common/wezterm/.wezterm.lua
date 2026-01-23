@@ -20,7 +20,7 @@ local maximize = true
 if is_macos then
     shell = "/bin/zsh"
     font_size = 14
-    window_decorations = "NONE"
+    window_decorations = "RESIZE"
     width = 1280
     height = 720
     maximize = false
@@ -47,7 +47,7 @@ config.font_size = font_size
 
 -- Window & tab
 config.enable_tab_bar = false
--- config.window_decorations = window_decorations
+config.window_decorations = window_decorations
 config.window_padding = {
     left = 5,
     right = 0,
@@ -91,7 +91,7 @@ config.keys = {
 }
 
 -- Default program
-config.default_prog = { "/bin/zsh", "-c", "exec ./.wezterm/scripts/startup.sh" }
+config.default_prog = { "/bin/zsh", "-c", "exec ./.wezterm/startup.sh" }
 
 -- Others
 config.adjust_window_size_when_changing_font_size = true

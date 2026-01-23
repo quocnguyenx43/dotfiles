@@ -1,14 +1,10 @@
 **/.DS_Store
 common/ssh/authorized_keys
-common/ssh/id_rsa
-common/ssh/id_rsa.pub
-common/ssh/id_ed25519
-common/ssh/id_ed25519.pub
-common/ssh/known_hosts
-common/ssh/known_hosts.old
+common/ssh/id_*
+common/ssh/known_*
 common/state/*
 !common/state/.gitkeep
-config/secrets.json
 apps/*
 !apps/Makefile
 !apps/.stowrc
+/bin/

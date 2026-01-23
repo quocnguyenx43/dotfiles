@@ -1,22 +1,179 @@
-# App Launcher (Hyper key: ctrl + shift + cmd + alt)
-ctrl + shift + cmd + alt - b : ~/.config/skhd/scripts/open-app.sh "Brave Browser" \
-                               && ~/.osascripts/bash/show-notification.sh "Open Brave Browser" "skhd"
-ctrl + shift + cmd + alt - f : ~/.config/skhd/scripts/open-app.sh "Finder"  \
-                               && ~/.osascripts/bash/show-notification.sh "Open Finder" "skhd"
-ctrl + shift + cmd + alt - w : ~/.config/skhd/scripts/open-app.sh "WezTerm"  \
-                               && ~/.osascripts/bash/show-notification.sh "Open WezTerm" "skhd"
-ctrl + shift + cmd + alt - c : ~/.config/skhd/scripts/open-app.sh "Cursor"  \
-                               && ~/.osascripts/bash/show-notification.sh "Open Cursor" "skhd"
-ctrl + shift + cmd + alt - v : ~/.config/skhd/scripts/open-app.sh "Visual Studio Code"  \
-                               && ~/.osascripts/bash/show-notification.sh "Open Visual Studio Code" "skhd"
-ctrl + shift + cmd + alt - s : ~/.config/skhd/scripts/open-app.sh "Sublime Text"  \
-                               && ~/.osascripts/bash/show-notification.sh "Open Sublime Text" "skhd"
-ctrl + shift + cmd + alt - n : ~/.config/skhd/scripts/open-app.sh "Notion"  \
-                               && ~/.osascripts/bash/show-notification.sh "Open Notion" "skhd"
-ctrl + shift + cmd + alt - z : ~/.config/skhd/scripts/open-app.sh "Zalo"  \
-                               && ~/.osascripts/bash/show-notification.sh "Open Zalo" "skhd"
-ctrl + shift + cmd + alt - m : ~/.config/skhd/scripts/open-app.sh "Spotify"  \
-                               && ~/.osascripts/bash/show-notification.sh "Open Spotify" "skhd"
+# --- Display ---
 
-# Restart/stop skhd
-ctrl + alt - r : skhd --restart-service && ~/.osascripts/bash/show-notification.sh "Restart skhd" "skhd"
+# New workspace
+alt - n : yabai -m space --create
+
+# Destroy the current workspace
+cmd + alt - n : yabai -m space --destroy
+
+# Change display focus
+cmd + alt - a: yabai -m display --focus west
+cmd + alt - d: yabai -m display --focus east
+
+# Move a space to a display
+cmd + shift + alt - a : yabai -m space --display west
+cmd + shift + alt - d : yabai -m space --display east
+
+# Swap and focus spaces
+cmd + shift + alt - 0 : yabai -m space --swap 0
+cmd + shift + alt - 1 : yabai -m space --swap 1
+cmd + shift + alt - 2 : yabai -m space --swap 2
+cmd + shift + alt - 3 : yabai -m space --swap 3
+cmd + shift + alt - 4 : yabai -m space --swap 4
+cmd + shift + alt - 5 : yabai -m space --swap 5
+cmd + shift + alt - 6 : yabai -m space --swap 6
+cmd + shift + alt - 7 : yabai -m space --swap 7
+cmd + shift + alt - 8 : yabai -m space --swap 8
+cmd + shift + alt - 9 : yabai -m space --swap 9
+
+# --- Space ---
+
+# Switch focus to a space
+cmd + alt - w : yabai -m space --focus next
+cmd + alt - s : yabai -m space --focus prev
+# alt - c : yabai -m space --focus "default-1"
+# alt - f : yabai -m space --focus "any-1"
+# alt - v : yabai -m space --focus "default-2"
+# alt - g : yabai -m space --focus "any-2"
+# alt - z : yabai -m space --focus "messages"
+# alt - x : yabai -m space --focus "notes"
+alt - 0 : yabai -m space --focus 0
+alt - 1 : yabai -m space --focus 1
+alt - 2 : yabai -m space --focus 2
+alt - 3 : yabai -m space --focus 3
+alt - 4 : yabai -m space --focus 4
+alt - 5 : yabai -m space --focus 5
+alt - 6 : yabai -m space --focus 6
+alt - 7 : yabai -m space --focus 7
+alt - 8 : yabai -m space --focus 8
+alt - 9 : yabai -m space --focus 9
+
+# --- Layout ---
+
+# Change layout
+# / (Forward Slash) → 0x2C
+# [ (Left Bracket) → 0x21
+# ] (Right Bracket) → 0x1E
+# \ (Backslash) → 0x2A
+# - (Hyphen) → 0x1B
+# = (Equal) → 0x18
+# , (Common) → 0x2B
+# . (Dot) → 0x2F
+alt - 0x2C : yabai -m space --layout bsp   # ( / )
+alt - 0x2B : yabai -m space --layout stack # ( , )
+alt - 0x2F : yabai -m space --layout float # ( . )
+
+# Rotate layout
+alt - e : yabai -m space --balance
+
+# --- Window ---
+
+alt - a : yabai -m window --focus west || yabai -m window --focus "stack.prev"
+alt - s : yabai -m window --focus south || yabai -m window --focus "stack.prev"
+alt - d : yabai -m window --focus east || yabai -m window --focus "stack.next"
+alt - w : yabai -m window --focus north || yabai -m window --focus "stack.next"
+
+# Move window
+shift + alt - a : current_id=$(yabai -m query --windows --window | jq '.id'); \
+                  yabai -m window --swap west || yabai -m window --swap stack.prev; \
+                  yabai -m window --focus $current_id
+shift + alt - s : current_id=$(yabai -m query --windows --window | jq '.id'); \
+                  yabai -m window --swap south || yabai -m window --swap stack.next; \
+                  yabai -m window --focus $current_id
+shift + alt - d : current_id=$(yabai -m query --windows --window | jq '.id'); \
+                  yabai -m window --swap east || yabai -m window --swap stack.next; \
+                  yabai -m window --focus $current_id
+shift + alt - w : current_id=$(yabai -m query --windows --window | jq '.id'); \
+                  yabai -m window --swap north || yabai -m window --swap stack.prev; \
+                  yabai -m window --focus $current_id
+
+# Stack window
+shift + alt - j : yabai -m window --stack south
+shift + alt - k : yabai -m window --stack north
+shift + alt - l : yabai -m window --stack east
+shift + alt - h : yabai -m window --stack west
+
+# Float window
+shift + alt - space : yabai -m window --toggle float --grid 4:4:1:1:4:4
+
+# Zoom window
+shift + alt - m : yabai -m window --toggle zoom-fullscreen
+
+# Resize window
+ctrl + alt - a : yabai -m window --resize left:-30:0
+ctrl + alt - s : yabai -m window --resize bottom:0:30
+ctrl + alt - d : yabai -m window --resize right:30:0
+ctrl + alt - w : yabai -m window --resize top:0:-30
+
+# Move window to a space
+shift + alt - p : yabai -m window --space prev; yabai -m space --focus prev
+shift + alt - n : yabai -m window --space next; yabai -m space --focus next
+# shift + alt - c : yabai -m window --space default-1; yabai -m space --focus default-1
+# shift + alt - f : yabai -m window --space any-1; yabai -m space --focus any-1
+# shift + alt - v : yabai -m window --space default-2; yabai -m space --focus default-2
+# shift + alt - g : yabai -m window --space any-2; yabai -m space --focus any-2
+# shift + alt - z : yabai -m window --space messages; yabai -m space --focus messages
+# shift + alt - x : yabai -m window --space notes; yabai -m space --focus notes
+shift + alt - 0 : yabai -m window --space 0; yabai -m space --focus 0
+shift + alt - 1 : yabai -m window --space 1; yabai -m space --focus 1
+shift + alt - 2 : yabai -m window --space 2; yabai -m space --focus 2
+shift + alt - 3 : yabai -m window --space 3; yabai -m space --focus 3
+shift + alt - 4 : yabai -m window --space 4; yabai -m space --focus 4
+shift + alt - 5 : yabai -m window --space 5; yabai -m space --focus 5
+shift + alt - 6 : yabai -m window --space 6; yabai -m space --focus 6
+shift + alt - 7 : yabai -m window --space 7; yabai -m space --focus 7
+shift + alt - 8 : yabai -m window --space 8; yabai -m space --focus 8
+shift + alt - 9 : yabai -m window --space 9; yabai -m space --focus 9
+
+# --- App Launcher ---
+
+# App Launcher (Hyper key: ctrl + shift + cmd + alt)
+alt - t : open -n -a "WezTerm" \
+          && terminal-notifier -message "Open new window: WezTerm" -title "skhd"
+ctrl + shift + cmd + alt - b : open -a "Brave Browser" \
+                               && terminal-notifier -message "Open Brave Browser" -title "skhd"
+ctrl + shift + cmd + alt - f : open -a "Finder" \
+                               && terminal-notifier -message "Open Finder" -title "skhd"
+ctrl + shift + cmd + alt - w : open -a "WezTerm" \
+                               && terminal-notifier -message "Open WezTerm" -title "skhd"
+ctrl + shift + cmd + alt - c : open -a "Cursor" \
+                               && terminal-notifier -message "Open Cursor" -title "skhd"
+ctrl + shift + cmd + alt - v : open -a "Visual Studio Code" \
+                               && terminal-notifier -message "Open Visual Studio Code" -title "skhd"
+ctrl + shift + cmd + alt - s : open -a "Sublime Text" \
+                               && terminal-notifier -message "Open Sublime Text" -title "skhd"
+ctrl + shift + cmd + alt - n : open -a "Notion" \
+                               && terminal-notifier -message "Open Notion" -title "skhd"
+ctrl + shift + cmd + alt - z : open -a "Zalo" \
+                               && terminal-notifier -message "Open Zalo" -title "skhd"
+ctrl + shift + cmd + alt - m : open -a "Spotify" \
+                               && terminal-notifier -message "Open Spotify" -title "skhd"
+# Show desktop
+cmd + alt - e : yabai -m space --toggle show-desktop
+
+# Show launchpad
+cmd + alt - f : open -a "Launchpad"
+
+# Restart/stop services
+# Have to turn on Notification for terminal-notifier
+# in Settings -> Notifications -> terminal-notifier -> Allow Notifications
+cmd + alt - r : terminal-notifier -message "Restarting skhd..." -title "skhd" && \
+                skhd --restart-service && \
+                terminal-notifier -message "skhd restarted" -title "skhd"
+cmd + alt - y : terminal-notifier -message "Restarting yabai..." -title "yabai" && \
+                yabai --restart-service && \
+                terminal-notifier -message "yabai restarted" -title "yabai"
+cmd + alt - u : terminal-notifier -message "Restarting sketchybar..." -title "sketchybar" && \
+                sketchybar --reload && \
+                terminal-notifier -message "sketchybar restarted" -title "sketchybar"
+
+# Restructure layouts
+cmd + alt - t : terminal-notifier -message "Restructuring yabai spaces..." -title "yabai" && \
+                source ~/.config/yabai/yabai_setup.sh && \
+                setup && \
+                terminal-notifier -message "yabai spaces restructured" -title "yabai"
+
+# Rename the current space (cmd + alt - ,)
+cmd + alt - 0x2B : current="$(yabai -m query --spaces --space | jq -r .label)" && \
+                   label="$(osascript -e "text returned of (display dialog \"Enter name for current space:\" default answer \"$current\" with title \"Rename Space\" buttons {\"Cancel\", \"Rename\"} default button \"Rename\")")" && \
+                   yabai -m space --label "$label"

@@ -1,0 +1,13 @@
+# Github
+
+Host gh-personal
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519_gh_quocnguyenx43_personal
+    IdentitiesOnly yes
+
+Host gh-work
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519_gh_quocnguyenx43_work
+    IdentitiesOnly yes

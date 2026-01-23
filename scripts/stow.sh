@@ -1,176 +1,180 @@
 #!/usr/bin/env bash
 
-# ----------------------------------------
-# Resolve script directory
-# ----------------------------------------
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-COMMON_DIR="$SCRIPT_DIR/../common"
-STATE_DIR="$SCRIPT_DIR/../state"
-MACOS_DIR="$SCRIPT_DIR/../macos"
-UBUNTU_DIR="$SCRIPT_DIR/../ubuntu"
-CONFIG_FILE="$SCRIPT_DIR/../config/paths.json"
-APP_DIR="$SCRIPT_DIR/../apps"
-
-# ----------------------------------------
-# Check config file
-# ----------------------------------------
-if [[ ! -f "$CONFIG_FILE" ]]; then
-    echo "Error: paths.json not found!"
-    exit 1
+if [ -f ./utils.sh ]; then
+	source ./utils.sh
+elif [ -f ./scripts/utils.sh ]; then
+	source ./scripts/utils.sh
+else
+	echo "Error: utils.sh not found in the same directory as this script"
+	exit 1
 fi
 
-# ----------------------------------------
-# Clean the old first
-# ----------------------------------------
+SCRIPT_DIR=$(get_script_dir)
+STATE_DIR=$(get_clean_absolute_path "$SCRIPT_DIR/../common/state")
+COMMON_DIR=$(get_clean_absolute_path "$SCRIPT_DIR/../common")
+UBUNTU_DIR=$(get_clean_absolute_path "$SCRIPT_DIR/../ubuntu")
+MACOS_DIR=$(get_clean_absolute_path "$SCRIPT_DIR/../macos")
+APPS_DIR=$(get_clean_absolute_path "$SCRIPT_DIR/../apps")
+CONFIG_PATH=$(get_clean_absolute_path "$SCRIPT_DIR/../config")/paths.json
+SECRET_PATH=$(get_clean_absolute_path "$SCRIPT_DIR/../config")/secrets.json
+
+echo "Script directory: $SCRIPT_DIR"
+echo "State directory: $STATE_DIR"
+echo "Common directory: $COMMON_DIR"
+echo "Ubuntu directory: $UBUNTU_DIR"
+echo "MacOS directory: $MACOS_DIR"
+echo "Apps directory: $APPS_DIR"
+echo "Config file path: $CONFIG_PATH"
+echo "Secret file path: $SECRET_PATH"
+
+echo "----------------------------"
+echo "Running stowing script..."
+echo "----------------------------"
+
+# Check config file
+if [[ ! -f "$CONFIG_PATH" ]]; then
+	echo "Error: $CONFIG_PATH not found!"
+	exit 1
+fi
+
 echo
 $SCRIPT_DIR/clean.sh && wait
 
-# ----------------------------------------
-# Helpers
-# ----------------------------------------
+# Copy all files and folders from src to dst
+copy_all_files_and_folders_from_src_to_dst() {
+	local src="$1"
+	local dest="$2"
 
-make_dir() {
-    local dir="$1"
-    if [[ ! -d "$dir" ]]; then
-        mkdir -p "$dir"
-        return 1   # created
-    else
-        return 0   # exists
-    fi
+	[[ ! -d "$src" ]] && return 0
+	mkdir -p "$dest"
+
+	# normal files/folders
+	for item in "$src"/*; do
+		[[ -e "$item" ]] && cp -r "$item" "$dest/"
+	done
+
+	# hidden files/folders
+	for item in "$src"/.[!.]*; do
+		[[ -e "$item" ]] && cp -r "$item" "$dest/"
+	done
 }
 
-copy_all() {
-    local src="$1"
-    local dest="$2"
-
-    [[ ! -d "$src" ]] && return 0
-    mkdir -p "$dest"
-
-    # normal files/folders
-    for item in "$src"/*; do
-        [[ -e "$item" ]] && cp -r "$item" "$dest/"
-    done
-
-    # hidden files/folders
-    for item in "$src"/.[!.]*; do
-        [[ -e "$item" ]] && cp -r "$item" "$dest/"
-    done
-}
-
-get_path() {
-    local section="$1"  # common / macos / ubuntu
-    local app="$2"
-
-    if [[ "$section" == "common" ]]; then
-        # common → pick the OS-specific path
-        jq -r ".common.\"$app\".\"$OS\"" "$CONFIG_FILE"
-    else
-        # macos or ubuntu
-        jq -r ".\"$section\".\"$app\"" "$CONFIG_FILE"
-    fi
-}
-
-# ----------------------------------------
 # Process function
-# ----------------------------------------
 process_section() {
-    local section="$1"
-    echo "Section: $section"
+	local section="$1"
+	echo "Section: $section"
 
-    # section must be an object
-    if ! jq -e ".\"$section\" | type == \"object\"" "$CONFIG_FILE" >/dev/null; then
-        echo "Section '$section' (not an object)"
-        exit
-    fi
+	# section must be an object
+	if ! jq -e ".\"$section\" | type == \"object\"" "$CONFIG_PATH" >/dev/null; then
+		echo "Section '$section' (not an object)"
+		exit
+	fi
 
-    local apps
-    apps=$(jq -r ".\"$section\" | keys | join(\" \")" "$CONFIG_FILE")
-    echo "Apps: $apps"
-    echo
+	# get all apps in the section
+	local apps
+	apps=$(jq -r ".\"$section\" | keys | join(\" \")" "$CONFIG_PATH")
+	echo "Apps: $apps"
+	echo
 
-    for app in $apps; do
-        echo "Processing: $app"
+	for app in $apps; do
+		echo "----------------------------------------"
+		echo "Section: $section"
+		echo "App: $app"
 
-        # e.g. { "macos": "", "ubuntu": "" }
-        # e.g. { "macos": ".config/nvim", "ubuntu": ".config/nvim" }
-        local path
-        path=$(get_path "$section" "$app")
-        echo "Path: $path"
+		echo "----"
 
-        if [[ "$path" == "null" ]]; then
-            echo "Skipping $app (null path)"
-            continue
-        fi
+		# e.g. config_folder (value): common/state, common/code
+		# e.g. config_folder (full path):
+		# /Users/quocnguyen/qn/area/repos/dotfiles/common/state,
+		# /Users/quocnguyen/qn/area/repos/dotfiles/common/code
+		local config_folder
+		local config_folder_full_path
+		config_folder=$section/$(jq -r ".\"$section\".\"$app\".folder" "$CONFIG_PATH")
+		config_folder_full_path="$(cd "$config_folder" 2>/dev/null && pwd -P)"
+		echo "Config folder (value): $config_folder"
+		echo "Config folder (full path): $config_folder_full_path"
 
-        # Determine full paths
-        # e.g. home_path=/home/skibidi/.config/yazi
-        # e.g. app_path=/home/skibidi/airair/learn/dotfiles/apps/.config/yazi
-        local home_path="$HOME/$path"
-        local conf_path="$SCRIPT_DIR/../$section/$app"
-        local app_path="$APP_DIR/$path"
-        echo "HOME path: $home_path"
-        echo "Config path: $conf_path"
-        echo "App path: $app_path"
+		if [[ "$config_folder" == "null" || ! -d "$config_folder_full_path" ]]; then
+			echo "Error: 'config_folder does not exist' or 'config_folder value is null'"
+			exit 1
+		else
+			echo "  = exists:  $config_folder_full_path"
+		fi
 
-        # # If path starts with / → absolute
-        # if [[ "$path" == /* ]]; then
-        #     home_path="$path"
-        #     app_path="$APP_DIR$path"
-        # fi
+		echo "----"
 
-        # Make directory $home_path and $app_path
-        make_dir "$home_path"
-        [[ $? -eq 1 ]] && echo "  + created: $home_path" || echo "  = exists:  $home_path"
+		# e.g. target_folder (value): .ssh, .config/nvim, etc
+		local target_folder
+		target_folder=$(jq -r ".\"$section\".\"$app\".\"$OS\"" "$CONFIG_PATH")
+		echo "Target folder (value): $target_folder"
 
-        make_dir "$app_path"
-        [[ $? -eq 1 ]] && echo "  + created: $app_path" || echo "  = exists:  $app_path"
+		if [[ "$target_folder" == "null" ]]; then
+			echo "Error: 'target_folder value is null'"
+			exit 1
+		fi
 
-        # Copy config files if folder exists
-        if [[ -d "$conf_path" ]]; then
-            copy_all "$conf_path" "$app_path"
-            echo "  → copied configs from $conf_path/"
-        else
-            echo "  (no local config folder: $conf_path/)"
-        fi
+		# e.g. target_folder (HOME path): /Users/quocnguyen/.ssh, /home/quocnguyen/.config/nvim, etc
+		local target_folder_home_path
+		target_folder_home_path="$HOME/$target_folder"
+		echo "Target folder (HOME path): $target_folder_home_path"
 
-        echo
-    done
+		make_dir_if_not_exists "$target_folder_home_path"
+		[[ $? -eq 1 ]] && echo "  + created: $target_folder_home_path" || echo "  = exists:  $target_folder_home_path"
+
+		echo "----"
+
+		# e.g. target_folder_app (full path): /Users/quocnguyen/qn/area/repos/dotfiles/apps/.ssh
+		local target_folder_app
+		target_folder_app="$APPS_DIR/$target_folder"
+		echo "App folder: $target_folder_app"
+
+		make_dir_if_not_exists "$target_folder_app"
+		[[ $? -eq 1 ]] && echo "  + created: $target_folder_app" || echo "  = exists:  $target_folder_app"
+
+		# Handle absolute path
+		# # If path starts with / → absolute
+		# if [[ "$path" == /* ]]; then
+		#     home_path="$path"
+		#     app_path="$APP_DIR$path"
+		# fi
+
+		# Copy config files if folder exists
+		if [[ -d "$config_folder_full_path" ]]; then
+			copy_all_files_and_folders_from_src_to_dst "$config_folder_full_path" "$target_folder_app"
+			echo "  → copied configs from $config_folder_full_path to $target_folder_app"
+		else
+			echo "  (no local config folder: $config_folder_full_path)"
+		fi
+
+		echo "----------------------------------------"
+	done
 }
 
-# ----------------------------------------
-# Run
-# ----------------------------------------
-
-echo
-echo "----------------------------------------"
-
+echo "Processing common..."
 process_section "common"
 
-echo
-echo "----------------------------------------"
-
 if [[ "$OS" == "macos" ]]; then
-    process_section "macos"
+	echo "Processing macos..."
+	process_section "macos"
 elif [[ "$OS" == "ubuntu" ]]; then
-    process_section "ubuntu"
+	echo "Processing ubuntu..."
+	process_section "ubuntu"
 else
-    echo "Error: OS must be macos or ubuntu"
-    exit 1
+	echo "Error: OS must be macos or ubuntu"
+	exit 1
 fi
 
-# ----------------------------------------
 # Fix SSH dir permissions
-# ----------------------------------------
 fix_ssh_permissions() {
-    make_dir "$HOME/.ssh"
+	make_dir_if_not_exists "$HOME/.ssh"
 
-    if [[ "$OS" == "macos" ]]; then
-        chown -R "$USER" "$HOME/.ssh"
-    else
-        chown -R "$USER":"$USER" "$HOME/.ssh"
-    fi
+	if [[ "$OS" == "macos" ]]; then
+		chown -R "$USER" "$HOME/.ssh"
+	else
+		chown -R "$USER":"$USER" "$HOME/.ssh"
+	fi
 
-    chmod 700 "$HOME/.ssh"
+	chmod 700 "$HOME/.ssh"
 }
 
 fix_ssh_permissions

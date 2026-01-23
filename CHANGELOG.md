@@ -3,11 +3,12 @@
 All notable changes to this project will be documented in this file.
 
 ## Will do
-- Fix apt and brew packages
-- Fix OS script
-- Docker-in-Docker: create a Linux container => mount this /var/run/docker.sock into the container => it works
-- Fix work_scripts: ./common/work
-- Add secrets template
+
+- Fix `os`
+  - `MACOS.md` & `ARCH.md`
+  - Script setting up for specific os.
+  - Packages file (for specific package manager: `brew`, `apt`, `yay`)
+- Create symlink for 
 
 ## [0.1.0] - 2025-12-01
 
@@ -23,3 +24,13 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Added `MACOS.md` and `UBUNTU.md`.
 - Added `claude-code` settings in common.
+
+## [0.1.0] - 2026-01-23
+
+### Added
+- Added MacOS.sketchybar.
+
+### Removed
+- Removed MacOS.Karabiner.
+- Removed MacOS.Aerospace.
+- Removed Ubuntu things.
