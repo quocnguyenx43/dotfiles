@@ -2,9 +2,8 @@ return {
   paddings = 3,
   group_paddings = 5,
 
-  -- Input sources, wifi, volume, battery, etc
-  icons = "sf-symbols",
-  
+  -- SF Symbols
+
   -- SF Fonts
   font = {
     text = "SF Pro",     -- Used for text

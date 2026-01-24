@@ -72,5 +72,18 @@
 - **CopyQ**
   - Clipboard history: Command-Shift-V
 
-
 - **sketchybar** (macOS only)
+
+- RayCast
+- QSpace: Better Finder.
+- SetApp.
+  - CleanShotX: OCR (via SetApp).
+- PasteNow: Clipboard history.
+- Dyanmic Island App:
+  - BoringNotch
+  - Alcove
+  - Notch app via SetApp
+- Ice
+- CodexBar: View usage tokens AI.
+- ClaudeBar
+- meterbar

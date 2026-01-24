@@ -18,7 +18,7 @@
 -- --       style = settings.font.style_map["Bold"],
 -- --       size = 9.0,
 -- --     },
--- --     string = icons.wifi.upload,
+-- --     string = icons.network.upload,
 -- --   },
 -- --   label = {
 -- --     font = {
@@ -61,7 +61,7 @@
 -- --       style = settings.font.style_map["Bold"],
 -- --       size = 9.0,
 -- --     },
--- --     string = icons.wifi.download,
+-- --     string = icons.network.download,
 -- --   },
 -- --   label = {
 -- --     font = {
@@ -89,7 +89,7 @@
 --     font = {
 --       style = settings.font.style_map["Bold"]
 --     },
---     string = icons.wifi.router,
+--     string = icons.device.router,
 --   },
 --   width = popup_width,
 --   align = "center",
@@ -174,7 +174,7 @@
 --     local connected = not (ip == "")
 --     wifi:set({
 --       icon = {
---         string = connected and icons.wifi.connected or icons.wifi.disconnected,
+--         string = connected and icons.network.connected or icons.network.disconnected,
 --         color = connected and colors.white or colors.red,
 --       },
 --     })

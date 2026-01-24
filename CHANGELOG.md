@@ -3,12 +3,11 @@
 All notable changes to this project will be documented in this file.
 
 ## Will do
-
+- Create symlinks for exentions between Code, Cursor, Antigravity.
 - Fix `os`
   - `MACOS.md` & `ARCH.md`
   - Script setting up for specific os.
   - Packages file (for specific package manager: `brew`, `apt`, `yay`)
-- Create symlink for 
 
 ## [0.1.0] - 2025-12-01
 

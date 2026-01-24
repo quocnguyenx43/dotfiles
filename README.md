@@ -5,7 +5,9 @@
     - Used by WezTerm
 - [FiraCode Nerd Font](https://github.com/abc)
     - Used by WezTerm
-- [SF Symbols](https://github.com/abc)
+- [sketchybar-app-font](https://github.com/kvndrsslr/sketchybar-app-font)
+    - Used by sketchybar (MacOS)
+- [SF Symbols](https://github.com/SF)
     - Used by sketchybar (MacOS)
 
 ## Core Tools

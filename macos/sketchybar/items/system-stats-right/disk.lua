@@ -16,7 +16,7 @@ local disk = sbar.add("item", "system.disk", 42, {
     border_color = { alpha = 0 },
     drawing = true,
   },
-  icon = { string = "􀤂" },
+  icon = { string = icons.disk },
   label = {
     string = "Checking...",
     font = {

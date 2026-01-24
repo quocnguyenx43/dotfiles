@@ -23,7 +23,7 @@ local ssid = sbar.add("item", "system.wifi.ssid", {
     font = {
       style = settings.font.style_map["Bold"]
     },
-    string = icons.wifi.router,
+    string = icons.device.router,
   },
   width = popup_width,
   align = "center",
@@ -108,7 +108,7 @@ wifi:subscribe({"wifi_change", "system_woke"}, function(env)
     local connected = not (ip == "")
     wifi:set({
       icon = {
-        string = connected and icons.wifi.connected or icons.wifi.disconnected,
+        string = connected and icons.network.connected or icons.network.disconnected,
         color = connected and colors.white or colors.red,
       },
     })
@@ -118,11 +118,11 @@ wifi:subscribe({"wifi_change", "system_woke"}, function(env)
         -- Debug logging
         sbar.exec("echo 'WiFi Output length: " .. #result .. "' >> /tmp/sketchybar_debug.log")
         if result:match("Personal Hotspot: Yes") then
-          wifi:set({ icon = { string = icons.wifi.hotspot } })
+          wifi:set({ icon = { string = icons.network.connected_hotspot } })
         else
              sbar.exec("ipconfig getoption en0 router", function(router_ip)
                 if router_ip:match("172.20.10.1") then
-                   wifi:set({ icon = { string = icons.wifi.hotspot } })
+                   wifi:set({ icon = { string = icons.network.connected_hotspot } })
                 end
              end)
         end
