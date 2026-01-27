@@ -3,9 +3,9 @@ local icons = require("icons")
 local settings = require("settings")
 local app_icons = require("app_icons")
 
-local SPACE_ICONS_PADDING = 15
-local SPACE_ICONS_SUFFIX_PADDING = 8
-local LABEL_PADDING = 20
+local SPACE_ICONS_PADDING = 8
+local SPACE_ICONS_SUFFIX_PADDING = 4
+local LABEL_PADDING = 10
 
 -- Spaces
 
@@ -14,6 +14,7 @@ local spaces = {}
 for i = 1, 10, 1 do
   local space = sbar.add("space", "space." .. i, {
     space = i,
+    position = "center",
     icon = {
       font = { family = settings.font.numbers, size = 11.0 },
       string = i,
@@ -26,15 +27,15 @@ for i = 1, 10, 1 do
       padding_right = LABEL_PADDING,
       color = colors.grey,
       highlight_color = colors.white,
-      font = "sketchybar-app-font:Regular:16.0",
+      font = "sketchybar-app-font:Regular:14.0",
       y_offset = -1,
     },
     padding_right = 1,
     padding_left = 1,
     background = {
       color = colors.bg1,
-      height = 30,
-      corner_radius = 18,
+      height = 22,
+      corner_radius = 8,
       border_width = 0,
       border_color = colors.white,
     },
@@ -46,6 +47,7 @@ for i = 1, 10, 1 do
   sbar.add("space", "space.padding." .. i, {
     space = i,
     script = "",
+    position = "center",
     width = settings.group_paddings,
   })
 

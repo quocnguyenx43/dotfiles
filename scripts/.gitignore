@@ -1,0 +1,10 @@
+**/.DS_Store
+common/ssh/authorized_keys
+common/ssh/id_*
+common/ssh/known_*
+common/state/*
+!common/state/.gitkeep
+apps/*
+!apps/Makefile
+!apps/.stowrc
+/bin/

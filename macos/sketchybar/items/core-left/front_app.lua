@@ -4,22 +4,23 @@ local settings = require("settings")
 -- Front app
 local front_app = sbar.add("item", "front_app", {
   display = "active",
+  position = "center",
   icon = {
     drawing = true,
     align = "center",
-    width = 30,
+    width = 22,
     background = {
       drawing = true,
       image = {
-        corner_radius = 9,
-        scale = 0.8,
+        corner_radius = 6,
+        scale = 0.6,
       }
     }
   },
   label = {
     font = {
       style = settings.font.style_map["Black"],
-      size = 12.0,
+      size = 11.0,
     },
   },
   updates = true,

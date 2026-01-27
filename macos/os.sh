@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Params
+USER_NAME="quocnguyen"
+
 # Ask for the administrator password upfront
 sudo -v
 
@@ -13,7 +16,6 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 sudo nvram StartupMute=%01
 
 # Change Mac name
-USER_NAME="quocnguyen"
 sudo scutil --set ComputerName "${USER_NAME}'s MacBook"
 sudo scutil --set HostName "${USER_NAME}-macbook"
 sudo scutil --set LocalHostName "${USER_NAME}-macbook"
@@ -26,7 +28,7 @@ defaults write com.apple.dock "orientation" -string "bottom"
 defaults write com.apple.dock "tilesize" -int "36"
 
 # Set autohide dock to true
-defaults write com.apple.dock "autohide" -bool "false"
+defaults write com.apple.dock "autohide" -bool "true"
 
 # Set autohide animation to 0.5 seconds
 defaults write com.apple.dock "autohide-time-modifier" -float "2"
@@ -120,6 +122,9 @@ defaults write com.apple.finder "ShowMountedServersOnDesktop" -bool "true"
 
 # Menubar: Solid black menu bar
 defaults write com.apple.menuextra.clock "FlashDateSeparators" -bool "false"
+
+# Menubar: Never hide the menu bar
+defaults write NSGlobalDomain _HIHideMenuBar -bool false
 
 # Mouse: Tracking speed
 defaults write NSGlobalDomain com.apple.mouse.scaling -float "1"
@@ -294,32 +299,3 @@ for APP in "${APPS[@]}"; do
 done
 
 echo "macOS configuration done"
-
-
-# # Ask for the administrator password upfront
-# sudo -v
-# 
-# # Keep-alive: update existing `sudo` time stamp until `.macos` has finished
-# while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-# 
-# ## Package maneger: Homebrew
-# # chmod +x ./brew/brew.sh && ./brew/brew.sh && wait
-# echo "Homebrew setup done"
-# 
-# ## Tilling window: Starting Yabai
-# # if command -v yabai >/dev/null 2>&1; then
-# #     yabai --start-service
-# #     echo "Yabai is started."
-# # else
-# #     echo "Running Yabai but Yabai is not installed."
-# # fi
-# # echo "Yabai setup done"
-# 
-# ## Shortcut deamon: skhd
-# if command -v skhd >/dev/null 2>&1; then
-#     skhd --start-service
-#     echo "skhd is started."
-# else
-#     echo "Running skhd but skhd is not installed."
-# fi
-# echo "skhd setup done"

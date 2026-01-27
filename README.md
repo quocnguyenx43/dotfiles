@@ -29,11 +29,12 @@
 - ripgrep
 - bat
 - jq
+- yq
 - neofetch
 - htop
 - ffmpeg
 - imagemagick
-- 7zip
+- 7zip / sevenzip
 - poppler
 - wl-clipboard (Linux only; install with `apt`)
 - yazi
@@ -68,14 +69,14 @@
 - **JVM stack (Spark, Flink)**:
     - coursier (`cs`, JDK, scala, scalac, sbt)
 - **JavaScript**:
-    - nodejs
+    - nodejs (node)
     - npm
 - **Go**:
     - go
 - **Rust**:
     - cargo
 - **Editor integration**:
-    - neovim (recommended: build from source; add to PATH in .zshenv)
+    - neovim (recommended: build from source; add to PATH in .zshenv for Linux)
 - **Cloud**:
     - gcloud (GCP)
     - bq (for BigQuery)
@@ -87,16 +88,15 @@
 ## Desktop Applications
 
 ### Code Editors & IDEs
-- [Visual Studio Code](https://code.visualstudio.com/)
-    - GitHub Copilot
-- [Cursor](https://www.cursor.so/)
-    - Cursor Coding Agent
 - [Antigravity](https://www.antigravity.google/)
     - Antigravity Coding Agent
+- [Cursor](https://www.cursor.so/)
+    - Cursor Coding Agent
+- [Visual Studio Code](https://code.visualstudio.com/)
+    - GitHub Copilot
 - [Xcode](https://developer.apple.com/xcode/)
     - macOS-only
 - [PyCharm](https://www.jetbrains.com/pycharm/)
-- [Sublime Text](https://www.sublimetext.com/)
 - [Neovim](https://neovim.io/)
 
 ### AI & Coding Agents
@@ -105,11 +105,19 @@
     - Claude-code web/desktop
 - [OpenAI Codex](https://platform.openai.com/docs/guides/code)
     - CLI Coding Agents
-- [Jules]()
+- [Jules](https://jules.ai/)
     - Web-based Coding Agent
     - CLI Coding Agent
 - [Gemini](https://www.cursor.so/)
     - CLI Coding Agent
+
+### AI & LLM Runtime
+- [Ollama](https://ollama.com/)
+- [llama.cpp](https://github.com/ggerganov/llama.cpp)
+- [LM Studio](https://lmstudio.ai/)
+
+### AI Token Monitor
+- ClaudeBar (MacOS)
 
 ### Codebase Understanding
 - [CodeWiki](https://github.com/quocnguyenx43/CodeWiki)
@@ -119,14 +127,17 @@
 - [Sourcegraph](https://sourcegraph.com/)
     - Code search
 
+### Terminal Emulators
+- [WezTerm](https://wezfurlong.org/wezterm/)
+
 ### Development Tools
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 - [VMware Fusion/Workstation](https://www.vmware.com/)
 - [Postman](https://www.postman.com/)
-- [TablePlus](https://tableplus.com/)
-    - Database GUI
 - [DataGrip](https://www.jetbrains.com/datagrip/)
     - Database IDE
+- [TablePlus](https://tableplus.com/)
+    - Database GUI
 - [Navicat](https://www.navicat.com/)
 - [MongoDB Compass](https://www.mongodb.com/try/download/compass)
 - [RedisInsight](https://redis.com/redis-enterprise/redis-insight/)
@@ -135,22 +146,28 @@
 - [Brave](https://brave.com/)
 - [Firefox](https://www.mozilla.org/firefox/)
 - [Google Chrome](https://www.google.com/chrome/)
+- [Safari](https://www.apple.com/safari/)
 
 ### Notes & Productivity
 - [Sublime Text](https://www.sublimetext.com/)
 - [Notion](https://www.notion.so/)
 - [Obsidian](https://obsidian.md/)
 
-### Terminal Emulators
-- [WezTerm](https://wezfurlong.org/wezterm/)
-
-### AI & LLM Runtime
-- [Ollama](https://ollama.com/)
-- [llama.cpp](https://github.com/ggerganov/llama.cpp)
-- [LM Studio](https://lmstudio.ai/)
-
-### Network
+### Network & Connection
+- [Cloudflare](https://www.cloudflare.com/)
 - [OpenVPN](https://openvpn.net/)
+- [TeamViewer](https://www.teamviewer.com/)
+
+### Secrets
+- [KeePassXC](https://keepassxc.org/)
+- [Apple Passwords](https://support.apple.com/en-us/HT209966)
+
+### Media & Social
+- [Capcut](https://capcut.com/)
+- [Spotify](https://www.spotify.com/)
+- [Zalo](https://zalo.vn/)
+- [Telegram](https://www.telegram.org/)
+- [Discord](https://discord.com/)
 
 ---
 

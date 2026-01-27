@@ -47,7 +47,7 @@ yabai_config() {
     yabai -m config display_arrangement_order horizontal
 
     # Prevents space for custom status bar (SketchyBar, Übersicht, etc)
-    yabai -m config external_bar all:32:0
+    yabai -m config external_bar all:0:23
 }
 
 # --- Signals ---

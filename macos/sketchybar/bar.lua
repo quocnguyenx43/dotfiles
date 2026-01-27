@@ -10,9 +10,9 @@ sbar.bar({
   border_width = 2,
   border_color = colors.transparent,
   sticky = "on",
-  position = "top",
+  position = "bottom",
   shadow = { drawing = true, color = colors.black },
-  y_offset = -6,
+  y_offset = -4,
   topmost = "window",
 })
 
