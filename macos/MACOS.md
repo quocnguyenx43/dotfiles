@@ -54,6 +54,14 @@
 
 - **PasteNow**: Command-Shift-V
 
+### sketchybar
+
+- Install **lua**
+- Install this: 
+  - Clone https://github.com/FelixKratz/SbarLua.git to a temporary directory.
+  - Compile and install using make install.
+  - This typically installs sketchybar.so to ~/.local/share/sketchybar_lua/.
+
 ### Workspaces (yabai & skhd)
 
 **Modifier Key**: `Alt` (Option)

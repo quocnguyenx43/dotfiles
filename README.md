@@ -77,6 +77,8 @@
     - go
 - **Rust (not really necessary, for specific use cases)**:
     - cargo
+- **lua (for sketchybar to use)**
+    - lua
 - **Editor integration (not really necessary, for specific use cases)**:
     - neovim (recommended: build from source; add to PATH in .zshenv for Linux)
 - **Cloud (not really necessary, for specific use cases)**:
