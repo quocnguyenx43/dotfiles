@@ -1,10 +1,4 @@
-# Github
-
-Host github-personal
-    HostName github.com
-    User git
-    IdentityFile ~/.ssh/id_ed25519_github_quocnguyenx43
-    IdentitiesOnly yes
+# DSV & Lumin
 
 Host bitbucket-lumin
     HostName bitbucket.org

@@ -16,6 +16,7 @@
   - brew `yabai`
   - brew `skhd`
   - brew `sketchybar`
+  - brew `terminal-notifier` (for yabai to create notifications)
 - RayCast (not used)
 - Alfred (Search)
 - Karabiner (Remapping keys)
@@ -41,7 +42,7 @@
   - Command → Control.
 - **Desktop & navigation**
   - Disable all.
-  - Mission Control: Shift-Up
+  - Mission Control: Command-Up
   - Change Input Source: Control-Space
 
 ### Karabiner
@@ -66,3 +67,7 @@
 | **Layouts** | `Alt` + `/` (BSP), `,` (Stack), `.` (Float) |
 | **Float/Stack** | `Shift` + `Alt` + `Space` (Toggle Float) |
 | **Restart Services**| `Cmd` + `Alt` + `r` (skhd), `y` (yabai), `u` (SketchyBar) |
+
+### Custom Notifications
+
+- **terminal-notifier**: Turn on Notification for terminal-notifier in Settings -> Notifications -> terminal-notifier -> Allow Notifications

@@ -47,15 +47,16 @@
     - curl
     - wget
     - git
-    - ssh
+    - openssh
 - **Build tools**:
     - make
 - **Version control**:
     - git
     - lazygit
-- **Containers & DevOps**:
+- **Containers**:
     - docker
     - lazydocker
+- **DevOps (not really necessary, for specific use cases)**:
     - kind / minikube
     - kubectl
     - kubectx / kubens
@@ -66,18 +67,19 @@
 - **Python**:
     - uv
     - ruff
-- **JVM stack (Spark, Flink)**:
+- **JVM stack (Spark, Flink) - (not really necessary, for specific use cases)**:
     - coursier (`cs`, JDK, scala, scalac, sbt)
-- **JavaScript**:
+- **JavaScript (not really necessary, for specific use cases)**:
     - nodejs (node)
     - npm
-- **Go**:
+    - fnm
+- **Go (not really necessary, for specific use cases)**:
     - go
-- **Rust**:
+- **Rust (not really necessary, for specific use cases)**:
     - cargo
-- **Editor integration**:
+- **Editor integration (not really necessary, for specific use cases)**:
     - neovim (recommended: build from source; add to PATH in .zshenv for Linux)
-- **Cloud**:
+- **Cloud (not really necessary, for specific use cases)**:
     - gcloud (GCP)
     - bq (for BigQuery)
     - aws-cli (AWS)
