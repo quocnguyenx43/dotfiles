@@ -34,7 +34,6 @@ echo "----------------------------"
 # ensure directory exists
 make_dir_if_not_exists "$STATE_DIR"
 
-PC_TYPE_FILE="$STATE_DIR/.zsh_pc_type"
 OS_FILE="$STATE_DIR/.zsh_os"
 OS_VERSION_FILE="$STATE_DIR/.zsh_os_version"
 ARCH_FILE="$STATE_DIR/.zsh_arch"
@@ -55,17 +54,6 @@ save_var() {
 load_var() {
 	local file="$1"
 	[[ -f "$file" ]] && cat "$file"
-}
-
-# PC TYPE
-get_pc_type() {
-	if [[ -f "$PC_TYPE_FILE" ]]; then
-		PC_TYPE=$(load_var "$PC_TYPE_FILE")
-	else
-		read -p "Please enter your PC_TYPE (PERSONAL or WORK) [default: PERSONAL]: " PC_TYPE
-		PC_TYPE=${PC_TYPE:-PERSONAL}
-		save_var "$PC_TYPE" "$PC_TYPE_FILE"
-	fi
 }
 
 # OS Detection
@@ -119,13 +107,11 @@ get_os_info() {
 
 # Run
 clear_state_dir
-get_pc_type
 get_os_info
 
-echo "PC_TYPE     = $PC_TYPE"
 echo "OS          = $OS"
 echo "OS_VERSION  = $OS_VERSION"
 echo "ARCH        = $ARCH"
 echo "STATE_DIR   = $STATE_DIR"
 
-export PC_TYPE OS OS_VERSION ARCH STATE_DIR
+export OS OS_VERSION ARCH STATE_DIR

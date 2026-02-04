@@ -45,16 +45,6 @@
             "macos": "",
             "ubuntu": ""
         },
-        "sublime_text": {
-            "folder": "sublime_text",
-            "macos": "Library/Application Support/Sublime Text/Packages/User",
-            "ubuntu": ".config/sublime-text/Packages/User"
-        },
-        "code": {
-            "folder": "code",
-            "macos": "Library/Application Support/Code/User",
-            "ubuntu": ".config/Code/User"
-        },
         "cursor": {
             "folder": "code",
             "macos": "Library/Application Support/Cursor/User",
