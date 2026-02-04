@@ -53,9 +53,7 @@ alias apyv="source ./.venv/bin/activate"        # Activate
 alias dpyv="deactivate"                         # Deactivate
 
 # NodeJS, fnm
-if command -v fnm &> /dev/null; then
-    eval "$(fnm env --use-on-cd)"
-fi
+eval "$(fnm env --use-on-cd)"
 
 # Docker
 alias dkc-stop='docker stop $(docker ps -aq)'
