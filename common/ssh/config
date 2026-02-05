@@ -6,7 +6,9 @@ Host github-personal
     IdentityFile ~/.ssh/id_ed25519_github_quocnguyenx43
     IdentitiesOnly yes
 
-Host bitbucket-lumin
+# DSV/Lumin
+
+Host bitbucket.org
     HostName bitbucket.org
     User git
     AddKeysToAgent yes

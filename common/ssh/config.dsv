@@ -1,6 +1,6 @@
-# DSV & Lumin
+# DSV/Lumin
 
-Host bitbucket-lumin
+Host bitbucket.org
     HostName bitbucket.org
     User git
     AddKeysToAgent yes
