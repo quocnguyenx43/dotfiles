@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Params
-USER_NAME="quocnguyen"
+USER_NAME="quocnguyen-dsv"
 
 # Ask for the administrator password upfront
 sudo -v
