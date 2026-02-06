@@ -48,6 +48,9 @@
     - wget
     - git
     - openssh
+        - ssh-keygen
+        - ssh-add
+        - ssh -T git@<name>
 - **Build tools**:
     - make
 - **Version control**:

@@ -1,17 +1,17 @@
 # Github
 
-Host github-personal
+Host github-quocnguyenx43
     HostName github.com
     User git
     IdentityFile ~/.ssh/id_ed25519_github_quocnguyenx43
     IdentitiesOnly yes
+    AddKeysToAgent yes
 
 # DSV/Lumin
 
 Host bitbucket.org
     HostName bitbucket.org
     User git
-    AddKeysToAgent yes
-    IgnoreUnknown UseKeychain
-    UseKeychain yes
     IdentityFile ~/.ssh/id_ed25519_bitbucket_quocnhv_lumin
+    IgnoreUnknown UseKeychain
+    AddKeysToAgent yes
