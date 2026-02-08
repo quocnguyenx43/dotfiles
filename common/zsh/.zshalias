@@ -138,7 +138,7 @@ function size() {
 
 # Apps
 alias nv='nvim'
-alias ag='antigravity'
+alias atg='antigravity'
 alias dc='docker compose'
 alias lzd='lazydocker'
 alias lzg='lazygit'
