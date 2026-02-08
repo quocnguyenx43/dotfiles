@@ -17,18 +17,22 @@
   - brew `skhd`
   - brew `sketchybar`
   - brew `terminal-notifier` (for yabai to create notifications)
-- RayCast (not used)
-- Alfred (Search)
-- Karabiner (Remapping keys)
-- QSpace (Better Finder)
-- PasteNow (Clipboard history)
-- Ice
+- Alfred (Better Spotlight)
+- Ice (Menu bar)
+- [mole](https://github.com/mole-app/mole) (The best MacOS cleaner)
+- PasteNow
+
+### Pending
+- BoringNotch (Dyanmic Island App)
+- Alcove (Dyanmic Island App)
+
+### No longer use
+- RayCast
+- Karabiner
+- QSpace
+- DropZone 4
 - SetApp
-  - CleanShotX: Screen shot and OCR.
-- Dyanmic Island App:
-  - BoringNotch
-  - Alcove
-  - Notch app via SetApp
+  - CleanShotX (Screen shot and OCR)
 
 ### Shortcuts & Hotkeys
 
