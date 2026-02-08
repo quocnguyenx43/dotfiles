@@ -29,10 +29,6 @@
   - BoringNotch
   - Alcove
   - Notch app via SetApp
-- AI (view usage tokens AI):
-  - CodexBar
-  - ClaudeBar
-  - meterbar
 
 ### Shortcuts & Hotkeys
 

@@ -125,6 +125,23 @@
 
 ### AI Token Monitor
 - ClaudeBar (MacOS)
+- CodexBar
+- meterbar
+
+### Agents
+- [Antigravity Manager](https://github.com/lbjlaq/Antigravity-Manager)
+- [skills.sh](https://skills.sh)
+- [Antigravity Awesome Skills](https://github.com/sickn33/antigravity-awesome-skills)
+- Unified Memory Layer for Multiple Coding Agents:
+    - [cipher](https://github.com/campfirein/cipher)
+    - [Mem0]
+
+### MCPs
+- Context7
+- Memory/Search
+- Filesystem
+- GitHub
+- Docker
 
 ### Codebase Understanding
 - [CodeWiki](https://github.com/quocnguyenx43/CodeWiki)
