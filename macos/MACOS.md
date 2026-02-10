@@ -8,6 +8,8 @@
   - Auto hide Dock
 
 ### Tools & Apps
+- iTerm2
+  - iTerm-AI Pluginc
 - brew `coreutils` (GNU File, Shell, and Text utilities)
 - brew `moreutils` (Collection of tools that nobody wrote when UNIX was young)
 - brew `findutils` (Collection of GNU find, xargs, and locate)

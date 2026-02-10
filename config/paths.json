@@ -66,6 +66,10 @@
             "folder": "claude_desktop",
             "macos": "Library/Application Support/Claude"
         },
+        "iterm2": {
+            "folder": "iterm2",
+            "macos": ".config/iterm2"
+        },
         "yabai": {
             "folder": "yabai",
             "macos": ".config/yabai"
