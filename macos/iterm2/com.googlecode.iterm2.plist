@@ -934,7 +934,7 @@
 			<key>Columns</key>
 			<integer>80</integer>
 			<key>Command</key>
-			<string>/Users/quocnguyen/dotfiles/macos/iterm2/scripts/startup.sh</string>
+			<string>~/.config/iterm2/scripts/startup.sh</string>
 			<key>Cursor Color</key>
 			<dict>
 				<key>Alpha Component</key>
@@ -2133,7 +2133,7 @@
 			<key>Columns</key>
 			<integer>80</integer>
 			<key>Command</key>
-			<string>/Users/quocnguyen/dotfiles/macos/iterm2/scripts/startup.sh</string>
+			<string>~/.config/iterm2/scripts/startup.sh</string>
 			<key>Cursor Color</key>
 			<dict>
 				<key>Alpha Component</key>
