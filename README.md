@@ -2,9 +2,9 @@
 
 ## Fonts
 - [JetBrains Mono & JetBrains Mono NL (no ligatures)](https://github.com/podkovyrin/JetBrainsMono/blob/feature/no-ligatures-1-0-3/no-ligatures/JetBrainsMonoNL-Medium.ttf)
-    - Used by WezTerm
+    - Used by WezTerm and iTerm2
 - [FiraCode Nerd Font](https://github.com/abc)
-    - Used by WezTerm
+    - Used by WezTerm and iTerm2
 - [sketchybar-app-font](https://github.com/kvndrsslr/sketchybar-app-font)
     - Used by sketchybar (MacOS)
 - [SF Symbols](https://github.com/SF)
