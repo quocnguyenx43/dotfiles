@@ -174,7 +174,7 @@
 
 ### Notes & Productivity
 - [Sublime Text](https://www.sublimetext.com/)
-- [Notion](https://www.notion.so/)
+- [Notion & Notion Calendar](https://www.notion.so/)
 - [Obsidian](https://obsidian.md/)
 
 ### Network & Connection
