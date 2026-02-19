@@ -24,7 +24,7 @@ yabai_config() {
 
     # Mouse
     yabai -m config mouse_modifier alt
-    yabai -m config mouse_follows_focus on
+    yabai -m config mouse_follows_focus off
     yabai -m config focus_follows_mouse off
     yabai -m config mouse_action1 move      # move: hold alt + drag and drop left click
     yabai -m config mouse_action2 resize    # resize: hold alt + drag and drop right click
