@@ -19,17 +19,17 @@
   - brew `skhd`
   - brew `sketchybar`
   - brew `terminal-notifier` (for yabai to create notifications)
-- Alfred (Better Spotlight)
 - Ice (Menu bar)
 - [mole](https://github.com/mole-app/mole) (The best MacOS cleaner)
-- PasteNow
+- RayCast
 
 ### Pending
 - BoringNotch (Dyanmic Island App)
 - Alcove (Dyanmic Island App)
 
 ### No longer use
-- RayCast
+- Alfred (Better Spotlight)
+- PasteNow
 - Karabiner
 - QSpace
 - DropZone 4
